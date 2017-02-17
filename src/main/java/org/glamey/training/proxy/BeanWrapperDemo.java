@@ -19,7 +19,7 @@ public class BeanWrapperDemo {
   }
 
   private static void setBeanValueByBeanWrapper() throws ClassNotFoundException, IllegalAccessException, InstantiationException {
-    Class<?> clazz = Class.forName("org.glamey.idea.proxy.HelloWordImpl");
+    Class<?> clazz = Class.forName("org.glamey.training.proxy.HelloWordImpl");
     HelloWordImpl target = (HelloWordImpl) clazz.newInstance();
     BeanWrapper beanWrapper = new BeanWrapperImpl(target);
     beanWrapper.setPropertyValue("message", "hello");
@@ -29,11 +29,12 @@ public class BeanWrapperDemo {
 
   private static void setBeanValueByReflect()
           throws ClassNotFoundException, InstantiationException, IllegalAccessException, NoSuchMethodException, InvocationTargetException {
-    Class<?> clazz = Class.forName("org.glamey.idea.proxy.HelloWordImpl");
+    Class<?> clazz = Class.forName("org.glamey.training.proxy.HelloWordImpl");
     HelloWordImpl target = (HelloWordImpl) clazz.newInstance();
     Method setMessageMethod = clazz.getMethod("setMessage", new Class[] {String.class});
     setMessageMethod.invoke(target, "Hello");
     String message = target.getMessage();
     System.out.println(message);
+    "".intern();
   }
 }
