@@ -7,13 +7,11 @@ import org.springframework.cglib.proxy.MethodInterceptor;
 import org.springframework.cglib.proxy.MethodProxy;
 
 /**
+ * 测试perm区溢出
+ *
  * @author zhouyang.zhou. 2017.02.17.15.
  */
 public class PermSizeOOMDemo {
-
-  static class PermSizeOOMObject {
-
-  }
 
   public static void main(String[] args) {
     while (true) {

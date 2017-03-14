@@ -1,9 +1,11 @@
+/*
 package org.glamey.training.loader;
 
 import com.sun.tools.attach.AttachNotSupportedException;
 import java.io.IOException;
 import java.lang.reflect.InvocationTargetException;
 
+*/
 /**
  *
  * https://www.ibm.com/developerworks/cn/java/j-lo-classloader/
@@ -13,11 +15,13 @@ import java.lang.reflect.InvocationTargetException;
  * http://www.blogjava.net/heavensay/archive/2012/11/07/389685.html
  *
  * @author zhouyang.zhou, 2017.03.02.14.
- */
+ *//*
+
 public class HotClassLoader {
 
   public static void main(String[] args) throws InvocationTargetException, IllegalAccessException, IOException, AttachNotSupportedException {
-    /*List<VirtualMachineDescriptor> virtualMachineDescriptors = VirtualMachine.list();
+    */
+/*List<VirtualMachineDescriptor> virtualMachineDescriptors = VirtualMachine.list();
     for (VirtualMachineDescriptor virtualMachineDescriptor : virtualMachineDescriptors) {
       String displayName = virtualMachineDescriptor.displayName();
       String id = virtualMachineDescriptor.id();
@@ -25,7 +29,8 @@ public class HotClassLoader {
 
       VirtualMachine attach = VirtualMachine.attach(id);
       attach.detach();
-    }*/
+    }*//*
+
 
     //打印当前的classLoader
     ClassLoader classLoader = HotClassLoader.class.getClassLoader();
@@ -35,3 +40,4 @@ public class HotClassLoader {
     }
   }
 }
+*/
