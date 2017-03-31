@@ -1,6 +1,7 @@
 package org.glamey.training.algorithm.binarytree;
 
 import com.google.common.collect.Lists;
+import java.security.Signature;
 import java.util.List;
 
 /**
@@ -115,5 +116,7 @@ public class TreeDemo {
     System.out.println("post order.......");
     demo.postOrder(root);
 
+    System.out.println("------------------>size=" + demo.size());
+    System.out.println("------------------>height=" + demo.height());
   }
 }
