@@ -1,7 +1,7 @@
 package org.glamey.training.jvm.oom;
 
 import java.lang.reflect.Method;
-import org.glamey.training.mybatis.domain.UserEntity;
+import org.glamey.training.db.mybatis.domain.UserEntity;
 import org.springframework.cglib.proxy.Enhancer;
 import org.springframework.cglib.proxy.MethodInterceptor;
 import org.springframework.cglib.proxy.MethodProxy;
