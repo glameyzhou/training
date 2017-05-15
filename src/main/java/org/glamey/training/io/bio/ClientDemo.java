@@ -25,7 +25,7 @@ public class ClientDemo {
           throws IOException, InterruptedException, ClassNotFoundException, IllegalAccessException, InstantiationException, IntrospectionException,
           InvocationTargetException {
 
-    Class<?> clazz = Class.forName("org.glamey.myidea.util.io.bio.ClientDemo");
+    Class<?> clazz = Class.forName("org.glamey.training.bio.ClientDemo");
     ClientDemo object = (ClientDemo) clazz.newInstance();
     PropertyDescriptor propertyDescriptor = new PropertyDescriptor("name", clazz);
     Method method = propertyDescriptor.getWriteMethod();
