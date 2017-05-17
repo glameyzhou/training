@@ -31,21 +31,15 @@ public class StackDemo {
     }
   }
 
-
-
   public static Stack<Integer> plus(Stack<Integer> a, Stack<Integer> b) {
     Stack<Integer> result = new Stack<>();
-    Stack<Integer> big, small;
     int aLen = a.size();
     int bLen = b.size();
     if (aLen >= bLen) {
-      big = a;
-      small = b;
+      doPlus(a, b, result);
     } else {
-      big = b;
-      small = a;
+      doPlus(b, a, result);
     }
-    doPlus(big, small, result);
     return result;
   }
 
@@ -99,9 +93,7 @@ public class StackDemo {
   }
 
   private static String generateByBigDecimal(String a, String b) {
-    BigDecimal b1 = new BigDecimal(a);
-    BigDecimal b2 = new BigDecimal(b);
-    return b1.add(b2).toString();
+    return new BigDecimal(a).add(new BigDecimal(b)).toString();
   }
 
   private static LinkedHashMap<String, String> generateKvs() {
