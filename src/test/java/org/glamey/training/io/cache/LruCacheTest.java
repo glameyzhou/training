@@ -1,7 +1,7 @@
 package org.glamey.training.io.cache;
 
+import org.testng.annotations.AfterClass;
 import org.testng.annotations.BeforeClass;
-import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;
 
 import static org.testng.Assert.assertEquals;
@@ -27,7 +27,13 @@ public class LruCacheTest {
         assertEquals("v_1", cache.get(1));
         assertEquals("v_100", cache.get(100));
 
-        cache.remove(100);
-        assertTrue(cache.get(100) == null);
+        cache.remove(98);
+        assertTrue(cache.get(98) == null);
+    }
+
+    @AfterClass
+    public void setDown() {
+        cache.clear();
+        assertTrue(cache.get(11) == null);
     }
 }

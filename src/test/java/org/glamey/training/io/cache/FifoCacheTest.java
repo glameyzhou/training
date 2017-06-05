@@ -1,9 +1,13 @@
 package org.glamey.training.io.cache;
 
+import org.testng.annotations.AfterMethod;
 import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;
 
-import static org.testng.Assert.*;
+import java.util.concurrent.TimeUnit;
+
+import static org.testng.Assert.assertEquals;
+import static org.testng.Assert.assertTrue;
 
 /**
  * @author zhouyang.zhou. 2017.06.05.16.
@@ -20,13 +24,18 @@ public class FifoCacheTest {
     }
 
     @Test
-    public void testCache() {
+    public void testCache() throws InterruptedException {
+
         assertTrue(fifoCache.get(0) == null);
         assertEquals("v_1", fifoCache.get(1));
         assertEquals("v_100", fifoCache.get(100));
 
-        fifoCache.remove(100);
-        assertTrue(fifoCache.get(100) == null);
+        fifoCache.remove(99);
+        assertTrue(fifoCache.get(99) == null);
     }
 
+    @AfterMethod
+    public void setDown() {
+        fifoCache.clear();
+    }
 }

@@ -3,7 +3,6 @@ package org.glamey.training.io.cache;
 import java.util.HashMap;
 import java.util.LinkedList;
 import java.util.Map;
-import java.util.concurrent.locks.Lock;
 import java.util.concurrent.locks.ReadWriteLock;
 import java.util.concurrent.locks.ReentrantReadWriteLock;
 
@@ -25,47 +24,43 @@ public class FifoCache implements Cache {
 
     @Override
     public void put(Object key, Object value) {
-        Lock lock = this.lock.writeLock();
-        lock.lock();
+        acquireWriteLock();
         try {
             process(key, value);
         } finally {
-            lock.unlock();
+            releaseWriteLock();
         }
     }
 
 
     @Override
     public Object get(Object key) {
-        Lock lock = this.lock.readLock();
-        lock.lock();
+        acquireReadLock();
         try {
             return store.get(key);
         } finally {
-            lock.unlock();
+            releaseReadLock();
         }
     }
 
     @Override
     public Object remove(Object key) {
-        Lock lock = this.lock.writeLock();
-        lock.lock();
+        acquireWriteLock();
         try {
             return store.remove(key);
         } finally {
-            lock.unlock();
+            releaseWriteLock();
         }
     }
 
     @Override
     public void clear() {
-        Lock lock = this.lock.writeLock();
-        lock.lock();
+        acquireWriteLock();
         try {
             keyList.clear();
             store.clear();
         } finally {
-            lock.unlock();
+            releaseWriteLock();
         }
     }
 
@@ -77,5 +72,21 @@ public class FifoCache implements Cache {
             Object eldestKey = keyList.removeFirst();
             store.remove(eldestKey);
         }
+    }
+
+    private void acquireReadLock() {
+        this.lock.readLock().lock();
+    }
+
+    private void releaseReadLock() {
+        this.lock.readLock().unlock();
+    }
+
+    private void acquireWriteLock() {
+        this.lock.writeLock().lock();
+    }
+
+    private void releaseWriteLock() {
+        this.lock.writeLock().unlock();
     }
 }
