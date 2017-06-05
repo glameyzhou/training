@@ -11,4 +11,6 @@ public interface Cache {
 
     Object remove(Object key);
 
+    void clear();
+
 }
