@@ -20,7 +20,7 @@ public class Main {
 
 
     // register mysql driver
-    try {
+    /*try {
 
       Class.forName("com.mysql.jdbc.Driver"); // 在装载com.mysql.jdbc.Driver的时候，会执行static方法快，将jdbc驱动放在list中，供后续的getConnnection使用
       DriverManager.getConnection("jdbc:mysql://127.0.0.1:3306/qreaper?characterEncoding=UTF-8&zeroDateTimeBehavior=convertToNull&autoReconnect=true&allowMultiQueries=true",
@@ -29,6 +29,6 @@ public class Main {
       e.printStackTrace();
     } catch (ClassNotFoundException e) {
       e.printStackTrace();
-    }
+    }*/
   }
 }
