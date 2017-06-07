@@ -5,7 +5,6 @@ import org.glamey.training.algorithm.Utils;
 /**
  * 将两个递减的数组合并为一个大的递减数组
  * <p>
- * 为了方便，默认设置m的长度大于n
  *
  * @author zhouyang.zhou. 2017.06.06.21.
  */
@@ -23,6 +22,23 @@ public class MergeDemo {
     }
 
     private static void merge_1(int[] m, int[] n) {
+        if (m.length >= n.length) {
+            mergeAndSort(m, n);
+        } else {
+            mergeAndSort(n, m);
+        }
+    }
+
+    private static void merge_2(int[] m, int[] n) {
+        if (m.length >= n.length) {
+            merge(m, n);
+        } else {
+            merge(n, m);
+        }
+    }
+
+
+    private static void mergeAndSort(int[] m, int[] n) {
         int mLen = m.length, nLen = n.length, kLen = mLen + nLen;
         int[] k = new int[kLen];
 
@@ -47,7 +63,7 @@ public class MergeDemo {
         }
     }
 
-    private static void merge_2(int[] m, int[] n) {
+    private static void merge(int[] m, int[] n) {
         int mLen = m.length, nLen = n.length, kLen = mLen + nLen;
         int[] k = new int[kLen];
         int a = 0, b = 0, c = 0;
