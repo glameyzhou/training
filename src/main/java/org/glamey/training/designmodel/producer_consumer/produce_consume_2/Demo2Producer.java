@@ -1,6 +1,4 @@
-package org.glamey.training.algorithm.demo.produce_consume_2;
-
-import org.glamey.training.algorithm.demo.produce_consume_1.Demo1Machine;
+package org.glamey.training.designmodel.producer_consumer.produce_consume_2;
 
 /**
  * @author zhouyang.zhou. 2017.06.22.10.

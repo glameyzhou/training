@@ -1,4 +1,4 @@
-package org.glamey.training.algorithm.demo.produce_consume_1;
+package org.glamey.training.designmodel.producer_consumer.produce_consume_1;
 
 import java.util.concurrent.TimeUnit;
 

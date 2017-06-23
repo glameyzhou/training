@@ -1,8 +1,4 @@
-package org.glamey.training.algorithm.demo.produce_consume_3;
-
-import java.util.concurrent.BlockingQueue;
-import java.util.concurrent.Executors;
-import java.util.concurrent.LinkedBlockingQueue;
+package org.glamey.training.designmodel.producer_consumer.produce_consume_3;
 
 /**
  * @author zhouyang.zhou. 2017.06.22.11.
