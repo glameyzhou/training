@@ -25,6 +25,11 @@ public class PermSizeOOMDemo {
       });
       Object object = enhancer.create();
       System.out.println(object == null ? null : object.getClass());
+
+      UserEntity userEntity = (UserEntity) object;
+      String address = userEntity.getAddress();
+      System.out.println(address);
+      break;
     }
   }
 }
