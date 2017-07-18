@@ -4,6 +4,7 @@ import java.util.HashMap;
 import java.util.Map;
 
 /**
+ * 数组中的两个数字相加等于指定值
  * https://leetcode.com/problems/two-sum/#/description
  * <p>
  * 复杂度O(n)
