@@ -5,27 +5,39 @@ package org.glamey.training.algorithm.leetcode;
  *
  * @author zhouyang.zhou. 2017.07.18.21.
  */
-public class LinkedNodeReverse {
+public class LinkedNodeDemo {
 
     private LinkedNode<Integer> head, tail;
 
-    public LinkedNodeReverse(int[] nums) {
+    public LinkedNodeDemo(int[] nums) {
+        generateLinkedNode(nums);
+    }
 
-        head = new LinkedNode<>();
+    private void generateLinkedNode(int[] nums) {
+        /*head = new LinkedNode<>();
         tail = head;
         for (int i = 0; i < nums.length; i++) {
             tail.next = new LinkedNode<>();
             tail.next.value = nums[i];
             tail = tail.next;
         }
-        head = head.next;
+        head = head.next;*/
+        int len = nums.length;
+        if (len == 0) {
+            return;
+        }
+        head = new LinkedNode<>(nums[0]);
+        tail = head;
+        for (int i = 1; i < nums.length; i++) {
+            tail = (tail.next = new LinkedNode<>(nums[i]));
+        }
     }
 
     public LinkedNode<Integer> reverseByLoop(LinkedNode<Integer> head) {
         if (head == null || head.next == null) {
             return null;
         }
-        LinkedNode<Integer> pre = null, next = null;
+        LinkedNode<Integer> pre = null, next;
         while (head != null) {
             next = head.next;
             head.next = pre;
@@ -45,7 +57,7 @@ public class LinkedNodeReverse {
         return node;
     }
 
-    public void show(LinkedNode<Integer> head) {
+    public void display(LinkedNode<Integer> head) {
         while (head != null) {
             System.out.println(head.value);
             head = head.next;
@@ -53,18 +65,18 @@ public class LinkedNodeReverse {
     }
 
     public static void main(String[] args) {
-        LinkedNodeReverse demo = new LinkedNodeReverse(new int[]{1, 2, 3, 4, 5});
-        System.out.println("------show nodes----->");
+        LinkedNodeDemo demo = new LinkedNodeDemo(new int[]{1, 2, 3, 4, 5});
+        System.out.println("------display nodes----->");
         LinkedNode<Integer> head = demo.head;
-        demo.show(head);
+        demo.display(head);
 
-        System.out.println("------show loop nodes----->");
+        System.out.println("------display loop nodes----->");
         LinkedNode<Integer> reverseByLoop = demo.reverseByLoop(head);
-        demo.show(reverseByLoop);
+        demo.display(reverseByLoop);
 
-        System.out.println("------show recursion nodes----->");
+        System.out.println("------display recursion nodes----->");
         LinkedNode<Integer> reverseByRecursion = demo.reverseByRecursion(head);
-        demo.show(reverseByRecursion);
+        demo.display(reverseByRecursion);
     }
 
 }
