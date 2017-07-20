@@ -15,13 +15,9 @@ public class Demo3Producer implements Runnable {
     @Override
     public void run() {
         for (int i = 0; i < 10; i++) {
-            try {
-                String msg = String.format("put into the queue, %s,%d", Thread.currentThread().getId(), i);
-                queue.put(msg); // notFull lock
-                System.out.println(msg);
-            } catch (InterruptedException e) {
-                e.printStackTrace();
-            }
+            String msg = String.format("put into the queue, %s,%d", Thread.currentThread().getId(), i);
+            queue.offer(msg); // notFull lock
+            System.out.println(msg);
         }
     }
 }

@@ -35,6 +35,5 @@ public class BeanWrapperDemo {
     setMessageMethod.invoke(target, "Hello");
     String message = target.getMessage();
     System.out.println(message);
-    "".intern();
   }
 }
