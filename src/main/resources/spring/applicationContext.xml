@@ -9,6 +9,7 @@
     <bean id="demoPublisher" class="org.glamey.training.spring.event.DemoPublisher"/>
 
 
+    <!--声明监听器的多路广播，只要是为了注入线程池,参考AbstractApplicationContext#refresh#initApplicationEventMulticaster -->
     <bean id="applicationEventMulticaster" class="org.springframework.context.event.SimpleApplicationEventMulticaster">
         <property name="taskExecutor" ref="taskExecutor"/>
     </bean>
