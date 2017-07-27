@@ -8,14 +8,14 @@ import java.util.concurrent.ForkJoinTask;
  * @author zhouyang.zhou, 2017.05.03.22.
  */
 public class Main {
+  private static final ForkJoinPool POOL = new ForkJoinPool(Runtime.getRuntime().availableProcessors() * 2);
 
   public static void main(String[] args) {
     List<Product> products = ProductGenerator.generate();
 
-    ForkJoinPool pool = new ForkJoinPool(Runtime.getRuntime().availableProcessors());
     ForkJoinTask task = new ProductPriceModifyProcessor(products, 0, products.size());
-    //pool.execute(task);
-    pool.invoke(task);
+    //POOL.execute(task);
+    POOL.invoke(task);
     System.out.println("......");
   }
 }
