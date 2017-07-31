@@ -9,12 +9,12 @@ public class SingletonV2 {
   private SingletonV2() {
   }
 
-  private static SingletonV2 instance;
+  private volatile static SingletonV2 instance;
 
   public static SingletonV2 getInstance() {
-    if (instance == null) {
+    if(instance == null) {
       synchronized (SingletonV2.class) {
-        if (instance == null) {
+        if(instance == null) {
           instance = new SingletonV2();
         }
       }

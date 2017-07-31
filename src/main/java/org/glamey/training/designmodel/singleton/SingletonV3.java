@@ -6,6 +6,8 @@ import java.util.concurrent.locks.ReentrantLock;
 /**
  * 单例模式:基于同步锁的模式保证线程的安全
  *
+ * 下面的模式，不适合线上使用，每个线上都会堵塞。
+ *
  * @author zhouyang.zhou  2016/12/24.22.
  */
 public class SingletonV3 {
