@@ -20,12 +20,12 @@ public class RhombusDemo {
    * @param high
    */
   public static void process(int high) {
+    System.out.println("<--------------[" + high + "]-------------->");
     if(high < 3 || high % 2 == 0) {
-      System.out.println("the high must greater than 3");
+      System.out.println("the high must greater than 3,or high % 2 != 0");
       return;
     }
 
-    System.out.println("<--------------[" + high + "]-------------->");
 
     int middle = (high >> 1) + 1;
     int maxStar = high;
@@ -72,6 +72,8 @@ public class RhombusDemo {
 
   public static void main(String[] args) {
     process(13);
+    process(10);
+    process(2);
     process(5);
   }
 
