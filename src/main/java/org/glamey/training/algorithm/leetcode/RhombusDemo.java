@@ -2,6 +2,8 @@ package org.glamey.training.algorithm.leetcode;
 
 /**
  *
+ *
+ * 打印一个菱形
  * print the rhombus
  *
  *       *

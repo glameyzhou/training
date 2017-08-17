@@ -7,18 +7,18 @@ package org.glamey.training.algorithm.leetcode;
  */
 public class LinkedNode<T> {
 
-    T value;
-    LinkedNode<T> next;
+  T value;
+  LinkedNode<T> next;
 
-    public LinkedNode() {
-    }
+  public LinkedNode() {
+  }
 
-    public LinkedNode(T value) {
-        this.value = value;
-    }
+  public LinkedNode(T value) {
+    this.value = value;
+  }
 
-    @Override
-    public String toString() {
-        return String.valueOf(value);
-    }
+  @Override
+  public String toString() {
+    return String.valueOf(value);
+  }
 }
