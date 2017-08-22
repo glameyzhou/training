@@ -1,39 +1,47 @@
 package org.glamey.training.algorithm.leetcode;
 
 /**
- * 算出数组中，两两相减最大的数字
+ * 算出数组中，两两相减最小的数字
  *
  * @author zhouyang.zhou. 2017.08.18.22.
  */
-public class MaxDiffer {
+public class MinDiffer {
 
-  public static int[] maxDiff(int[] nums) {
-    if(nums.length < 2) {
-      return null;
+  public static int minDiff(int[] nums) {
+
+    if(nums == null) {
+      return -1;
     }
-
-    if(nums.length == 2) {
-      return nums;
-    }
-
-    int max = nums[0];
-    int min = nums[0];
 
     int len = nums.length;
-    int tmp;
-    for (int i = 1; i < len; i++) {
-      tmp = nums[i];
-      max = tmp > max ? tmp : max;
-      min = tmp > min ? min : tmp;
+    if(len < 2) {
+      return -1;
     }
-    return new int[]{min, max};
+
+    if(len == 2) {
+      return diff(nums[0], nums[1]);
+    }
+
+    int minDiff = 0, curDiff = 0;
+    for (int i = 1; i < len; i++) {
+       curDiff = diff(nums[i - 1], nums[i]);
+       if(minDiff >= curDiff) {
+         minDiff = curDiff;
+       }
+    }
+    return minDiff;
+  }
+
+  private static int diff(int a, int b) {
+    if(a >= b) {
+      return b - a;
+    }
+    return a - b;
   }
 
   public static void main(String[] args) {
     int[] nums = {10, 4, 2, 20, 100, -2};
-    int[] maxDiff = maxDiff(nums);
-    int min = maxDiff[0];
-    int max = maxDiff[1];
-    System.out.printf("min=%d, max=%d, maxDiff=%d\n", min, max, (max - min));
+    int minDiff = minDiff(nums);
+    System.out.printf("mindDiff=%d\n", minDiff);
   }
 }
