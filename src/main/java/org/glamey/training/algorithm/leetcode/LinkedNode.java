@@ -5,6 +5,7 @@ package org.glamey.training.algorithm.leetcode;
  *
  * @author zhouyang.zhou. 2017.07.18.21.
  */
+@Deprecated
 public class LinkedNode<T> {
 
   T value;
