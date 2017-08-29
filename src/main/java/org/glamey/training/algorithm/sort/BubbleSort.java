@@ -7,7 +7,7 @@ import org.glamey.training.algorithm.Utils;
  */
 public class BubbleSort {
   public static void main(String[] args) {
-    int[] arrays = {10, 9, 11, 40, 5, 90, 5};
+    int[] arrays = {10, 9, 11, 40, 5, 90, 50};
     sort(arrays);
     for (int array : arrays) {
       System.out.println(array);
