@@ -10,4 +10,9 @@
         <property name="color" value="black"/>
         <property name="name" value="passat"/>
     </bean>
+
+
+    <bean id="scopeDemo" class="org.glamey.training.spring.loading.ScopeDemo">
+        <property name="message" value="This is the message"/>
+    </bean>
 </beans>

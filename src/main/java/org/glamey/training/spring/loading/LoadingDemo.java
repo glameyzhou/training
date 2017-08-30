@@ -10,7 +10,12 @@ public class LoadingDemo {
   public static void main(String[] args) {
 
     ClassPathXmlApplicationContext applicationContext = new ClassPathXmlApplicationContext("/spring/applicationContext-loading.xml");
-    Car car = (Car) applicationContext.getBean("car");
-    System.out.println(car);
+    //Car car = (Car) applicationContext.getBean("car");
+    //System.out.println(car);
+
+    ScopeDemo scopeDemo = (ScopeDemo) applicationContext.getBean("scopeDemo");
+    scopeDemo.process();
+
+    applicationContext.destroy();
   }
 }
