@@ -9,11 +9,13 @@ public class Car {
   private String color;
 
   public Car() {
+    System.out.println("car default constructor");
   }
 
   public Car(String name, String color) {
     this.name = name;
     this.color = color;
+    System.out.println("car all args constructor");
   }
 
   public String getName() {

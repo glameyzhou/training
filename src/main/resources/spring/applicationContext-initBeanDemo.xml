@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="http://www.springframework.org/schema/beans
+       http://www.springframework.org/schema/beans/spring-beans-3.0.xsd">
+
+
+  <bean id="car" class="org.glamey.training.spring.loading.Car">
+    <property name="name" value="passat"/>
+    <property name="color" value="black"/>
+  </bean>
+
+  <bean id="initBeanDemo" class="org.glamey.training.spring.loading.InitBeanDemo" init-method="initMethod" destroy-method="destroyMethod">
+    <property name="name" value="nameProperty"/>
+    <property name="address" value="addressProperty"/>
+
+    <property name="car" ref="car"/>
+  </bean>
+
+  <bean id="beanPostProcessorDemo" class="org.glamey.training.spring.loading.BeanPostProcessorDemo"/>
+</beans>
