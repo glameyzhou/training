@@ -8,7 +8,7 @@ import org.springframework.cglib.proxy.MethodProxy;
 /**
  * Perm OOM：方法区主要存放类信息、常量信息等。 我们可以通过动态生成代理类的方式。
  *
- * -Xms100m -Xmx100m -XX:NewSize=10m -XX:PermSize=10m
+ * -Xms100m -Xmx100m -XX:MaxPermSize=10m -XX:PermSize=10m
  *
  * @author zhouyang.zhou. 2017.09.14.09.
  */

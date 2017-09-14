@@ -6,7 +6,7 @@ import sun.misc.Unsafe;
 /**
  * 本地内存溢出情况，通过UNSafe直接在本地内存分配
  *
- * -XX:MaxDirectMemorySize=10m
+ * -XX:MaxDirectMemorySize=10m，如果不设定此值，将与-Xmx保持一致
  *
  * @author zhouyang.zhou. 2017.09.14.09.
  */
