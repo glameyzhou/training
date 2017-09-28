@@ -10,6 +10,10 @@ import java.util.Stack;
 public class ReverseWord {
 
   public static void main(String[] args) {
+    methodA();
+  }
+
+  private static void methodA() {
     String string = "hello world java";
     Stack<String> stack = new Stack<>();
     char[] chars = string.toCharArray();

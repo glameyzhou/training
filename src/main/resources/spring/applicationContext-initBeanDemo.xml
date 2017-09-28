@@ -13,7 +13,6 @@
   <bean id="initBeanDemo" class="org.glamey.training.spring.loading.InitBeanDemo" init-method="initMethod" destroy-method="destroyMethod">
     <property name="name" value="nameProperty"/>
     <property name="address" value="addressProperty"/>
-
     <property name="car" ref="car"/>
   </bean>
 
