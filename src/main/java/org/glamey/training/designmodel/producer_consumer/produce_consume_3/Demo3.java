@@ -8,18 +8,18 @@ import java.util.concurrent.LinkedBlockingQueue;
  */
 public class Demo3 {
 
-    public static void main(String[] args) {
-        BlockingQueue<String> queue = new LinkedBlockingQueue<>(2);
+  public static void main(String[] args) {
+    BlockingQueue<String> queue = new LinkedBlockingQueue<>(2);
 
-        Demo3Producer producer = new Demo3Producer(queue);
-        Demo3Consumer consumer = new Demo3Consumer(queue);
+    Demo3Producer producer = new Demo3Producer(queue);
+    Demo3Consumer consumer = new Demo3Consumer(queue);
 
-        for (int i = 0; i < 5; i++) {
-            new Thread(producer, "p_" + i).start();
-        }
-
-        for (int i = 0; i < 10; i++) {
-            new Thread(consumer, "c_" + i).start();
-        }
+    for (int i = 0; i < 5; i++) {
+      new Thread(producer, "p_" + i).start();
     }
+
+    for (int i = 0; i < 10; i++) {
+      new Thread(consumer, "c_" + i).start();
+    }
+  }
 }
