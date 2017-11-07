@@ -10,7 +10,7 @@ import java.util.List;
  *
  * 从一个整形数组中，找出三个不同相加为0的数据，返回所有可能的数组集合 <p/>
  *
- * For example, given array S = [-1, 0, 1, 2, -1, -4]。<p/> A solution set is: [ [-1, 0, 1], [-1, -1, 2] ]
+ * For example, given array S = [-1, 0, 1, 2, -1, -4]。<p/> A solution update is: [ [-1, 0, 1], [-1, -1, 2] ]
  *
  * @author zhouyang.zhou. 2017.08.17.15.
  */

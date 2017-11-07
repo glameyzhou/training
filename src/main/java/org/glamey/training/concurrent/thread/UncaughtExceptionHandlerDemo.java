@@ -36,7 +36,7 @@ public class UncaughtExceptionHandlerDemo {
   private static class NamedThreadFactory implements ThreadFactory {
     public Thread newThread(Runnable r) {
       Thread thread = Executors.defaultThreadFactory().newThread(r);
-      thread.setUncaughtExceptionHandler(new DemoUncaughtExceptionHandler());
+      //thread.setUncaughtExceptionHandler(new DemoUncaughtExceptionHandler());
       return thread;
     }
   }

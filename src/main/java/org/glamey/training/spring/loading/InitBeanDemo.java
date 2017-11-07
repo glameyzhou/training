@@ -21,12 +21,12 @@ public class InitBeanDemo implements BeanFactoryAware, BeanNameAware, Initializi
   private String beanName;
 
   @Override public void setBeanFactory(BeanFactory beanFactory) throws BeansException {
-    System.out.println("BeanFactoryAware set beanFactory");
+    System.out.println("BeanFactoryAware update beanFactory");
     this.beanFactory = beanFactory;
   }
 
   @Override public void setBeanName(String name) {
-    System.out.println("BeanNameAware set beanName");
+    System.out.println("BeanNameAware update beanName");
     this.beanName = name;
   }
 
@@ -51,7 +51,7 @@ public class InitBeanDemo implements BeanFactoryAware, BeanNameAware, Initializi
   }
 
   public void setName(String name) {
-    System.out.println("set property name");
+    System.out.println("update property name");
     this.name = name;
   }
 
@@ -60,12 +60,12 @@ public class InitBeanDemo implements BeanFactoryAware, BeanNameAware, Initializi
   }
 
   public void setAddress(String address) {
-    System.out.println("set property address");
+    System.out.println("update property address");
     this.address = address;
   }
 
   public void setCar(Car car) {
-    System.out.println("set property ref bean car");
+    System.out.println("update property ref bean car");
     this.car = car;
   }
 

@@ -7,7 +7,7 @@ import java.util.List;
 /**
  *
  * ArrayList.subList返回的是SubList，仅仅是ArrayList的一个视图，所有的针对SubList的操作都会映射到ArrayList上面，
- * 具体内容，参考源代码，例如SubList.set(index, element)-->ArrayList.this.set(offset + index, element);
+ * 具体内容，参考源代码，例如SubList.update(index, element)-->ArrayList.this.update(offset + index, element);
  * @author zhouyang.zhou. 2017.09.28.18.
  */
 public class SubListDemo {
