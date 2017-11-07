@@ -3,25 +3,34 @@ package org.glamey.training.zookeeper;
 import java.util.List;
 import java.util.concurrent.TimeUnit;
 import org.apache.curator.utils.ZKPaths;
+import org.junit.After;
+import org.junit.Before;
+import org.junit.Test;
 
-import static org.glamey.training.zookeeper.ZKConstants.ZK_ADDRESS;
 import static org.glamey.training.zookeeper.ZKConstants.ZK_ROOT;
 
 /**
- * @author zhouyang.zhou. 2017.11.07.18.
+ * @author zhouyang.zhou. 2017.11.07.20.
  */
-public class ZKDemo {
+public class ZKClientTest {
 
-  private final ZKClient client;
+  private ZKClient client;
 
-  public ZKDemo() {
-    client = ZKClientCache.get(ZK_ADDRESS);
+  @Before
+  public void before() {
+    client = ZKClientCache.get(ZKConstants.ZK_ADDRESS);
 
-    //节点变更的观察者
-    new ZKObserver(ZK_ADDRESS);
+    //初始化节点变更观察者
+    new ZKObserver(ZKConstants.ZK_ADDRESS);
   }
 
-  public void process() throws Exception {
+  @After
+  public void after() {
+    client.close();
+  }
+
+  @Test
+  public void test() throws Exception {
     //create the persistent nodes
     for (int i = 0; i < 10; i++) {
       TimeUnit.SECONDS.sleep(1);
@@ -47,10 +56,5 @@ public class ZKDemo {
       client.update(ZKPaths.makePath(ZK_ROOT, child), data + "_v2");
       TimeUnit.SECONDS.sleep(1);
     }
-  }
-
-  public static void main(String[] args) throws Exception {
-    ZKDemo zkDemo = new ZKDemo();
-    zkDemo.process();
   }
 }
