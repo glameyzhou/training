@@ -15,3 +15,5 @@ hs_err_pid*
 practice.iml
 training.im
 training.iml
+/logs
+logs/
