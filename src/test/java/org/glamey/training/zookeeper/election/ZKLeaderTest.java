@@ -65,7 +65,6 @@ public class ZKLeaderTest {
       e.printStackTrace();
     }
 
-
     //关闭所有链接
     IterableUtils.forEach(leaderEntries, new Closure<LeaderEntry>() {
       @Override public void execute(LeaderEntry entry) {

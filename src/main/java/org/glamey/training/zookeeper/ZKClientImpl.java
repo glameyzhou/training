@@ -7,6 +7,7 @@ import java.util.List;
 import java.util.concurrent.CountDownLatch;
 import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
+import javax.annotation.PreDestroy;
 import lombok.extern.slf4j.Slf4j;
 import org.apache.commons.collections4.Closure;
 import org.apache.commons.collections4.IterableUtils;
@@ -154,6 +155,7 @@ public class ZKClientImpl implements ZKClient {
     return leader;
   }
 
+  @PreDestroy
   @Override public void close() {
     //log.info("Call close of ZKClient, reference count is: {}", REFERENCE_COUNT.get());
     //if (REFERENCE_COUNT.decrementAndGet() == 0) {

@@ -5,6 +5,7 @@ import java.util.List;
 import java.util.concurrent.Semaphore;
 import java.util.concurrent.TimeUnit;
 import java.util.concurrent.atomic.AtomicBoolean;
+import javax.annotation.PreDestroy;
 import lombok.extern.slf4j.Slf4j;
 import org.apache.curator.framework.CuratorFramework;
 import org.apache.curator.framework.recipes.leader.LeaderSelector;
@@ -50,6 +51,7 @@ public class ZKLeader implements Leader, LeaderSelectorListener {
     selector.start();
   }
 
+  @PreDestroy
   @Override public void destroy() {
     if(STATE.compareAndSet(Boolean.TRUE, Boolean.FALSE)) {
       if(selector != null) {
