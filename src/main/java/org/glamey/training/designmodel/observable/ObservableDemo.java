@@ -3,10 +3,12 @@ package org.glamey.training.designmodel.observable;
 import com.google.common.collect.Lists;
 import com.sun.org.apache.regexp.internal.RE;
 import java.util.List;
+import lombok.extern.slf4j.Slf4j;
 
 /**
  * @author zhouyang.zhou. 2017.08.29.16.
  */
+@Slf4j
 public class ObservableDemo {
 
   public static void main(String[] args) {
@@ -28,11 +30,11 @@ public class ObservableDemo {
     );
 
     for (String message : messages) {
-      System.out.println("--------------------------------------->");
+      log.info("--------------------------------------->");
       broadcast.sendMessage(message);
-      System.out.printf("radio_1 --> %s\n", radio_1.getMessage());
-      System.out.printf("radio_2 --> %s\n", radio_2.getMessage());
-      System.out.printf("radio_3 --> %s\n", radio_3.getMessage());
+      log.info("radio_1 --> {}", radio_1.getMessage());
+      log.info("radio_2 --> {}", radio_2.getMessage());
+      log.info("radio_3 --> {}", radio_3.getMessage());
     }
   }
 }

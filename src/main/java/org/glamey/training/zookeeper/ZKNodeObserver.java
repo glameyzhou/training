@@ -3,16 +3,18 @@ package org.glamey.training.zookeeper;
 import lombok.extern.slf4j.Slf4j;
 
 /**
+ * ZK节点观察者
+ *
  * @author zhouyang.zhou. 2017.11.07.19.
  */
 @Slf4j
-public class ZKObserver {
+public class ZKNodeObserver {
 
   private final ZKClient client;
 
   private SubjectChangedListener subjectChangedListener;
 
-  public ZKObserver(String address) {
+  public ZKNodeObserver(String address) {
     client = ZKClientCache.get(address);
     subjectChangedListener = new SubjectChangedListener();
     initPathListener();
@@ -33,17 +35,17 @@ public class ZKObserver {
       switch (type) {
         //子节点新增，可以做服务上线通知
         case CHILD_ADDED:
-          System.out.printf("child added,path=[%s],data=[%s]\n", event.getPath(), client.get(event.getPath()));
+          log.info("child added,path=[{}],data=[{}]", event.getPath(), client.get(event.getPath()));
           break;
 
         //子节点删除，可以做服务下线通知
         case CHILD_REMOVED:
-          System.out.printf("child remove,path=[%s]\n", event.getPath());
+          log.info("child remove,path=[{}]", event.getPath());
           break;
 
         //子节点数据变更，可以做服务地址变更通知
         case CHILD_UPDATED:
-          System.out.printf("child update,path=[%s],new data=[%s]\n", event.getPath(), client.get(event.getPath()));
+          log.info("child update,path=[{}],new data=[{}]", event.getPath(), client.get(event.getPath()));
           break;
       }
     }

@@ -5,11 +5,13 @@ import java.util.Map;
 import lombok.extern.slf4j.Slf4j;
 
 /**
+ * 客户端缓存对象
+ *
  * @author zhouyang.zhou. 2017.11.07.19.
  */
 @Slf4j
 public class ZKClientCache {
-  private static final Map<String, ZKClientImpl> CACHE = new HashMap<String, ZKClientImpl>();
+  private static final Map<String, ZKClientImpl> CACHE = new HashMap<>();
 
   public synchronized static ZKClient get(String address) {
     log.info("Get zkclient for {}", address);

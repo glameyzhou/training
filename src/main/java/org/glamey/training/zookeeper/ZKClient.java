@@ -1,11 +1,14 @@
 package org.glamey.training.zookeeper;
 
 import java.util.List;
+import org.glamey.training.zookeeper.election.Leader;
 
 /**
  * @author zhouyang.zhou. 2017.11.07.17.
  */
 public interface ZKClient {
+
+  boolean checkExist(String path);
 
   void createPersistent(String path, String data) throws Exception;
 
@@ -26,6 +29,8 @@ public interface ZKClient {
   List<String> listChildren(String parent) throws Exception;
 
   List<String> listChildren(final String parent, final NodeListener nodeListener, final boolean sync) throws Exception;
+
+  Leader createLeader(String leaderPath, String id);
 
   void close();
 }

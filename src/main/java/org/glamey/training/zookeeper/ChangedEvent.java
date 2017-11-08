@@ -1,10 +1,12 @@
 package org.glamey.training.zookeeper;
 
 /**
+ * 节点变更类型
+ *
  * @author zhouyang.zhou. 2017.11.07.19.
  */
 public class ChangedEvent {
-  public static enum Type {
+  public enum Type {
     CHILD_ADDED,
     CHILD_UPDATED,
     CHILD_REMOVED;

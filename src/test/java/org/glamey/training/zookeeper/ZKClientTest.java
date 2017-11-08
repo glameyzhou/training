@@ -21,7 +21,7 @@ public class ZKClientTest {
     client = ZKClientCache.get(ZKConstants.ZK_ADDRESS);
 
     //初始化节点变更观察者
-    new ZKObserver(ZKConstants.ZK_ADDRESS);
+    new ZKNodeObserver(ZKConstants.ZK_ADDRESS);
   }
 
   @After
