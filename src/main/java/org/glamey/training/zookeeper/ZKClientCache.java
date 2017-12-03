@@ -14,7 +14,7 @@ public class ZKClientCache {
   private static final Map<String, ZKClientImpl> CACHE = new HashMap<>();
 
   public synchronized static ZKClient get(String address) {
-    log.info("Get zkclient for {}", address);
+    log.info("Get ZK client for {}", address);
     ZKClientImpl client = CACHE.get(address);
     if(client == null) {
       CACHE.put(address, new ZKClientImpl(address));
