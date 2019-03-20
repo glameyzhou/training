@@ -1,9 +1,14 @@
 package org.glamey.training.designmodel.observable.observer;
 
 import com.google.common.collect.Lists;
+
+import java.util.Collections;
 import java.util.List;
 import java.util.concurrent.Executor;
+import java.util.function.Consumer;
+
 import org.apache.commons.collections4.Closure;
+import org.apache.commons.collections4.CollectionUtils;
 import org.apache.commons.collections4.IterableUtils;
 
 /**
@@ -33,17 +38,16 @@ public class BroadCaster {
   }
 
   public void publishEvent(final Event event) {
-    IterableUtils.forEach(list, new Closure() {
-      @Override public void execute(final Object input) {
-        if(executor == null) {
-          ((EventListener) input).onEventListener(event);
-        } else {
-          executor.execute(new Runnable() {
-            @Override public void run() {
-              ((EventListener) input).onEventListener(event);
-            }
-          });
-        }
+
+    if (CollectionUtils.isEmpty(list)) {
+      return;
+    }
+
+    list.stream().forEach(listener -> {
+      if (executor == null) {
+        listener.onEventListener(event);
+      } else {
+        executor.execute(() -> listener.onEventListener(event));
       }
     });
   }
