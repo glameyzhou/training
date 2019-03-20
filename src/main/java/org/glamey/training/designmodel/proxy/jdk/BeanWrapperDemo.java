@@ -1,4 +1,4 @@
-package org.glamey.training.designmodel.proxy;
+package org.glamey.training.designmodel.proxy.jdk;
 
 import java.lang.reflect.InvocationTargetException;
 import java.lang.reflect.Method;
@@ -19,7 +19,7 @@ public class BeanWrapperDemo {
   }
 
   private static void setBeanValueByBeanWrapper() throws ClassNotFoundException, IllegalAccessException, InstantiationException {
-    Class<?> clazz = Class.forName("org.glamey.training.designmodel.proxy.HelloWordImpl");
+    Class<?> clazz = Class.forName("org.glamey.training.designmodel.proxy.jdk.HelloWordImpl");
     HelloWordImpl target = (HelloWordImpl) clazz.newInstance();
     BeanWrapper beanWrapper = new BeanWrapperImpl(target);
     beanWrapper.setPropertyValue("message", "hello");
@@ -29,7 +29,7 @@ public class BeanWrapperDemo {
 
   private static void setBeanValueByReflect()
           throws ClassNotFoundException, InstantiationException, IllegalAccessException, NoSuchMethodException, InvocationTargetException {
-    Class<?> clazz = Class.forName("org.glamey.training.designmodel.proxy.HelloWordImpl");
+    Class<?> clazz = Class.forName("org.glamey.training.designmodel.proxy.jdk.HelloWordImpl");
     HelloWordImpl target = (HelloWordImpl) clazz.newInstance();
     Method setMessageMethod = clazz.getMethod("setMessage", new Class[] {String.class});
     setMessageMethod.invoke(target, "Hello");
