@@ -28,4 +28,15 @@ public class ListNodeUtil {
             tmp = tmp.next;
         }
     }
+
+
+    public static int getNodeLength(ListNode head) {
+        ListNode tmp = head;
+        int len = 0;
+        while (tmp != null) {
+            tmp = tmp.next;
+            len++;
+        }
+        return len;
+    }
 }
