@@ -2,6 +2,8 @@ package org.glamey.training.designmodel.proxy.jdk;
 
 import java.lang.reflect.InvocationTargetException;
 import java.lang.reflect.Method;
+
+import org.glamey.training.designmodel.proxy.HelloWordImpl;
 import org.springframework.beans.BeanWrapper;
 import org.springframework.beans.BeanWrapperImpl;
 
