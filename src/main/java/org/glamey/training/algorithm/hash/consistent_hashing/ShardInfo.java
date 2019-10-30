@@ -5,17 +5,17 @@ package org.glamey.training.algorithm.hash.consistent_hashing;
  */
 public abstract class ShardInfo<R> {
 
-  private int weight;
+    private int weight;
 
-  public ShardInfo(int weight) {
-    this.weight = weight;
-  }
+    public ShardInfo(int weight) {
+        this.weight = weight;
+    }
 
-  public int getWeight() {
-    return weight;
-  }
+    public int getWeight() {
+        return weight;
+    }
 
-  protected abstract R createResource();
+    protected abstract R createResource();
 
-  public abstract String getName();
+    public abstract String getName();
 }

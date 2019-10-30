@@ -7,37 +7,37 @@ import java.util.LinkedList;
  */
 public class MaxNode {
 
-  public TreeNode maxNode(TreeNode root) {
+    public TreeNode maxNode(TreeNode root) {
 
-    if(root == null) {
-      return root;
-    }
-    TreeNode maxNode = null, tmpNode;
-    LinkedList<TreeNode> queue = new LinkedList<TreeNode>();
-    queue.offer(root);
-    int len;
-    while (!queue.isEmpty()) {
-      len = queue.size();
-      for(int i = 0; i < len; i ++) {
-        tmpNode = queue.pop();
-        maxNode = maxNode == null ? tmpNode : (maxNode.data >= tmpNode.data ? maxNode : tmpNode);
+        if (root == null) {
+            return null;
+        }
+        TreeNode maxNode = null, tmpNode;
+        LinkedList<TreeNode> queue = new LinkedList<>();
+        queue.offer(root);
+        int len;
+        while (!queue.isEmpty()) {
+            len = queue.size();
+            for (int i = 0; i < len; i++) {
+                tmpNode = queue.pop();
+                maxNode = maxNode == null ? tmpNode : (maxNode.data >= tmpNode.data ? maxNode : tmpNode);
 
-        if (tmpNode.left != null) {
-          queue.offer(tmpNode.left);
+                if (tmpNode.left != null) {
+                    queue.offer(tmpNode.left);
+                }
+
+                if (tmpNode.right != null) {
+                    queue.offer(tmpNode.right);
+                }
+            }
         }
 
-        if (tmpNode.right != null) {
-          queue.offer(tmpNode.right);
-        }
-      }
+        return maxNode;
     }
 
-    return maxNode;
-  }
-
-  class TreeNode {
-    int data;
-    TreeNode left;
-    TreeNode right;
-  }
+    class TreeNode {
+        int data;
+        TreeNode left;
+        TreeNode right;
+    }
 }
