@@ -1,13 +1,13 @@
-package org.glamey.training.algorithm.hash.consistent.demo;
+package org.glamey.training.algorithm.hash.demo;
 
-import org.glamey.training.algorithm.hash.consistent.ShardingCluster;
+import org.glamey.training.algorithm.hash.consistent.ConsistentShardingCluster;
 
 import java.util.List;
 
 /**
  * @author yang.zhou 2019.11.04.18
  */
-public class CacheClient extends ShardingCluster<CacheResource, CacheNode> {
+public class CacheClient extends ConsistentShardingCluster<CacheResource, CacheNode> {
     public CacheClient(List<CacheNode> shards) {
         super(shards);
     }

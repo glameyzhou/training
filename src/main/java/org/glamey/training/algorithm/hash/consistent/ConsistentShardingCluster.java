@@ -1,5 +1,8 @@
 package org.glamey.training.algorithm.hash.consistent;
 
+import org.glamey.training.algorithm.hash.Hashing;
+import org.glamey.training.algorithm.hash.SafeEncoder;
+
 import java.util.*;
 
 /**
@@ -7,7 +10,7 @@ import java.util.*;
  *
  * @author yang.zhou 2019.11.04.17
  */
-public class ShardingCluster<R, S extends ShardInfo<R>> {
+public class ConsistentShardingCluster<R, S extends ShardInfo<R>> {
 
     public static final int DEFAULT_WEIGHT = 1;
     public static final int FACTOR = 160;
@@ -16,11 +19,11 @@ public class ShardingCluster<R, S extends ShardInfo<R>> {
     private final Map<ShardInfo<R>, R> resources = new LinkedHashMap<>();
 
 
-    public ShardingCluster(List<S> shards) {
+    public ConsistentShardingCluster(List<S> shards) {
         this(shards, Hashing.MD5);
     }
 
-    public ShardingCluster(List<S> shards, Hashing algorithm) {
+    public ConsistentShardingCluster(List<S> shards, Hashing algorithm) {
         this.algorithm = algorithm;
         initialize(shards);
     }

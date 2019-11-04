@@ -1,4 +1,4 @@
-package org.glamey.training.algorithm.hash.consistent.demo;
+package org.glamey.training.algorithm.hash.demo;
 
 import lombok.Getter;
 import lombok.Setter;

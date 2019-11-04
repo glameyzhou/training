@@ -1,4 +1,4 @@
-package org.glamey.training.algorithm.hash.consistent;
+package org.glamey.training.algorithm.hash;
 
 import com.google.common.base.Charsets;
 

@@ -1,4 +1,4 @@
-package org.glamey.training.algorithm.hash.consistent;
+package org.glamey.training.algorithm.hash;
 
 import java.security.MessageDigest;
 import java.security.NoSuchAlgorithmException;
@@ -9,9 +9,14 @@ import java.security.NoSuchAlgorithmException;
  * @author yang.zhou 2019.11.04.17
  */
 public interface Hashing {
-    public ThreadLocal<MessageDigest> md5Holder = new ThreadLocal<MessageDigest>();
+    long hash(String key);
 
-    public static final Hashing MD5 = new Hashing() {
+    long hash(byte[] key);
+
+
+    ThreadLocal<MessageDigest> md5Holder = new ThreadLocal<>();
+
+    Hashing MD5 = new Hashing() {
         public long hash(String key) {
             return hash(SafeEncoder.encode(key));
         }
@@ -22,7 +27,7 @@ public interface Hashing {
                     md5Holder.set(MessageDigest.getInstance("MD5"));
                 }
             } catch (NoSuchAlgorithmException e) {
-                throw new IllegalStateException("++++ no md5 algorythm found");
+                throw new IllegalStateException("++++ no md5 algorithm found");
             }
             MessageDigest md5 = md5Holder.get();
 
@@ -35,8 +40,4 @@ public interface Hashing {
             return res;
         }
     };
-
-    public long hash(String key);
-
-    public long hash(byte[] key);
 }
