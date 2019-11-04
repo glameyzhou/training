@@ -5,13 +5,13 @@ package org.glamey.training.designmodel.strategy;
  */
 public class StrategyContext {
 
-  private Strategy strategy;
+    private Strategy strategy;
 
-  public StrategyContext(Strategy strategy) {
-    this.strategy = strategy;
-  }
+    public StrategyContext(Strategy strategy) {
+        this.strategy = strategy;
+    }
 
-  public void process() {
-    this.strategy.process(this);
-  }
+    public void algorithm() {
+        this.strategy.algorithm(this);
+    }
 }

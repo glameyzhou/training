@@ -3,7 +3,7 @@ package org.glamey.training.designmodel.iterator;
 /**
  * @author zhouyang.zhou. 2017.10.22.20.
  */
-public class Repository implements Containter<String> {
+public class Repository implements Container<String> {
 
   public String[] names = {"john", "james", "jack", "tom"};
 

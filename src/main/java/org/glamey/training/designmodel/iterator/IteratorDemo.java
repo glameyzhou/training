@@ -6,7 +6,7 @@ package org.glamey.training.designmodel.iterator;
 public class IteratorDemo {
 
   public static void main(String[] args) {
-    Containter repository = new Repository();
+    Container repository = new Repository();
 
     Iterator iterator = repository.iterator();
     while (iterator.hasNext()) {

@@ -7,7 +7,7 @@ public class ThreadCatchExceptionDemo implements Runnable {
 
   public ThreadCatchExceptionDemo() {
     Thread thread = new Thread(this, "异常捕获线程");
-    thread.setUncaughtExceptionHandler(new SocketExcetionHandler());
+    thread.setUncaughtExceptionHandler(new SocketExceptionHandler());
     thread.start();
   }
 
@@ -24,7 +24,7 @@ public class ThreadCatchExceptionDemo implements Runnable {
     throw new RuntimeException("系统崩溃...");
   }
 
-  private class SocketExcetionHandler implements Thread.UncaughtExceptionHandler {
+  private class SocketExceptionHandler implements Thread.UncaughtExceptionHandler {
     @Override
     public void uncaughtException(Thread t, Throwable e) {
       System.out.println("系统崩溃，异常捕获，重启中...");
