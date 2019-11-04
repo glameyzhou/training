@@ -1,17 +1,17 @@
-package org.glamey.training.algorithm.hash.consistent_hashing;
+package org.glamey.training.algorithm.hash.consistent;
 
 import java.security.MessageDigest;
 import java.security.NoSuchAlgorithmException;
 
 /**
- * @author zhouyang.zhou. 2017.05.15.15.
+ * hash算法
+ *
+ * @author yang.zhou 2019.11.04.17
  */
 public interface Hashing {
+    public ThreadLocal<MessageDigest> md5Holder = new ThreadLocal<MessageDigest>();
 
-    Hashing MURMUR_HASH = new MurmurHash();
-    ThreadLocal<MessageDigest> md5Holder = new ThreadLocal<>();
-
-    Hashing MD5 = new Hashing() {
+    public static final Hashing MD5 = new Hashing() {
         public long hash(String key) {
             return hash(SafeEncoder.encode(key));
         }
@@ -36,7 +36,7 @@ public interface Hashing {
         }
     };
 
-    long hash(String key);
+    public long hash(String key);
 
-    long hash(byte[] key);
+    public long hash(byte[] key);
 }

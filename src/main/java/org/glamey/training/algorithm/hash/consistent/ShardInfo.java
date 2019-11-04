@@ -1,10 +1,11 @@
-package org.glamey.training.algorithm.hash.consistent_hashing;
+package org.glamey.training.algorithm.hash.consistent;
 
 /**
- * @author zhouyang.zhou. 2017.05.15.15.
+ * 节点相关信息
+ *
+ * @author yang.zhou 2019.11.04.17
  */
 public abstract class ShardInfo<R> {
-
     private int weight;
 
     public ShardInfo(int weight) {
@@ -15,7 +16,7 @@ public abstract class ShardInfo<R> {
         return weight;
     }
 
-    protected abstract R createResource();
-
     public abstract String getName();
+
+    public abstract R createResource();
 }
