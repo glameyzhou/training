@@ -5,19 +5,34 @@ package org.glamey.training.algorithm.leetcode.listnode;
  */
 public class ListNodeUtil {
 
-    public static ListNode create(int[] arrs) {
-        if (arrs == null) {
+    public static void main(String[] args) {
+        ListNode node = create(new int[]{1, 2, 3});
+        print(node);
+    }
+
+
+    public static ListNode create(int[] array) {
+        if (array == null) {
             return null;
         }
 
-        ListNode head = new ListNode(arrs[0]);
+        /*ListNode head = new ListNode(array[0]);
         ListNode tmp = head;
-        for (int i = 1; i < arrs.length; i++) {
-            ListNode curNode = new ListNode(arrs[i]);
+        for (int i = 1; i < array.length; i++) {
+            ListNode curNode = new ListNode(array[i]);
             tmp.next = curNode;
             tmp = curNode;
         }
-        return head;
+        return head;*/
+
+        ListNode dummy = new ListNode(0);
+        ListNode tmp = dummy;
+        for (int arr : array) {
+            ListNode node = new ListNode(arr);
+            tmp.next = node;
+            tmp = node;
+        }
+        return dummy.next;
     }
 
 

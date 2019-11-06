@@ -3,6 +3,8 @@ package org.glamey.training.algorithm.leetcode.listnode;
 import org.junit.Before;
 import org.junit.Test;
 
+import java.util.Stack;
+
 import static org.glamey.training.algorithm.leetcode.listnode.ListNodeUtil.create;
 import static org.glamey.training.algorithm.leetcode.listnode.ListNodeUtil.print;
 
