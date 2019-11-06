@@ -39,4 +39,24 @@ public class ListNodeUtil {
         }
         return len;
     }
+
+    public static boolean eq(ListNode n1, ListNode n2) {
+        int len1 = getNodeLength(n1), len2 = getNodeLength(n2);
+        if (len1 == len2 && len1 == 0) {
+            return true;
+        }
+
+        if (len1 != len2) {
+            return false;
+        }
+
+        while (n1 != null) {
+            if (n1.val != n2.val) {
+                return false;
+            }
+            n1 = n1.next;
+            n2 = n2.next;
+        }
+        return true;
+    }
 }

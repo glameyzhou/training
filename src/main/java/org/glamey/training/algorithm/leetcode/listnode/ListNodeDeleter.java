@@ -1,11 +1,8 @@
 package org.glamey.training.algorithm.leetcode.listnode;
 
-import static org.glamey.training.algorithm.leetcode.listnode.ListNodeUtil.getNodeLength;
-
 public class ListNodeDeleter {
 
-
-    public static ListNode delete(ListNode node, int value) {
+    public static ListNode deleteFirstPresent(ListNode node, int value) {
         if (node == null) {
             return null;
         }
@@ -20,10 +17,34 @@ public class ListNodeDeleter {
         while (tmp.next != null && tmp.next.val != value) {
             tmp = tmp.next;
         }
-
         //tmp.next有可能为空，需要判断
-        if (tmp.next != null && tmp.next.val == value) {
+        while (tmp.next != null && tmp.next.val == value) {
             tmp.next = tmp.next.next;
+        }
+        return node;
+    }
+
+
+    public static ListNode deleteAllPresent(ListNode node, int value) {
+        if (node == null) {
+            return null;
+        }
+
+        ListNode tmp = node;
+
+        //头节点就是待删除的数据
+        if (tmp.val == value) {
+            node = tmp.next;
+        }
+
+        //删除链表中的value值，无论出现多少次
+        while (tmp.next != null) {
+            if (tmp.next.val == value) {
+                tmp.next = tmp.next.next;
+            } else {
+                tmp = tmp.next;
+            }
+
         }
         return node;
     }
@@ -48,30 +69,20 @@ public class ListNodeDeleter {
             return head;
         }
 
-        int len = getNodeLength(head);
-        if (n > len) {
-            return head;
+        ListNode dummy = new ListNode(0);
+        dummy.next = head;
+        ListNode p = dummy, q = dummy;
+
+        for (int i = 0; i <= n; i++) {
+            p = p.next;
         }
 
-        if (n == len) {
-            return head.next;
+        while (p != null) {
+            p = p.next;
+            q = q.next;
         }
 
-        int move = n + 1;
-        ListNode fast = head;
-        ListNode slow = head;
-
-        for (int i = 0; i < move; i++) {
-            fast = fast.next;
-        }
-
-        while (fast != null && slow != null) {
-            fast = fast.next;
-            slow = slow.next;
-        }
-
-        slow.next = slow.next.next;
-
-        return head;
+        q.next = q.next.next;
+        return dummy.next;
     }
 }

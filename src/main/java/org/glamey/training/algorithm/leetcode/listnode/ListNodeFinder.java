@@ -1,10 +1,10 @@
 package org.glamey.training.algorithm.leetcode.listnode;
 
 public class ListNodeFinder {
-
-
     /**
      * 找到第index个元素
+     * <p>
+     * 顺序loop即可
      *
      * @param node
      * @param index
@@ -18,18 +18,13 @@ public class ListNodeFinder {
         int len = 0;
         ListNode tmp = node;
         while (tmp != null) {
-            len++;
             if (index == len) {
                 return tmp;
             }
             tmp = tmp.next;
+            len++;
         }
-
-        if (index > len) {
-            return null;
-        }
-
-        return tmp;
+        return null;
     }
 
 
@@ -47,13 +42,12 @@ public class ListNodeFinder {
             return null;
         }
 
-        int len = getNodeLen(node);
+        int len = ListNodeUtil.getNodeLength(node);
         if (len < reverseIndex) {
             return null;
         }
 
-        ListNode fast = node;
-        ListNode slow = node;
+        ListNode fast = node, slow = node;
         for (int i = 0; i < reverseIndex; i++) {
             fast = fast.next;
         }
@@ -63,18 +57,5 @@ public class ListNodeFinder {
             slow = slow.next;
         }
         return slow;
-    }
-
-    private static int getNodeLen(ListNode node) {
-        if (node == null) {
-            return 0;
-        }
-        int len = 0;
-        ListNode tmp = node;
-        while (tmp != null) {
-            len++;
-            tmp = tmp.next;
-        }
-        return len;
     }
 }

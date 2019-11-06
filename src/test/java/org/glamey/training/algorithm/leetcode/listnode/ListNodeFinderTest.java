@@ -1,7 +1,6 @@
 package org.glamey.training.algorithm.leetcode.listnode;
 
 import org.junit.After;
-import org.junit.Assert;
 import org.junit.Before;
 import org.junit.Test;
 
@@ -12,8 +11,7 @@ public class ListNodeFinderTest {
 
     @Before
     public void before() {
-        int[] arrs = {1, 2, 3, 4, 5, 6, 7, 8, 9, 10};
-        node = ListNodeUtil.create(arrs);
+        node = ListNodeUtil.create(new int[]{1, 2, 3, 4, 5, 6, 7, 8, 9, 10});
     }
 
     @After

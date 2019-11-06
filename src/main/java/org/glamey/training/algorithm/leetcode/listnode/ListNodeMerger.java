@@ -5,7 +5,7 @@ package org.glamey.training.algorithm.leetcode.listnode;
  */
 public class ListNodeMerger {
 
-    public static ListNode mergeTwoListNode(ListNode n1, ListNode n2) {
+    public static ListNode mergeByLoop(ListNode n1, ListNode n2) {
         if (n1 == null) {
             return n2;
         }
@@ -43,6 +43,26 @@ public class ListNodeMerger {
             }
             tmp.next = cur;
             tmp = cur;
+        }
+        return head;
+    }
+
+    public static ListNode mergeByRecursive(ListNode n1, ListNode n2) {
+        if (n1 == null) {
+            return n2;
+        }
+
+        if (n2 == null) {
+            return n1;
+        }
+
+        ListNode head;
+        if (n1.val <= n2.val) {
+            head = n1;
+            head.next = mergeByRecursive(n1.next, n2);
+        } else {
+            head = n2;
+            head.next = mergeByRecursive(n1, n2.next);
         }
         return head;
     }
