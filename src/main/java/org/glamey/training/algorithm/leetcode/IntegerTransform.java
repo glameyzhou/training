@@ -2,10 +2,10 @@ package org.glamey.training.algorithm.leetcode;
 
 /**
  * 字符串转化为int类型
- *
+ * <p>
  * 方法：
- *  string to int '' - '0'
- *  int to string '' + '0'
+ * string to int '' - '0'
+ * int to string '' + '0'
  *
  * @author zhouyang
  * @date 2019.03.12.18.
@@ -54,10 +54,13 @@ public class IntegerTransform {
             }
             int curInt = tmp - '0';
             //越界问题 MAX_VALUE = 2147483647, MIN_VALUE = -2147483648
+
+            //负数
             if (negative && (val == Integer.MAX_VALUE / 10 && (curInt + Integer.MIN_VALUE % 10) == 0)) {
                 throw new IllegalArgumentException(String.format("the value <= %d, %s", Integer.MIN_VALUE, source));
             }
 
+            //正数
             if (!negative && (val == Integer.MAX_VALUE && curInt > Integer.MAX_VALUE % 10)) {
                 throw new IllegalArgumentException(String.format("the value > %d, %s", Integer.MAX_VALUE, source));
             }
@@ -65,10 +68,5 @@ public class IntegerTransform {
             val = val * 10 + curInt;
         }
         return negative ? -val : val;
-    }
-
-
-    public static void search(int[][] arrays) {
-        int length = arrays.length;
     }
 }
