@@ -10,32 +10,33 @@ package org.glamey.training.concurrent.thread;
  */
 public class SleepDemo {
 
-  private static int ID = 100;
-  private static final Object LOCK = new Object();
+    private static int ID = 100;
+    private static final Object LOCK = new Object();
 
-  public static void main(String[] args) {
-    Thread t1 = new Thread(new Demo(), "thread_1");
-    Thread t2 = new Thread(new Demo(), "thread_2");
-    t1.start();
-    t2.start();
-  }
-
-  static class Demo implements Runnable {
-
-    @Override public void run() {
-      synchronized (LOCK) {
-        ++ID;
-        System.out.println(" i --> start " + ID);
-        System.out.printf("%s --> 开始休眠 %ds\n", Thread.currentThread().getName(), 3);
-        try {
-          Thread.sleep(3000);
-        } catch (InterruptedException e) {
-          e.printStackTrace();
-        }
-        System.out.printf("%s --> 结束休眠 %ds\n", Thread.currentThread().getName(), 3);
-        ++ID;
-        System.out.println(" i --> end " + ID);
-      }
+    public static void main(String[] args) {
+        Thread t1 = new Thread(new Demo(), "thread_1");
+        Thread t2 = new Thread(new Demo(), "thread_2");
+        t1.start();
+        t2.start();
     }
-  }
+
+    static class Demo implements Runnable {
+
+        @Override
+        public void run() {
+            synchronized (LOCK) {
+                ++ID;
+                System.out.println(" i --> start " + ID);
+                System.out.printf("%s --> 开始休眠 %ds\n", Thread.currentThread().getName(), 3);
+                try {
+                    Thread.sleep(3000);
+                } catch (InterruptedException e) {
+                    e.printStackTrace();
+                }
+                System.out.printf("%s --> 结束休眠 %ds\n", Thread.currentThread().getName(), 3);
+                ++ID;
+                System.out.println(" i --> end " + ID);
+            }
+        }
+    }
 }

@@ -8,6 +8,10 @@ import java.util.concurrent.Semaphore;
  * 形如：3个线程交替打印 1-100
  * <p>
  * 原理 ： 利用semaphore单信号量，实现单线程同步执行。
+ * <p>
+ * 实现：让每个线程持有两个semaphore,s1是自身的信号量，s2是下一个线程的信号量。
+ * s1，先获取permit，执行完毕permit=0。再设置s2的permit=1.
+ * 这样线程T2中的s2就有permit可以执行，一次类推，直至将所有数字打印输出。
  *
  * @author yang.zhou 2019.11.07.12
  */

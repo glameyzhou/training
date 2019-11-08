@@ -10,38 +10,39 @@ import java.util.concurrent.RecursiveAction;
  */
 public class ProductPriceModifyProcessor extends RecursiveAction {
 
-  private static final int THRESHOLD = 20;
-  private List<Product> products;
-  private int low;
-  private int high;
+    private static final int THRESHOLD = 20;
+    private List<Product> products;
+    private int low;
+    private int high;
 
-  public ProductPriceModifyProcessor(List<Product> products, int low, int high) {
-    this.products = products;
-    this.low = low;
-    this.high = high;
-  }
-
-  @Override protected void compute() {
-
-    if(high - low < THRESHOLD) {
-      doInner(products, low, high);
-      return;
+    public ProductPriceModifyProcessor(List<Product> products, int low, int high) {
+        this.products = products;
+        this.low = low;
+        this.high = high;
     }
 
-    int middle = (high + low) >>> 1;
-    ProductPriceModifyProcessor processor1 = new ProductPriceModifyProcessor(products, low, middle);
-    ProductPriceModifyProcessor processor2 = new ProductPriceModifyProcessor(products, middle, high);
-    invokeAll(processor1, processor2);
-    processor1.join();
-    processor2.join();
-  }
+    @Override
+    protected void compute() {
 
-  private void doInner(List<Product> products, int low, int high) {
-    for (int i = low; i < high; i++) {
-      Product product = products.get(i);
-      product.setPrice(0.1 * product.getPrice());
+        if (high - low < THRESHOLD) {
+            doInner(products, low, high);
+            return;
+        }
+
+        int middle = (high + low) >>> 1;
+        ProductPriceModifyProcessor processor1 = new ProductPriceModifyProcessor(products, low, middle);
+        ProductPriceModifyProcessor processor2 = new ProductPriceModifyProcessor(products, middle, high);
+        invokeAll(processor1, processor2);
+        processor1.join();
+        processor2.join();
     }
-    Thread thread = Thread.currentThread();
-    System.out.println(String.format("thread[id=%d,name=%s],range=[%d-%d)", thread.getId(), thread.getName(), low, high));
-  }
+
+    private void doInner(List<Product> products, int low, int high) {
+        for (int i = low; i < high; i++) {
+            Product product = products.get(i);
+            product.setPrice(0.1 * product.getPrice());
+        }
+        Thread thread = Thread.currentThread();
+        System.out.println(String.format("thread[id=%d,name=%s],range=[%d-%d)", thread.getId(), thread.getName(), low, high));
+    }
 }
