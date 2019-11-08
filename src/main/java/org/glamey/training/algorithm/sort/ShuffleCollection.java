@@ -1,6 +1,7 @@
 package org.glamey.training.algorithm.sort;
 
 import com.google.common.collect.Lists;
+import org.glamey.training.algorithm.Utils;
 
 import java.util.*;
 
@@ -9,7 +10,7 @@ import java.util.*;
  *
  * @author yang.zhou 2019.11.04.14
  */
-public class Shuffle {
+public class ShuffleCollection {
     public static void main(String[] args) {
         testNoRandomAccessArray();
         testRandomAccessArray();
@@ -59,7 +60,7 @@ public class Shuffle {
         } else {
             Object[] array = list.toArray();
             for (int i = size; i > 1; i--) {
-                swap(array, i - 1, rnd.nextInt(i));
+                Utils.swap(array, i - 1, rnd.nextInt(i));
             }
 
             ListIterator iterator = list.listIterator();
@@ -74,11 +75,5 @@ public class Shuffle {
     private static void swap(List<?> list, int i, int j) {
         final List l = list;
         l.set(i, l.set(j, l.get(i)));
-    }
-
-    private static void swap(Object[] array, int i, int j) {
-        Object tmp = array[i];
-        array[i] = array[j];
-        array[j] = tmp;
     }
 }

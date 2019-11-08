@@ -21,4 +21,18 @@ public class Utils {
         arrays[x] = arrays[y];
         arrays[y] = tmp;
     }
+
+
+    /**
+     * 交换数组指定下标的值
+     *
+     * @param array
+     * @param i
+     * @param j
+     */
+    public static void swap(Object[] array, int i, int j) {
+        Object tmp = array[i];
+        array[i] = array[j];
+        array[j] = tmp;
+    }
 }

@@ -9,6 +9,7 @@ import org.glamey.training.algorithm.Utils;
  * @author zhouyang.zhou. 2017.03.14.14.
  */
 public class SelectionSort {
+
     public static void main(String[] args) {
         int[] arrays = {10, 9, 11, 40, 5, 90, 50};
         sort(arrays);
