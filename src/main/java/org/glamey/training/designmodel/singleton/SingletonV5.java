@@ -8,7 +8,7 @@ package org.glamey.training.designmodel.singleton;
 public enum SingletonV5 {
   INSTANCE;
 
-  private SingletonV5() {
+  SingletonV5() {
   }
 
   /**

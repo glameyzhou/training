@@ -18,6 +18,7 @@ public class SelectionSort {
         }
     }
 
+
     public static void sort(int[] arrays) {
         int len = arrays.length;
         int minIndex;

@@ -24,7 +24,10 @@ public class ShuffleArray {
     private static Random r;
 
     public static void shuffle(int[] array) {
-        Random rnd = r == null ? new Random() : r;
+        Random rnd = r;
+        if (rnd == null) {
+            r = rnd = new Random();
+        }
         shuffle(array, rnd);
     }
 
@@ -35,9 +38,7 @@ public class ShuffleArray {
 
         int len = array.length;
         for (int i = len; i > 0; i--) {
-            int index = random.nextInt(i);
-            System.out.println(String.format("%d -> %d", i - 1, index));
-            Utils.swap(array, i - 1, index);
+            Utils.swap(array, i - 1, random.nextInt(i));
         }
     }
 }

@@ -10,49 +10,52 @@ package org.glamey.training.algorithm.sort;
  */
 public class QuickSort {
 
-  public static void main(String[] args) {
-    int[] numbers = {10, 0, 29, 9, 7, 90, 58, 10, 88, 100};
-    sort(numbers, 0, numbers.length - 1);
+    public static void main(String[] args) {
+        int[] numbers = {10, 0, 29, 9, 7, 90, 58, 10, 88, 100};
+        sort(numbers, 0, numbers.length - 1);
 
-    for (int number : numbers) {
-      System.out.println(number);
-    }
-  }
-
-  private static void sort(int[] numbers, int start, int end) {
-
-    if(start >= end) {
-      return;
+        for (int number : numbers) {
+            System.out.println(number);
+        }
     }
 
-    int pivotVal = numbers[end];
-    int left = start, right = end - 1;
-    while (left < right) {
+    private static void sort(int[] numbers, int start, int end) {
 
-      while (numbers[left] <= pivotVal && left < right) {
-        left++;
-      }
+        if (start >= end) {
+            return;
+        }
 
-      while (numbers[right] >= pivotVal && left < right) {
-        right--;
-      }
+        int key = numbers[end];
+        int left = start, right = end - 1;
+        while (left < right) {
 
-      swap(numbers, left, right);
+            while (numbers[left] <= key && left < right) {
+                left++;
+            }
+
+            while (numbers[right] >= key && left < right) {
+                right--;
+            }
+
+            swap(numbers, left, right);
+        }
+
+        if (numbers[left] >= numbers[end]) {
+            swap(numbers, left, end);
+        } else {
+            left++;
+        }
+
+        sort(numbers, start, left - 1);
+        sort(numbers, left + 1, end);
     }
 
-    if(numbers[left] >= numbers[end]) {
-      swap(numbers, left, end);
-    } else {
-      left++;
+    private static void swap(int[] numbers, int left, int right) {
+        if (left == right) {
+            return;
+        }
+        int tmp = numbers[left];
+        numbers[left] = numbers[right];
+        numbers[right] = tmp;
     }
-
-    sort(numbers, start, left - 1);
-    sort(numbers, left + 1, end);
-  }
-
-  private static void swap(int[] numbers, int left, int right) {
-    int tmp = numbers[left];
-    numbers[left] = numbers[right];
-    numbers[right] = tmp;
-  }
 }
