@@ -1,6 +1,7 @@
 package org.glamey.training.algorithm.leetcode.greedy;
 
 /**
+ * 可以买、卖多次。最终利润最大。
  * https://leetcode-cn.com/problems/best-time-to-buy-and-sell-stock-ii/
  *
  * @author yang.zhou 2019.11.06.19
@@ -9,6 +10,7 @@ public class BuySellStock {
 
     public static void main(String[] args) {
         int[] array = new int[]{7, 1, 5, 3, 6, 4};
+        "".indexOf("");
         System.out.println(maxProfit(array));
     }
 

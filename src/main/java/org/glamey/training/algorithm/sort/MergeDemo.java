@@ -11,19 +11,14 @@ public class MergeDemo {
         int[] m = {20, 9, 7, 6, 2, 0};
         int[] n = {10, 8, 3, 1};
 
-//        mergeAndSort(m, n);
+        System.out.println("---------------------merge and sort-------------------------------");
+        mergeAndSort(m, n);
 
-        System.out.println("----------------------------------------------------");
-
-//        merge(m, n);
-
-        System.out.println(m.length);
-
-        int[] array = new int[10];
-        System.out.println(array.length);
-        array[0] = 1;
-        System.out.println(array.length);
-
+        System.out.println("---------------------merge-------------------------------");
+        merge(m, n);
+        for (int i : m) {
+            System.out.println(i);
+        }
     }
 
     /**
@@ -47,6 +42,7 @@ public class MergeDemo {
     }
 
     /**
+     * 从大到小排序
      * 合并、排序同时进行
      * <p>
      * 策略：双指针，原地排序
