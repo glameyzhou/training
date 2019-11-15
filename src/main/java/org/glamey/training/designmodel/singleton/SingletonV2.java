@@ -6,19 +6,19 @@ package org.glamey.training.designmodel.singleton;
  * @author zhouyang.zhou  2016/12/24.22.
  */
 public class SingletonV2 {
-  private SingletonV2() {
-  }
-
-  private volatile static SingletonV2 instance;
-
-  public static SingletonV2 getInstance() {
-    if(instance == null) {
-      synchronized (SingletonV2.class) {
-        if(instance == null) {
-          instance = new SingletonV2();
-        }
-      }
+    private SingletonV2() {
     }
-    return instance;
-  }
+
+    private volatile static SingletonV2 instance;
+
+    public static SingletonV2 getInstance() {
+        if (instance == null) {
+            synchronized (SingletonV2.class) {
+                if (instance == null) {
+                    instance = new SingletonV2();
+                }
+            }
+        }
+        return instance;
+    }
 }

@@ -5,7 +5,7 @@ import java.math.BigDecimal;
 /**
  * @author zhouyang.zhou. 2017.08.14.16.
  */
-public class ChainMain {
+public class ChainBootStrap {
 
     public static void main(String[] args) {
         Applicant applicant = Applicant.builder()
@@ -15,8 +15,7 @@ public class ChainMain {
                 .build();
 
         ApprovalHandler tlApprovalHandler = new TLApprovalHandler();
-        ManagerApprovalHandler managerApprovalHandler = new ManagerApprovalHandler();
-        tlApprovalHandler.setNextApprovalHandler(managerApprovalHandler);
+        tlApprovalHandler.setNextApprovalHandler(new ManagerApprovalHandler());
         tlApprovalHandler.handle(applicant);
     }
 }

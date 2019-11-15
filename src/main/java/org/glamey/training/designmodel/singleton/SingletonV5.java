@@ -6,17 +6,17 @@ package org.glamey.training.designmodel.singleton;
  * @author zhouyang.zhou  2016/12/24.22.
  */
 public enum SingletonV5 {
-  INSTANCE;
+    INSTANCE;
 
-  SingletonV5() {
-  }
+    SingletonV5() {
+    }
 
-  /**
-   * 自定义需要创建的对象
-   *
-   * @return
-   */
-  public Object getInstance() {
-    return new Object();
-  }
+    /**
+     * 自定义需要创建的对象
+     *
+     * @return
+     */
+    public Object getInstance() {
+        return new Object();
+    }
 }
