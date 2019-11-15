@@ -168,18 +168,16 @@ public class BinarySearchTree<T extends Comparable<? super T>> {
 
     /**
      * 深度遍历优先 DFS
-     *
+     * <p>
      * 前序遍历
-     *
+     * <p>
      * (1) 访问根结点；
      * (2) 先序遍历左子树；
      * (3) 先序遍历右子树。
+     *
      * @return
      */
     public void dfs_preOrder() {
-        if (isEmpty()) {
-            return ;
-        }
         preOrder(root);
     }
 
@@ -197,9 +195,6 @@ public class BinarySearchTree<T extends Comparable<? super T>> {
      * (3) 中序遍历右子树。
      */
     public void dfs_inOrder() {
-        if (isEmpty()) {
-            return;
-        }
         inOrder(root);
     }
 
@@ -217,9 +212,6 @@ public class BinarySearchTree<T extends Comparable<? super T>> {
      * (3) 访问根结点。
      */
     public void dfs_postOrder() {
-        if (isEmpty()) {
-            return;
-        }
         postOrder(root);
     }
 
@@ -250,8 +242,8 @@ public class BinarySearchTree<T extends Comparable<? super T>> {
 
 
     /**
-     *       10
-     *   6       12
+     * 10
+     * 6       12
      * 2  7    11  14
      *
      * @param args
@@ -263,9 +255,12 @@ public class BinarySearchTree<T extends Comparable<? super T>> {
         for (Integer integer : list) {
             tree.insert(integer);
         }
+
+        // 广度遍历优先 BFS
         List<List<Integer>> lists = tree.bfs();
         System.out.println(lists); //[[10], [6, 12], [2, 7, 11, 14]]
 
+        // DFS 深度遍历优先
         tree.dfs_preOrder();
         tree.dfs_inOrder();
         tree.dfs_postOrder();
