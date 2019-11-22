@@ -158,11 +158,19 @@
             <version>4.1.3</version>
         </dependency>
 
-<!--        java lang tools for java 8-->
+        <!-- java lang tools for java 8-->
         <dependency>
             <groupId>io.vavr</groupId>
             <artifactId>vavr</artifactId>
             <version>0.9.3</version>
+        </dependency>
+
+
+        <!--redisson-->
+        <dependency>
+            <groupId>org.redisson</groupId>
+            <artifactId>redisson</artifactId>
+            <version>3.11.5</version>
         </dependency>
 
     </dependencies>
