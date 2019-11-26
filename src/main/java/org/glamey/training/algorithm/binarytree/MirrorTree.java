@@ -1,7 +1,5 @@
 package org.glamey.training.algorithm.binarytree;
 
-import com.google.common.collect.Lists;
-
 /**
  * 二叉树的镜像
  *
@@ -32,13 +30,11 @@ public class MirrorTree {
 
 
     public static void main(String[] args) {
-        BinarySearchTree<Integer> binarySearchTree = new BinarySearchTree<>(Lists.newArrayList(10, 6, 12, 2, 7, 11, 14));
-        BinaryNode<Integer> tree = binarySearchTree.getRoot();
-        System.out.println(binarySearchTree.bfs());
+        BinaryNode<Integer> tree = BinaryNodeHelper.build();
+        System.out.println(LoopTree.bfs(tree));
 
         BinaryNode<Integer> mirrorTree = mirrorProcess(tree);
-        binarySearchTree.make(mirrorTree);
-        System.out.println(binarySearchTree.bfs());
+        System.out.println(LoopTree.bfs(mirrorTree));
 
 
     }

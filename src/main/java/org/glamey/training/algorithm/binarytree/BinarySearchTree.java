@@ -1,11 +1,6 @@
 package org.glamey.training.algorithm.binarytree;
 
-import com.google.common.collect.Lists;
-
-import java.util.ArrayList;
-import java.util.LinkedList;
 import java.util.List;
-import java.util.Queue;
 
 /**
  * 二叉搜索树工具包
@@ -178,36 +173,6 @@ public class BinarySearchTree<T extends Comparable<? super T>> {
         return node;
     }
 
-    /**
-     * 广度遍历优先 BFS
-     * <p>
-     *
-     * @return
-     */
-    public List<List<T>> bfs() {
-        if (isEmpty()) {
-            return new ArrayList<>();
-        }
-        List<List<T>> list = new ArrayList<>();
-        List<T> subList;
-        Queue<BinaryNode<T>> q = new LinkedList<>();
-        q.offer(root);
-
-        while (!q.isEmpty()) {
-            subList = new ArrayList<>();
-            int size = q.size();
-            for (int i = 0; i < size; i++) {
-                BinaryNode<T> node = q.poll();
-                subList.add(node.element);
-                if (node.left != null)
-                    q.offer(node.left);
-                if (node.right != null)
-                    q.offer(node.right);
-            }
-            list.add(subList);
-        }
-        return list;
-    }
 
     /**
      * 深度遍历优先 DFS
@@ -275,14 +240,6 @@ public class BinarySearchTree<T extends Comparable<? super T>> {
      * @param args
      */
     public static void main(String[] args) {
-        BinarySearchTree<Integer> tree = new BinarySearchTree<>(Lists.newArrayList(10, 6, 12, 2, 7, 11, 14));
-        // 广度遍历优先 BFS
-        System.out.println(tree.bfs()); //[[10], [6, 12], [2, 7, 11, 14]]
-
-        tree.remove(6);
-        System.out.println(tree.bfs());//[[10], [7, 12], [2, 11, 14]]
-
-
 /*
         // DFS 深度遍历优先
         tree.dfs_preOrder();

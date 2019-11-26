@@ -55,15 +55,13 @@ public class SubTree {
 
     public static void main(String[] args) {
 
-        BinarySearchTree<Integer> sourceBinaryTree = new BinarySearchTree<>(Lists.newArrayList(10, 6, 12, 2, 7, 11, 14));
-        BinaryNode<Integer> source = sourceBinaryTree.getRoot();
-        System.out.println(sourceBinaryTree.bfs());
+        BinaryNode<Integer> sourceTree = BinaryNodeHelper.build(Lists.newArrayList(10, 6, 12, 2, 7, 11, 14));
+        System.out.println(LoopTree.bfs(sourceTree));
 
-        BinarySearchTree<Integer> subBinaryTree = new BinarySearchTree<>(Lists.newArrayList(10, 6, 12));
-        BinaryNode<Integer> subTree = subBinaryTree.getRoot();
-        System.out.println(sourceBinaryTree.bfs());
+        BinaryNode<Integer> subTree = BinaryNodeHelper.build(Lists.newArrayList(10, 6, 12));
+        System.out.println(LoopTree.bfs(subTree));
 
-        boolean isSubTree = isSubTree(subTree, source);
+        boolean isSubTree = isSubTree(subTree, sourceTree);
         System.out.println(isSubTree);
 
     }
