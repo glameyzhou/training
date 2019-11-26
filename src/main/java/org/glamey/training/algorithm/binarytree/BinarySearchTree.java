@@ -8,7 +8,7 @@ import java.util.List;
 import java.util.Queue;
 
 /**
- * 二叉搜索树
+ * 二叉搜索树工具包
  * <p>
  * BinarySearchTree
  *
@@ -18,8 +18,51 @@ public class BinarySearchTree<T extends Comparable<? super T>> {
 
     private BinaryNode<T> root;
 
+    public BinaryNode<T> getRoot() {
+        return root;
+    }
+
+    public BinarySearchTree() {
+    }
+
+
+    /**
+     * 构建一棵二叉树
+     *
+     * @param array
+     */
+    public BinarySearchTree(T[] array) {
+        if (array != null) {
+            for (T t : array) {
+                insert(t);
+            }
+        }
+    }
+
+    /**
+     * 构建一棵二叉树
+     *
+     * @param array
+     */
+    public BinarySearchTree(List<T> array) {
+        if (!array.isEmpty()) {
+            for (T t : array) {
+                insert(t);
+            }
+        }
+    }
+
     public void makeEmpty() {
         this.root = null;
+    }
+
+    /**
+     * 重置一棵二叉树
+     *
+     * @param tree
+     */
+    public void make(BinaryNode<T> tree) {
+        this.root = tree;
     }
 
     public boolean isEmpty() {
@@ -224,23 +267,6 @@ public class BinarySearchTree<T extends Comparable<? super T>> {
     }
 
 
-    private static class BinaryNode<T> {
-        private T element;
-        private BinaryNode<T> left;
-        private BinaryNode<T> right;
-
-        public BinaryNode(T element, BinaryNode<T> left, BinaryNode<T> right) {
-            this.element = element;
-            this.left = left;
-            this.right = right;
-        }
-
-        public BinaryNode(T element) {
-            this(element, null, null);
-        }
-    }
-
-
     /**
      * 10
      * 6       12
@@ -249,17 +275,15 @@ public class BinarySearchTree<T extends Comparable<? super T>> {
      * @param args
      */
     public static void main(String[] args) {
-
-        BinarySearchTree<Integer> tree = new BinarySearchTree<>();
-        List<Integer> list = Lists.newArrayList(10, 6, 12, 2, 7, 11, 14);
-        for (Integer integer : list) {
-            tree.insert(integer);
-        }
-
+        BinarySearchTree<Integer> tree = new BinarySearchTree<>(Lists.newArrayList(10, 6, 12, 2, 7, 11, 14));
         // 广度遍历优先 BFS
-        List<List<Integer>> lists = tree.bfs();
-        System.out.println(lists); //[[10], [6, 12], [2, 7, 11, 14]]
+        System.out.println(tree.bfs()); //[[10], [6, 12], [2, 7, 11, 14]]
 
+        tree.remove(6);
+        System.out.println(tree.bfs());//[[10], [7, 12], [2, 11, 14]]
+
+
+/*
         // DFS 深度遍历优先
         tree.dfs_preOrder();
         tree.dfs_inOrder();
@@ -274,7 +298,7 @@ public class BinarySearchTree<T extends Comparable<? super T>> {
         System.out.println("tree min -> " + tree.findMin()); // 2
 
         tree.remove(6);
-        System.out.println(tree.bfs()); //[[10], [7, 12], [2, 11, 14]]
+        System.out.println(tree.bfs()); //[[10], [7, 12], [2, 11, 14]]*/
 
     }
 }
