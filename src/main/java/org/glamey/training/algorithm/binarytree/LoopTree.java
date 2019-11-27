@@ -8,6 +8,8 @@ import java.util.Queue;
 import java.util.Stack;
 
 /**
+ * https://www.jianshu.com/p/456af5480cee
+ *
  * @author yang.zhou 2019.11.26.10
  */
 public class LoopTree {
@@ -86,7 +88,7 @@ public class LoopTree {
                 stack.push(node);
                 node = node.left;
             }
-            if (!stack.isEmpty()){
+            if (!stack.isEmpty()) {
                 BinaryNode<Integer> pop = stack.pop();
                 node = pop.right;
             }
@@ -115,7 +117,7 @@ public class LoopTree {
                 stack.push(node);
                 node = node.left;
             }
-            if (!stack.isEmpty()){
+            if (!stack.isEmpty()) {
                 BinaryNode<Integer> pop = stack.pop();
                 System.out.print(pop.element + " ");
                 node = pop.right;
@@ -125,6 +127,7 @@ public class LoopTree {
 
     /**
      * 中序顺序：左->右->根
+     *
      * @param tree
      */
     public static void postOrder(BinaryNode<Integer> tree) {
