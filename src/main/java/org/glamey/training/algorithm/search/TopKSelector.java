@@ -4,7 +4,6 @@ import com.google.common.base.Preconditions;
 import com.google.common.collect.Lists;
 
 import java.util.Arrays;
-import java.util.Comparator;
 import java.util.List;
 import java.util.PriorityQueue;
 
@@ -29,25 +28,9 @@ public class TopKSelector {
 
     public static void main(String[] args) {
         List<Integer> source = Lists.newArrayList(10, 8, 3, 20, 100, 1, 77, 10);
-//        System.out.println("source : " + source);
-//        System.out.println("最大 TOP K ：" + maxTopK(source, 3));
-//        System.out.println("最小 TOP K ：" + minTopK(source, 3));
-        top(source);
-    }
-
-
-    public static void top(List<Integer> source) {
-        /**
-         * 1 10 3 10 100 8 77 20
-         * 100 20 77 10 10 1 3 8
-         */
-        PriorityQueue<Integer> queue = new PriorityQueue<>(source.size(), Comparator.reverseOrder());
-        for (Integer integer : source) {
-            queue.add(integer);
-        }
-
-        Integer[] integers = queue.toArray(new Integer[queue.size()]);
-        Arrays.stream(integers).forEach(i -> System.out.print(i + " "));
+        System.out.println("source : " + source);
+        System.out.println("最大 TOP K ：" + maxTopK(source, 3));
+        System.out.println("最小 TOP K ：" + minTopK(source, 3));
     }
 
 
@@ -57,7 +40,8 @@ public class TopKSelector {
     }
 
     /**
-     * 查询数组中最大的K个值，使用小顶堆
+     * 小顶堆
+     * 查询数组中最大的K个值
      * <p>
      * Min Heap
      *
@@ -70,28 +54,27 @@ public class TopKSelector {
         PriorityQueue<Integer> queue = new PriorityQueue<>(k);
         for (Integer i : source) {
             if (queue.size() < k) {
-                queue.offer(i);
+                queue.add(i);
             } else {
                 int min = queue.peek();
-                if (min < i) {
+                if (i > min) {
                     queue.poll();
-                    queue.offer(i);
+                    queue.add(i);
                 }
             }
         }
-        System.out.println(Arrays.deepToString(queue.toArray()));
-        return Lists.newArrayList();
-        /*//需要将结果的顺序颠倒下
+        //小顶堆，需要把数据颠倒过来
         Integer[] integers = new Integer[queue.size()];
-        int size = queue.size() - 1;
-        while (size >= 0) {
-            integers[size--] = queue.poll();
+        for (int i = integers.length - 1; i >= 0; i--) {
+            integers[i] = queue.poll();
         }
-        return Arrays.asList(integers);*/
+        return Arrays.asList(integers);
     }
 
     /**
-     * 查询数组中的最小的K个值，使用大顶堆
+     * 使用大顶堆
+     * <p>
+     * 查询数组中的最小的K个值
      * <p>
      * Max Heap
      *
@@ -104,19 +87,20 @@ public class TopKSelector {
         PriorityQueue<Integer> queue = new PriorityQueue<>(k);
         for (Integer i : source) {
             if (queue.size() < k) {
-                queue.offer(i);
+                queue.add(i);
             } else {
                 Integer max = queue.peek();
-                if (max > i) {
+                if (i < max) {
                     queue.poll();
-                    queue.offer(i);
+                    queue.add(i);
                 }
             }
         }
-        /*//默认队列是自然排序，直接输出即可
-        Integer[] integers = queue.toArray(new Integer[queue.size()]);
-        return Arrays.asList(integers);*/
-        System.out.println(Arrays.deepToString(queue.toArray()));
-        return Lists.newArrayList();
+        //默认队列是自然排序，直接输出即可
+        Integer[] integers = new Integer[queue.size()];
+        for (int i = 0; i < integers.length; i++) {
+            integers[i] = queue.poll();
+        }
+        return Arrays.asList(integers);
     }
 }
