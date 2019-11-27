@@ -8,8 +8,8 @@ import java.util.PriorityQueue;
 
 /**
  * https://leetcode-cn.com/problems/find-median-from-data-stream/
- *
- *
+ * <p>
+ * <p>
  * 数据流中，查询中位数：如果是偶数个，返回中间的两个平均数；反之，返回中间的那个
  * <p>
  * 思路：通过大顶堆和小顶堆两个数据结果搞定
@@ -21,7 +21,7 @@ import java.util.PriorityQueue;
  * 步骤：
  * 1、两个堆元素之和为偶数（刚开始的时候），为了让大顶堆多一个元素，必须是：大顶堆 -> 小顶堆 -> 大顶堆
  * 2、两个堆元素之和为奇数，此时小顶堆元素必须多一个元素，这样大顶堆、小顶堆的元素个数才相同，采用：大顶堆 -> 小顶堆
- *
+ * <p>
  * 无论元素之和是偶数还是奇数，都必须是 大顶堆 -> 小顶堆，而当加入新元素后，元素总数变成奇数个后，把小顶堆的顶元素给大顶堆即可。
  * <p>
  * <p>
@@ -52,14 +52,6 @@ public class MedianFinder {
         if ((count & 1) != 0) {
             maxHeap.add(minHeap.poll());
         }
-
-        /*maxHeap.add(num);
-        minHeap.add(maxHeap.poll());
-
-        // 维持大小
-        if (maxHeap.size() < minHeap.size()) {
-            maxHeap.add(minHeap.poll());
-        }*/
     }
 
     /**
