@@ -96,7 +96,7 @@ public class TopKSelector {
                 }
             }
         }
-        //默认队列是自然排序，直接输出即可
+        //默认队列是自然排序
         Integer[] integers = new Integer[queue.size()];
         for (int i = 0; i < integers.length; i++) {
             integers[i] = queue.poll();
