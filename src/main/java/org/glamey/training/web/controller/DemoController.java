@@ -3,6 +3,7 @@ package org.glamey.training.web.controller;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.ResponseBody;
 
 /**
  * @author zhouyang.zhou.
@@ -13,8 +14,9 @@ import org.springframework.web.bind.annotation.RequestMethod;
 @RequestMapping("/demo")
 public class DemoController {
 
-  @RequestMapping(value = "/index", method = RequestMethod.GET)
-  public String index() {
-    return "this is the first demo page.";
-  }
+    @RequestMapping(value = "/index", method = RequestMethod.GET)
+    @ResponseBody
+    public String index() {
+        return "this is the first demo page.";
+    }
 }
