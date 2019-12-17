@@ -1,5 +1,7 @@
 package org.glamey.training.concurrent.id;
 
+import org.apache.commons.lang3.time.DateFormatUtils;
+
 /**
  * 简单的 SnowFlake 算法，性能是有很大问题的。需要做优化
  *
@@ -84,10 +86,18 @@ public class SnowFlake {
     }
 
 
+    public static final long idToTimeStamp(long id) {
+        return (id >> 22) + START_TIMESTAMP;
+    }
+
+
     public static void main(String[] args) {
         SnowFlake snowFlake = new SnowFlake(10, 10);
+        long id;
         for (int i = 0; i < 100; i++) {
-            System.out.println(snowFlake.nextId());
+            id = snowFlake.nextId();
+            String format = DateFormatUtils.format(idToTimeStamp(id), "yyyy-MM-dd HH:mm:ss:SSS");
+            System.out.println(id + "  " + format);
         }
     }
 }
