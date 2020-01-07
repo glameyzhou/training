@@ -1,32 +1,64 @@
 package org.glamey.training.algorithm.search;
 
+import java.util.Arrays;
+
 /**
- * 给定一个长度为 n 的整数数组 nums，数组中所有的数字都在 0∼n−1 的范围内。数组中某些数字是重复的，但不知道有几个数字重复了，也不知道每个数字重复了几次。请找出数组中任意一个重复的数字。
- * 注意：如果某些数字不在 0∼n−1 的范围内，或数组中不包含重复数字，则返回 -1；
- * 样例
- * 给定 nums = [2, 3, 5, 4, 3, 2, 6, 7]。
- * 返回 2 或 3。
  *
+ * 给定一个包含 n + 1 个整数的数组 nums，其数字都在 1 到 n 之间（包括 1 和 n），可知至少存在一个重复的整数。假设只有一个重复的整数，找出这个重复的数。
+ *
+ * 示例 1:
+ *
+ * 输入: [1,3,4,2,2]
+ * 输出: 2
+ * 示例 2:
+ *
+ * 输入: [3,1,3,4,2]
+ * 输出: 3
+ * 说明：
+ *
+ * 不能更改原数组（假设数组是只读的）。
+ * 只能使用额外的 O(1) 的空间。
+ * 时间复杂度小于 O(n2) 。
+ * 数组中只有一个重复的数字，但它可能不止重复出现一次。
+ *
+ * 来源：力扣（LeetCode）
+ * 链接：https://leetcode-cn.com/problems/find-the-duplicate-number
+ * 著作权归领扣网络所有。商业转载请联系官方授权，非商业转载请注明出处。
  * @author yang.zhou 2019.12.16.14
  */
 public class FindDuplicateNumber {
 
     public static void main(String[] args) {
-        int[] array = {2, 3, 5, 4, 3, 2, 6, 7};
+        int[] array = {3, 2, 2, 1, 4, 5, 6, 7};
         System.out.println(findDuplicateNumber(array));
     }
 
     /**
      * 通过使用二分查找来实现
-     *
-     * @param array
+     * 遍历的不是下标，而是下标上面的数字
+     * @param nums
      * @return
      */
-    private static int findDuplicateNumber(int[] array) {
-        int len = array.length, low = 0, high = len - 1;
-        while (low <= high) {
-            int mid = (high + low) >>> 1;
+    private static int findDuplicateNumber(int[] nums) {
+        Arrays.sort(nums);
+        int len = nums.length;
+        int left = 1;
+        int right = len - 1;
+        while (left < right) {
+            // int mid = left + (right - left) / 2;
+            int mid = (left + right) >>> 1;
+            int counter = 0;
+            for (int num : nums) {
+                if (num <= mid) {
+                    counter += 1;
+                }
+            }
+            if (counter > mid) {
+                right = mid;
+            } else {
+                left = mid + 1;
+            }
         }
-        return -1;
+        return left;
     }
 }
