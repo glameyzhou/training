@@ -1,7 +1,5 @@
 package org.glamey.training.algorithm.leetcode.greedy;
 
-import lombok.val;
-
 /**
  * https://leetcode-cn.com/problems/best-time-to-buy-and-sell-stock/
  * <p>

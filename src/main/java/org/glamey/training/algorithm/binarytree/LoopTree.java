@@ -15,6 +15,8 @@ import java.util.Stack;
 public class LoopTree {
 
     public static void main(String[] args) {
+        int hash = 0x61c88647;
+        System.out.println(hash);
         BinaryNode<Integer> tree = BinaryNodeHelper.build();
         System.out.println(bfs(tree));
 
