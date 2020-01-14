@@ -30,13 +30,17 @@ public class BuySellStock_1 {
         System.out.println(new BuySellStock_1().maxProfit_easy(new int[]{7, 1, 5, 3, 6, 4}));
         System.out.println(new BuySellStock_1().maxProfit_complex(new int[]{7, 1, 5, 3, 6, 4}));
 
-        System.out.println(new BuySellStock_1().maxProfit_easy(new int[]{7,6,4,3,1}));
-        System.out.println(new BuySellStock_1().maxProfit_complex(new int[]{7,6,4,3,1}));
+        System.out.println(new BuySellStock_1().maxProfit_easy(new int[]{7, 6, 4, 3, 1}));
+        System.out.println(new BuySellStock_1().maxProfit_complex(new int[]{7, 6, 4, 3, 1}));
 
 
     }
 
-
+    /**
+     * 时间复杂度 O(n)
+     * @param prices
+     * @return
+     */
     public int maxProfit_easy(int[] prices) {
         int maxProfit = 0, minPrice = Integer.MAX_VALUE;
         for (int i = 0; i < prices.length; i++) {
@@ -49,6 +53,11 @@ public class BuySellStock_1 {
         return maxProfit;
     }
 
+    /**
+     * 时间复杂度 O(n^2)
+     * @param prices
+     * @return
+     */
     public int maxProfit_complex(int[] prices) {
         int maxProfit = 0;
         for (int i = 0; i < prices.length; i++) {

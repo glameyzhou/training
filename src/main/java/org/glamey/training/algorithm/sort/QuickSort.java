@@ -1,5 +1,7 @@
 package org.glamey.training.algorithm.sort;
 
+import java.util.Arrays;
+
 /**
  * 快速排序
  * 从数列中挑出一个元素，称为"基准"（pivot），
@@ -12,50 +14,90 @@ public class QuickSort {
 
     public static void main(String[] args) {
         int[] numbers = {10, 0, 29, 9, 7, 90, 58, 10, 88, 100};
-        sort(numbers, 0, numbers.length - 1);
+        System.out.println(String.format("[双指针]前：%s", Arrays.toString(numbers)));
 
-        for (int number : numbers) {
-            System.out.println(number);
+        doublePointSort(numbers, 0, numbers.length - 1);
+        System.out.println(String.format("[双指针]后：%s", Arrays.toString(numbers)));
+
+        ShuffleArray.shuffle(numbers);
+        System.out.println(String.format("[挖坑]前：%s", Arrays.toString(numbers)));
+        diggerHole(numbers, 0, numbers.length - 1);
+        System.out.println(String.format("[挖坑]后：%s", Arrays.toString(numbers)));
+    }
+
+
+    private static void diggerHole(int[] nums, int low, int high) {
+        if (low <= high) {
+            int midIndex = getDiggerHoldMidIndex(nums, low, high);
+            diggerHole(nums, low, midIndex - 1);
+            diggerHole(nums, midIndex + 1, high);
         }
     }
 
-    private static void sort(int[] numbers, int start, int end) {
+    private static int getDiggerHoldMidIndex(int[] nums, int low, int high) {
+        //默认最左侧的数据作为基准
+        int baseVal = nums[low];
+        nums[low] = -1;
 
-        if (start >= end) {
+        while (low < high) {
+
+            while (low < high && nums[high] >= baseVal) {
+                high--;
+            }
+            nums[low] = nums[high];
+            nums[high] = -1;
+
+
+            while (low < high && nums[low] <= baseVal) {
+                low++;
+            }
+            nums[high] = nums[low];
+            nums[low] = -1;
+        }
+
+        if (low == high) {
+            nums[low] = baseVal;
+        }
+        return low;
+    }
+
+    private static void doublePointSort(int[] nums, int head, int tail) {
+        if (head >= tail || nums == null || nums.length <= 1) {
             return;
         }
 
-        int key = numbers[end];
-        int left = start, right = end - 1;
-        while (left < right) {
+        int i = head, j = tail, p = (head + tail) >> 1, pv = nums[p];
 
-            while (numbers[left] <= key && left < right) {
-                left++;
+        while (i <= j) {
+
+            while (nums[i] < pv) {
+                ++i;
             }
 
-            while (numbers[right] >= key && left < right) {
-                right--;
+            while (nums[j] > pv) {
+                --j;
             }
 
-            swap(numbers, left, right);
+            if (i < j) {
+                swap(nums, i, j);
+                ++i;
+                --j;
+            } else if (i == j) {
+                ++i;
+            }
         }
-
-        if (numbers[left] >= numbers[end]) {
-            swap(numbers, left, end);
-        } else {
-            left++;
-        }
-
-        sort(numbers, start, left - 1);
-        sort(numbers, left + 1, end);
+        doublePointSort(nums, head, j);
+        doublePointSort(nums, i, tail);
     }
+
 
     private static void swap(int[] numbers, int left, int right) {
         if (left == right) {
             return;
         }
-        int tmp = numbers[left];
-        numbers[left] = numbers[right];
-        numbers[right] = tmp;
+
+        numbers[left] ^= numbers[right];
+        numbers[right] ^= numbers[left];
+        numbers[left] ^= numbers[right];
     }
 }
