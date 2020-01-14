@@ -173,6 +173,14 @@
             <version>3.11.5</version>
         </dependency>
 
+        <!-- https://mvnrepository.com/artifact/com.google.auto.service/auto-service -->
+        <dependency>
+            <groupId>com.google.auto.service</groupId>
+            <artifactId>auto-service</artifactId>
+            <version>1.0-rc4</version>
+        </dependency>
+
+
     </dependencies>
 
 
@@ -188,6 +196,10 @@
                     <source>${jdk.version}</source>
                     <target>${jdk.version}</target>
                     <encoding>${maven.compiler.encoding}</encoding>
+                    <generatedSourcesDirectory>${project.build.directory}/generated-sources</generatedSourcesDirectory>
+                    <annotationProcessors>
+                        <annotationProcessor>org.glamey.training.jvm.ast.BuilderProcessor</annotationProcessor>
+                    </annotationProcessors>
                 </configuration>
             </plugin>
 
