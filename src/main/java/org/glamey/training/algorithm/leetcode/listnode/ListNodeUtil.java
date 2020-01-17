@@ -38,10 +38,13 @@ public class ListNodeUtil {
 
     public static void print(ListNode head) {
         ListNode tmp = head;
+        StringBuilder builder = new StringBuilder();
         while (tmp != null) {
-            System.out.println(tmp.val);
+            builder.append(tmp.val).append(" ,");
             tmp = tmp.next;
         }
+        String ret = builder.length() > 0 ? builder.deleteCharAt(builder.length() - 1).toString() : "";
+        System.out.println(ret);
     }
 
 

@@ -11,14 +11,21 @@ public class ListNodeMergerTest {
     @Before
     public void before() {
         n1 = ListNodeUtil.create(new int[]{1, 3, 5, 7});
-        n2 = ListNodeUtil.create(new int[]{2, 4, 6, 8});
-        n3 = ListNodeUtil.create(new int[]{1, 2, 3, 4, 5, 6, 7, 8});
+        n2 = ListNodeUtil.create(new int[]{2, 4});
+        n3 = ListNodeUtil.create(new int[]{1, 2, 3, 4, 5, 7});
     }
 
     @After
     public void after() {
         n1 = n2 = n3 = null;
     }
+
+    @Test
+    public void testMergeByLoopV2() {
+        ListNode listNode = ListNodeMerger.mergeByLoopV2(n1, n2);
+        ListNodeUtil.print(listNode);
+    }
+
 
     @Test
     public void mergeByRecursive() {

@@ -196,10 +196,10 @@
                     <source>${jdk.version}</source>
                     <target>${jdk.version}</target>
                     <encoding>${maven.compiler.encoding}</encoding>
-                    <generatedSourcesDirectory>${project.build.directory}/generated-sources</generatedSourcesDirectory>
+                    <!--<generatedSourcesDirectory>${project.build.directory}/generated-sources</generatedSourcesDirectory>
                     <annotationProcessors>
                         <annotationProcessor>org.glamey.training.jvm.ast.BuilderProcessor</annotationProcessor>
-                    </annotationProcessors>
+                    </annotationProcessors>-->
                 </configuration>
             </plugin>
 
