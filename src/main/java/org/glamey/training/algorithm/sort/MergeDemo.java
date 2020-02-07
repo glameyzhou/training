@@ -1,5 +1,7 @@
 package org.glamey.training.algorithm.sort;
 
+import java.util.Arrays;
+
 /**
  * 将两个递减的数组合并为一个大的递减数组 <p>
  *
@@ -12,13 +14,10 @@ public class MergeDemo {
         int[] n = {10, 8, 3, 1};
 
         System.out.println("---------------------merge and sort-------------------------------");
-        mergeAndSort(m, n);
+        System.out.println(Arrays.toString(mergeAndSort(m, n)));
 
         System.out.println("---------------------merge-------------------------------");
-        merge(m, n);
-        for (int i : m) {
-            System.out.println(i);
-        }
+        System.out.println(Arrays.toString(merge(m, n)));
     }
 
     /**
@@ -27,7 +26,7 @@ public class MergeDemo {
      * @param m
      * @param n
      */
-    private static void mergeAndSort(int[] m, int[] n) {
+    private static int[] mergeAndSort(int[] m, int[] n) {
         int mLen = m.length, nLen = n.length, kLen = mLen + nLen;
         int[] k = new int[kLen];
 
@@ -35,21 +34,30 @@ public class MergeDemo {
         System.arraycopy(n, 0, k, mLen, nLen);
 
         SelectionSort.sort(k);
-
-        for (int i : k) {
-            System.out.println(i);
-        }
+        return k;
     }
 
     /**
      * 从大到小排序
      * 合并、排序同时进行
-     * <p>
-     * 策略：双指针，原地排序
      *
-     * @param m
-     * @param n
+     * @param nums1
+     * @param nums2
      */
-    private static void merge(int[] m, int[] n) {
+    private static int[] merge(int[] nums1, int[] nums2) {
+        int l1 = nums1.length, l2 = nums2.length;
+        int i = 0, j = 0, m = 0;
+        int[] ret = new int[l1 + l2];
+        while (i < l1 && j < l2) {
+            ret[m++] = nums1[i] > nums2[j] ? nums1[i++] : nums2[j++];
+        }
+
+        if (i < l1) {
+            System.arraycopy(nums1, i, ret, m, l1 - i);
+        }
+        if (j < l2) {
+            System.arraycopy(nums2, j, ret, m, l2 - j);
+        }
+        return ret;
     }
 }

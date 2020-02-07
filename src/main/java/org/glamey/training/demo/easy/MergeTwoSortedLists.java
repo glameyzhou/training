@@ -1,5 +1,8 @@
-package org.glamey.training.demo;
+package org.glamey.training.demo.easy;
 
+
+import org.glamey.training.demo.ListNode;
+import org.glamey.training.demo.ListNodeUtils;
 
 /**
  * @author yang.zhou 2020.01.30.11
