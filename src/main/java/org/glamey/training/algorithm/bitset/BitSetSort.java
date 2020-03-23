@@ -7,7 +7,7 @@ import java.util.BitSet;
  */
 public class BitSetSort {
   public static void main(String[] args) {
-    int[] array = new int[] {423, 700, 9999, 2323, 356, 6400, 1};
+    int[] array = new int[]{423, 700, 9999, 2323, 356, 6400, 1};
     int len = array.length;
 
     BitSet bitSet = new BitSet(2 << 13);
