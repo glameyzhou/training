@@ -22,8 +22,25 @@ public class SubTree {
         if (subTree == null || source == null) {
             return false;
         }
-        return isSubTreeProcess(subTree, source);
+        boolean sameTree = isSameTree(subTree, source);
+        if (sameTree) {
+            return true;
+        }
+        return isSubTree(subTree, source.left) || isSubTree(subTree, source.right);
     }
+
+    private static boolean isSameTree(BinaryNode<Integer> subTree, BinaryNode<Integer> source) {
+        if (source == null || subTree == null) {
+            return true;
+        }
+
+        if (subTree.element == source.element) {
+            return isSameTree(subTree.left, source.left) && isSameTree(subTree.right, source.right);
+        }
+        return false;
+    }
+
+
 
     private static boolean isSubTreeProcess(BinaryNode<Integer> subTree, BinaryNode<Integer> source) {
         if (source == null) {
@@ -58,7 +75,7 @@ public class SubTree {
         BinaryNode<Integer> sourceTree = BinaryNodeHelper.build(Lists.newArrayList(10, 6, 12, 2, 7, 11, 14));
         System.out.println(LoopTree.bfs(sourceTree));
 
-        BinaryNode<Integer> subTree = BinaryNodeHelper.build(Lists.newArrayList(10, 6, 12));
+        BinaryNode<Integer> subTree = BinaryNodeHelper.build(Lists.newArrayList(6, 2, 7));
         System.out.println(LoopTree.bfs(subTree));
 
         boolean isSubTree = isSubTree(subTree, sourceTree);

@@ -1,5 +1,6 @@
 package org.glamey.training.algorithm.leetcode;
 
+import com.google.common.collect.Lists;
 import com.google.common.primitives.Ints;
 
 import java.util.*;
@@ -33,6 +34,34 @@ public class TopKFrequentElement {
         int k = 2;
         System.out.println(topKFrequent(nums, k));
         System.out.println(topKFrequent_(nums, k));
+        System.out.println(topK(nums, k));
+    }
+
+    public static List<Integer> topK(int[] nums, int k) {
+        HashMap<Integer, Integer> map = new HashMap<>();
+        for (int num : nums) {
+            map.put(num, map.getOrDefault(num, 0) + 1);
+        }
+
+        PriorityQueue<Integer> queue = new PriorityQueue<>(new Comparator<Integer>() {
+            @Override
+            public int compare(Integer o1, Integer o2) {
+                return map.get(o1) - map.get(02);
+            }
+        });
+        for (Integer key : map.keySet()) {
+            queue.offer(key);
+            if (queue.size() > k) {
+                queue.poll();
+            }
+        }
+
+        int[] ret = new int[k];
+        for (int i = k - 1; i >=0 ; i--) {
+            ret[i] = queue.poll();
+        }
+
+        return Ints.asList(ret);
     }
 
     /**

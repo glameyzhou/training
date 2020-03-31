@@ -46,6 +46,8 @@ public class MissingNumber {
 
 
     /**
+     * 等差数列{an}的通项公式为：an=a1+(n-1)d。
+     * 前n项和公式为：Sn=n*a1+n(n-1)d/2或Sn=n(a1+an)/2 。
      * sum = (0 + nums.length) * n / 2
      * @param nums
      * @return

@@ -10,8 +10,42 @@ public class StringContains {
     public static void main(String[] args) {
 
         System.out.println(new StringContains().contains("ababc", "bc"));
-        System.out.println(new StringContains().contains("helloword1", "llow"));
+        System.out.println(new StringContains().con("helloword1", "llow"));
+        System.out.println(new StringContains().con("h", "h"));
     }
+
+
+    public boolean con(String source, String sub) {
+        if (source == null || sub == null) {
+            return false;
+        }
+
+        if (sub.length() > source.length()) {
+            return false;
+        }
+
+        char subFirstLetter = sub.charAt(0);
+
+        for (int i = 0; i < source.length(); i++) {
+
+
+            if (subFirstLetter != source.charAt(i) && i + sub.length() > source.length()) {
+                return false;
+            }
+
+
+            char[] subChar = source.substring(i + 1, i + sub.length()).toCharArray();
+            char[] target = sub.substring(1).toCharArray();
+
+            if (compareChars(subChar, target)) {
+                return true;
+            }
+        }
+
+        return false;
+    }
+
+
 
     /**
      * b是否包含在a中

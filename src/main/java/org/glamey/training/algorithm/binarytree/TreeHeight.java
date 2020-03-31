@@ -28,7 +28,7 @@ public class TreeHeight {
 
         int leftHeight = getHeight(tree.left);
         int rightHeight = getHeight(tree.right);
-        int height = leftHeight > rightHeight ? leftHeight : rightHeight;
-        return height + 1;
+        int height = Math.max(leftHeight, rightHeight) + 1;
+        return height;
     }
 }
