@@ -17,3 +17,6 @@ training.im
 training.iml
 /logs
 logs/
+
+agent/agent.iml
+agent/target
