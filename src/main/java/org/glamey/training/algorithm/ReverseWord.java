@@ -10,7 +10,9 @@ import java.util.Stack;
 public class ReverseWord {
 
     public static void main(String[] args) {
-        methodA();
+        String source = "hello world java";
+        String reverseWords = reverseWords(source);
+        System.out.println(reverseWords);
 
         int[] array = {0, 0, 1, 1, 2, 3, 3, 4, 5, 5};
         int len = removeDuplicate(array);
@@ -19,6 +21,12 @@ public class ReverseWord {
         }
     }
 
+
+    /**
+     * 删除重复数字，返回不重复的数组长度
+     * @param array 待删除的数组
+     * @return int  不重复的数组下标
+     */
     public static int removeDuplicate(int[] array) {
         int index = 0;
         for (int i = 1; i < array.length; i++) {
@@ -30,10 +38,9 @@ public class ReverseWord {
         return index;
     }
 
-    private static void methodA() {
-        String string = "hello world java";
+    private static String reverseWords(String source) {
         Stack<String> stack = new Stack<>();
-        char[] chars = string.toCharArray();
+        char[] chars = source.toCharArray();
         StringBuilder builder = new StringBuilder(20);
         for (char aChar : chars) {
             boolean whitespace = Character.isWhitespace(aChar);
@@ -46,10 +53,14 @@ public class ReverseWord {
                 builder.append(aChar);
             }
         }
-
+        if (builder .length() > 0) {
+            stack.push(builder.toString());
+            builder.setLength(0);
+        }
 
         while (!stack.isEmpty()) {
-            System.out.println(stack.pop());
+            builder.append(stack.pop()).append(" ");
         }
+        return builder.toString();
     }
 }
