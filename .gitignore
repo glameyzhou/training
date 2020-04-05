@@ -8,15 +8,11 @@
 *.war
 *.ear
 
-# virtual demo1Machine crash logs, see http://www.java.com/en/download/help/error_hotspot.xml
 hs_err_pid*
 .idea/
-/target
-practice.iml
-training.im
-training.iml
 /logs
 logs/
 
-agent/agent.iml
-agent/target
+*.iml
+*/*.iml
+*/target
