@@ -15,20 +15,18 @@ import java.util.concurrent.atomic.AtomicInteger;
  */
 public class WeightRoundRobbinLB implements LoadBalance {
 
-    private AtomicInteger count = new AtomicInteger(0);
+    private static final AtomicInteger COUNT = new AtomicInteger(0);
 
     private int getId() {
-        return count.incrementAndGet();
+        return COUNT.incrementAndGet();
     }
 
 
     @Override
     public String getServer() {
-        int total = ServerIp.WEIGHT_IP_MAP.values().stream().mapToInt(e -> e).sum();
-
+        int total = ServerIp.IP_WEIGHT_MAP.values().stream().mapToInt(e -> e).sum();
         int offset = getId() % total;
-
-        for (Map.Entry<String, Integer> entry : ServerIp.WEIGHT_IP_MAP.entrySet()) {
+        for (Map.Entry<String, Integer> entry : ServerIp.IP_WEIGHT_MAP.entrySet()) {
             if (offset <= entry.getValue()) {
                 return entry.getKey();
             }

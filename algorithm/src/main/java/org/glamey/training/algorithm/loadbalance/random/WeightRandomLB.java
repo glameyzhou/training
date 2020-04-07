@@ -5,6 +5,7 @@ import org.glamey.training.algorithm.loadbalance.domian.ServerIp;
 
 import java.util.Map;
 import java.util.Random;
+import java.util.concurrent.ThreadLocalRandom;
 
 /**
  * 加权随机算法
@@ -30,9 +31,9 @@ public class WeightRandomLB implements LoadBalance {
      */
     @Override
     public String getServer() {
-        Map<String, Integer> weightIpMap = ServerIp.WEIGHT_IP_MAP;
-        int total = ServerIp.WEIGHT_IP_MAP.values().stream().mapToInt(value -> value).sum();
-        int offset = new Random().nextInt(total);
+        Map<String, Integer> weightIpMap = ServerIp.IP_WEIGHT_MAP;
+        int total = ServerIp.IP_WEIGHT_MAP.values().stream().mapToInt(value -> value).sum();
+        int offset = ThreadLocalRandom.current().nextInt(total);
 
         for (Map.Entry<String, Integer> entry : weightIpMap.entrySet()) {
             if (offset <= entry.getValue()) {

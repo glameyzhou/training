@@ -13,6 +13,7 @@ import java.util.Map;
  * 是针对权重轮询的比较更平滑的一种算法
  * https://tenfy.cn/2018/11/12/smooth-weighted-round-robin/
  * https://www.fanhaobai.com/2018/12/load-balance-smooth-weighted-round-robin.html
+ * https://colobu.com/2016/12/04/smooth-weighted-round-robin-algorithm/
  *
  * 1、每个节点，用当前值+权重  currentWeight += weight
  * 2、找到当前权重值最大的Weight，即为返回的节点 weight.ip
@@ -39,7 +40,7 @@ public class SmoothWeightRoundRobbinLB implements LoadBalance {
     @Override
     public String getServer() {
         if (IP_WEIGHT_MAP.isEmpty()) {
-            for (Map.Entry<String, Integer> entry : ServerIp.WEIGHT_IP_MAP.entrySet()) {
+            for (Map.Entry<String, Integer> entry : ServerIp.IP_WEIGHT_MAP.entrySet()) {
                 IP_WEIGHT_MAP.put(entry.getKey(), new Weight(entry.getKey(), entry.getValue(), 0));
             }
         }
@@ -52,7 +53,6 @@ public class SmoothWeightRoundRobbinLB implements LoadBalance {
                 maxWeight = weight;
             }
         }
-
         maxWeight.setCurrentWeight(maxWeight.getCurrentWeight() - sumWeight);
         return maxWeight.getIp();
     }

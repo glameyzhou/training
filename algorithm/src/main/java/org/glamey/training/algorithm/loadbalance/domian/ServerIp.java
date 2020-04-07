@@ -6,15 +6,15 @@ import java.util.List;
 import java.util.Map;
 
 public class ServerIp {
-    public static final Map<String, Integer> WEIGHT_IP_MAP = new LinkedHashMap<>();
+    public static final Map<String, Integer> IP_WEIGHT_MAP = new LinkedHashMap<>();
     public static final List<String> IPS = new ArrayList<>();
 
     static {
-        WEIGHT_IP_MAP.put("192.168.0.1", 5);
-        WEIGHT_IP_MAP.put("192.168.0.2", 3);
-        WEIGHT_IP_MAP.put("192.168.0.3", 2);
+        IP_WEIGHT_MAP.put("192.168.0.1", 5);
+        IP_WEIGHT_MAP.put("192.168.0.2", 3);
+        IP_WEIGHT_MAP.put("192.168.0.3", 2);
 
-        IPS.addAll(WEIGHT_IP_MAP.keySet());
+        IPS.addAll(IP_WEIGHT_MAP.keySet());
 
     }
 }

@@ -4,7 +4,7 @@ package org.glamey.training.algorithm.loadbalance.random;
 import org.glamey.training.algorithm.loadbalance.LoadBalance;
 import org.glamey.training.algorithm.loadbalance.domian.ServerIp;
 
-import java.util.Random;
+import java.util.concurrent.ThreadLocalRandom;
 
 /**
  * 随机算法。
@@ -16,7 +16,7 @@ public class RandomLB implements LoadBalance {
     @Override
     public String getServer() {
         int size = ServerIp.IPS.size();
-        return ServerIp.IPS.get(new Random().nextInt(size));
+        return ServerIp.IPS.get(ThreadLocalRandom.current().nextInt(size));
     }
 
 
