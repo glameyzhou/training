@@ -1,7 +1,7 @@
 package org.glamey.training.algorithm.loadbalance.roundrobbin;
 
 import org.glamey.training.algorithm.loadbalance.LoadBalance;
-import org.glamey.training.algorithm.loadbalance.ServerIp;
+import org.glamey.training.algorithm.loadbalance.domian.ServerIp;
 
 import java.util.Map;
 import java.util.concurrent.atomic.AtomicInteger;
@@ -13,7 +13,7 @@ import java.util.concurrent.atomic.AtomicInteger;
  * B:3
  * C:2
  */
-public class WeightRoundRobbinLoadBalance implements LoadBalance {
+public class WeightRoundRobbinLB implements LoadBalance {
 
     private AtomicInteger count = new AtomicInteger(0);
 
@@ -39,7 +39,7 @@ public class WeightRoundRobbinLoadBalance implements LoadBalance {
 
 
     public static void main(String[] args) {
-        WeightRoundRobbinLoadBalance loadBalance = new WeightRoundRobbinLoadBalance();
+        WeightRoundRobbinLB loadBalance = new WeightRoundRobbinLB();
         for (int i = 0; i < 10; i++) {
             System.out.println(loadBalance.getServer());
         }

@@ -1,17 +1,20 @@
 package org.glamey.training.algorithm.loadbalance.roundrobbin;
 
 import org.glamey.training.algorithm.loadbalance.LoadBalance;
-import org.glamey.training.algorithm.loadbalance.ServerIp;
+import org.glamey.training.algorithm.loadbalance.domian.ServerIp;
 
 import java.util.concurrent.atomic.AtomicInteger;
 
-public class RoundRobbinLoadBalance implements LoadBalance {
+/**
+ * 轮询算法
+ */
+public class RoundRobbinLB implements LoadBalance {
 
-    private AtomicInteger count = new AtomicInteger(0);
+    private static final AtomicInteger count = new AtomicInteger(0);
 
     @Override
     public String getServer() {
-        if (count.get() >= ServerIp.IPS.size() ) {
+        if (count.get() >= ServerIp.IPS.size()) {
             count.set(0);
         }
         String server = ServerIp.IPS.get(count.get());
@@ -21,7 +24,7 @@ public class RoundRobbinLoadBalance implements LoadBalance {
 
 
     public static void main(String[] args) {
-        RoundRobbinLoadBalance loadBalance = new RoundRobbinLoadBalance();
+        RoundRobbinLB loadBalance = new RoundRobbinLB();
         for (int i = 0; i < 10; i++) {
             System.out.println(loadBalance.getServer());
         }

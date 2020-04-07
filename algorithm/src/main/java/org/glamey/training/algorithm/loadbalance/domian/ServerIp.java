@@ -1,4 +1,4 @@
-package org.glamey.training.algorithm.loadbalance;
+package org.glamey.training.algorithm.loadbalance.domian;
 
 import java.util.ArrayList;
 import java.util.LinkedHashMap;
@@ -15,7 +15,6 @@ public class ServerIp {
         WEIGHT_IP_MAP.put("192.168.0.3", 2);
 
         IPS.addAll(WEIGHT_IP_MAP.keySet());
+
     }
-
-
 }
