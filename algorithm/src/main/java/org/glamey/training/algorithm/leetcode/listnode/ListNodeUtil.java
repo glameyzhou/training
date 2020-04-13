@@ -6,8 +6,14 @@ package org.glamey.training.algorithm.leetcode.listnode;
 public class ListNodeUtil {
 
     public static void main(String[] args) {
-        ListNode node = create(new int[]{1, 2, 3});
-        print(node);
+        ListNode n1 = create(new int[]{1, 2, 3});
+        print(n1);
+        ListNode n2 = create(new int[]{1, 2});
+        print(n2);
+
+        System.out.println(eq(null, null));
+
+
     }
 
 
@@ -40,10 +46,10 @@ public class ListNodeUtil {
         ListNode tmp = head;
         StringBuilder builder = new StringBuilder();
         while (tmp != null) {
-            builder.append(tmp.val).append(" ,");
+            builder.append(tmp.val).append(", ");
             tmp = tmp.next;
         }
-        String ret = builder.length() > 0 ? builder.deleteCharAt(builder.length() - 1).toString() : "";
+        String ret = builder.length() > 0 ? builder.deleteCharAt(builder.length() - 2).toString() : "";
         System.out.println(ret);
     }
 
@@ -59,16 +65,18 @@ public class ListNodeUtil {
     }
 
     public static boolean eq(ListNode n1, ListNode n2) {
-        int len1 = getNodeLength(n1), len2 = getNodeLength(n2);
-        if (len1 == len2 && len1 == 0) {
+        if (n1 == null && n2 == null) {
             return true;
         }
 
-        if (len1 != len2) {
+        if (n1 == null || n2 == null) {
             return false;
         }
 
-        while (n1 != null) {
+        while (n1 != null || n2 != null) {
+            if (n1 == null || n2 == null) {
+                return false;
+            }
             if (n1.val != n2.val) {
                 return false;
             }

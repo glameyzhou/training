@@ -2,6 +2,15 @@ package org.glamey.training.algorithm.leetcode.listnode;
 
 public class ListNodeDeleter {
 
+    public static void main(String[] args) {
+        ListNode node = ListNodeUtil.create(new int[]{4, 5, 1, 4, 9});
+//        ListNode remove = deleteFirstPresent(node, 4);
+//        ListNodeUtil.print(remove);
+
+        ListNode removeAll = deleteAllPresent(node, 4);
+        ListNodeUtil.print(removeAll);
+    }
+
     public static ListNode deleteFirstPresent(ListNode node, int value) {
         if (node == null) {
             return null;
@@ -18,7 +27,7 @@ public class ListNodeDeleter {
             tmp = tmp.next;
         }
         //tmp.next有可能为空，需要判断
-        while (tmp.next != null && tmp.next.val == value) {
+        if (tmp.next != null && tmp.next.val == value) {
             tmp.next = tmp.next.next;
         }
         return node;

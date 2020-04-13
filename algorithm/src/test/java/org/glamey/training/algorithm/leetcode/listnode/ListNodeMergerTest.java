@@ -21,6 +21,12 @@ public class ListNodeMergerTest {
     }
 
     @Test
+    public void testMerge() {
+        ListNode mergeListNode = ListNodeMerger.merge(n1, n2);
+        ListNodeUtil.print(mergeListNode);
+    }
+
+    @Test
     public void testMergeByLoopV2() {
         ListNode listNode = ListNodeMerger.mergeByLoopV2(n1, n2);
         ListNodeUtil.print(listNode);
