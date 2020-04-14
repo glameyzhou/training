@@ -1,9 +1,9 @@
 package org.glamey.training.algorithm.leetcode.listnode;
 
 import org.junit.After;
+import org.junit.Assert;
 import org.junit.Before;
 import org.junit.Test;
-import org.springframework.util.Assert;
 
 public class ListNodeMergerTest {
     ListNode n1, n2, n3;
@@ -37,13 +37,13 @@ public class ListNodeMergerTest {
     public void mergeByRecursive() {
         ListNode merge = ListNodeMerger.mergeByRecursive(n1, n2);
         ListNodeUtil.print(merge);
-        Assert.isTrue(ListNodeUtil.eq(merge, n3));
+        Assert.assertTrue(ListNodeUtil.eq(merge, n3));
     }
 
     @Test
     public void mergeByLoop() {
         ListNode merge = ListNodeMerger.mergeByLoop(n1, n2);
         ListNodeUtil.print(merge);
-        Assert.isTrue(ListNodeUtil.eq(merge, n3));
+        Assert.assertTrue(ListNodeUtil.eq(merge, n3));
     }
 }

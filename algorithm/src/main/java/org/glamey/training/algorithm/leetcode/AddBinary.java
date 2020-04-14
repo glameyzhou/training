@@ -1,6 +1,7 @@
 package org.glamey.training.algorithm.leetcode;
 
-import org.springframework.util.Assert;
+
+import com.google.common.base.Preconditions;
 
 /**
  * 给定两个二进制字符串，返回他们的和（用二进制表示）。
@@ -25,8 +26,8 @@ import org.springframework.util.Assert;
 public class AddBinary {
 
     public static void main(String[] args) {
-        Assert.isTrue(new AddBinary().addBinary("11", "1").equals("100"));
-        Assert.isTrue(new AddBinary().addBinary("1010", "1011").equals("10101"));
+        Preconditions.checkState(new AddBinary().addBinary("11", "1").equals("100"));
+        Preconditions.checkState(new AddBinary().addBinary("1010", "1011").equals("10101"));
     }
 
     public String addBinary(String a, String b) {

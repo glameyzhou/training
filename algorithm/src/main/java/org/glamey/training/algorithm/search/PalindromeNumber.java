@@ -1,6 +1,7 @@
 package org.glamey.training.algorithm.search;
 
-import org.springframework.util.Assert;
+
+import com.google.common.base.Preconditions;
 
 /**
  * 判断一个整数是否是回文数。回文数是指正序（从左向右）和倒序（从右向左）读都是一样的整数。
@@ -32,12 +33,12 @@ import org.springframework.util.Assert;
 public class PalindromeNumber {
 
     public static void main(String[] args) {
-        Assert.isTrue(new PalindromeNumber().isPalindrome(121));
-        Assert.isTrue(!new PalindromeNumber().isPalindrome(-121));
-        Assert.isTrue(!new PalindromeNumber().isPalindrome(10));
-        Assert.isTrue(new PalindromeNumber().isPalindrome(4));
-        Assert.isTrue(new PalindromeNumber().isPalindrome(0));
-        Assert.isTrue(new PalindromeNumber().isPalindrome(1));
+        Preconditions.checkState(new PalindromeNumber().isPalindrome(121));
+        Preconditions.checkState(!new PalindromeNumber().isPalindrome(-121));
+        Preconditions.checkState(!new PalindromeNumber().isPalindrome(10));
+        Preconditions.checkState(new PalindromeNumber().isPalindrome(4));
+        Preconditions.checkState(new PalindromeNumber().isPalindrome(0));
+        Preconditions.checkState(new PalindromeNumber().isPalindrome(1));
     }
 
     public boolean isPalindrome(int x) {

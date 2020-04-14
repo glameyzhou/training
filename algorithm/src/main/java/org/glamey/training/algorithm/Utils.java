@@ -1,6 +1,7 @@
 package org.glamey.training.algorithm;
 
-import org.springframework.util.Assert;
+
+import com.google.common.base.Preconditions;
 
 /**
  * @author zhouyang.zhou. 2017.03.14.14.
@@ -16,7 +17,7 @@ public class Utils {
      */
     public static void swap(int[] arrays, int x, int y) {
         int len = arrays.length;
-        Assert.state(x >= 0 && x < len && y >= 0 && y < len);
+        Preconditions.checkState(x >= 0 && x < len && y >= 0 && y < len);
         int tmp = arrays[x];
         arrays[x] = arrays[y];
         arrays[y] = tmp;

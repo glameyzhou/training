@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
-<mapper namespace="org.glamey.training.db.mybatis.dao.UserEntityDao">
+<mapper namespace="org.glamey.training.mybatis.dao.UserEntityDao">
     <sql id="columnSql">
         id,username,email,address,create_time as createTime
     </sql>
@@ -11,7 +11,7 @@
             </if>
         </where>
     </sql>
-    <select id="getUserById" parameterType="long" resultType="org.glamey.training.db.mybatis.domain.UserEntity">
+    <select id="getUserById" parameterType="long" resultType="org.glamey.training.mybatis.domain.UserEntity">
         SELECT
         <include refid="columnSql"/>
         FROM
@@ -19,12 +19,12 @@
         WHERE
         id = #{id}
     </select>
-    <select id="getUserAll" resultType="org.glamey.training.db.mybatis.domain.UserEntity">
+    <select id="getUserAll" resultType="org.glamey.training.mybatis.domain.UserEntity">
         SELECT
         <include refid="columnSql"/>
         FROM user
     </select>
-    <insert id="insertUser" parameterType="org.glamey.training.db.mybatis.domain.UserEntity" useGeneratedKeys="true"
+    <insert id="insertUser" parameterType="org.glamey.training.mybatis.domain.UserEntity" useGeneratedKeys="true"
             keyProperty="id">
         insert into user
         (
@@ -57,7 +57,7 @@
         </foreach>
     </insert>
 
-    <update id="updateUser" parameterType="org.glamey.training.db.mybatis.domain.UserEntity">
+    <update id="updateUser" parameterType="org.glamey.training.mybatis.domain.UserEntity">
         UPDATE user
         SET
         id = #{id},
