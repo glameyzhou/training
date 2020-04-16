@@ -3,6 +3,17 @@ package org.glamey.training.algorithm.tree;
 import java.util.LinkedList;
 import java.util.Queue;
 
+/**
+ * 二叉树镜像
+ *
+ *          1
+ *        2   3
+ *      4    5
+ *
+ *          1
+ *        3   2
+ *         5     4
+ */
 public class InvertBinaryTree {
     /**
      * 递归遍历
