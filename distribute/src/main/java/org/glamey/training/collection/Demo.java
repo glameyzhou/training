@@ -33,42 +33,5 @@ public class Demo {
         if (w != list.size()) {
 
         }
-
-
-
-
-
-
-
-        /*Father[] fathers = new son[]{};
-        System.out.println(fathers.getClass());
-
-
-        List<String> list = new MyList();
-        list.add("bbb");
-        String[] objects = list.toArray(new String[0]);
-        System.out.println(objects.getClass());
-
-        Object[] objects1 = list.toArray();
-        System.out.println(objects1.getClass());
-
-
-        System.out.println(list.toArray().getClass());*/
-    }
-
-
-    static class Father {
-
-    }
-
-    static class son extends Father {
-
-    }
-
-    static class MyList extends ArrayList<String> {
-        @Override
-        public String[] toArray() {
-            return new String[]{"a", "b"};
-        }
     }
 }
