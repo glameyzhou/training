@@ -9,6 +9,7 @@
         <module>agent</module>
         <module>algorithm</module>
         <module>distribute</module>
+        <module>reactor</module>
     </modules>
 
 
