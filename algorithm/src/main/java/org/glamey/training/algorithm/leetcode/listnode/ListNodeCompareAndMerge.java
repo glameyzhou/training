@@ -6,13 +6,21 @@ package org.glamey.training.algorithm.leetcode.listnode;
 public class ListNodeCompareAndMerge {
 
     public static void main(String[] args) {
-        int[] nums = {1, 4, 2, 5, 2};
+        int[] nums = {1, 4, 2, 3, 5, 2};
         int target = 3;
         ListNode root = ListNodeUtil.create(nums);
         ListNode retNode = compareAndMerge(root, target);
         ListNodeUtil.print(retNode);
     }
 
+    /**
+     * 时间复杂度：O(n)
+     * 空间复杂度：O(n)
+     *
+     * @param root
+     * @param target
+     * @return
+     */
     private static ListNode compareAndMerge(ListNode root, int target) {
         ListNode dumpy_a = new ListNode(-1), tmp_a = dumpy_a;
         ListNode dumpy_b = new ListNode(-1), tmp_b = dumpy_b;
