@@ -2,6 +2,46 @@ package org.glamey.training.algorithm.leetcode.dp;
 
 public class LongestPalindromic {
 
+    private static boolean isEchoCycle(String source) {
+        if (source == null || "".equals(source)) {
+            return true;
+        }
+        char[] chars = source.toCharArray();
+        int i = 0, j = source.length() - 1;
+        while (i < j) {
+            if (chars[i] != chars[j]) {
+                return false;
+            }
+            i ++;
+            j --;
+        }
+        return true;
+    }
+
+
+    public static String longestEchoCycle(String source)  {
+        if (source == null || "".equals(source)) {
+            return source;
+        }
+        String maxString = "";
+        int len = source.length();
+        for (int i = 0; i < len; i++) {
+            for (int j = i + 1; j < len; j++) {
+                String subString = source.substring(i, j);
+                if (isEchoCycle(subString)) {
+                    maxString = maxString.length() > subString.length() ? maxString : subString;
+                }
+            }
+        }
+        return maxString;
+    }
+
+    public static void main(String[] args) {
+        System.out.println(isEchoCycle("abcb"));
+        System.out.println(isEchoCycle("abcba"));
+        System.out.println(isEchoCycle("1221"));
+        System.out.println(longestEchoCycle("1221"));
+    }
 
     /**
      * 最长回文子串
