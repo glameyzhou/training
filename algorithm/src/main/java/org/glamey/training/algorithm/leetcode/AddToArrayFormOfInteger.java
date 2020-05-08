@@ -1,5 +1,6 @@
 package org.glamey.training.algorithm.leetcode;
 
+import java.util.Arrays;
 import java.util.LinkedList;
 import java.util.List;
 
@@ -66,6 +67,9 @@ public class AddToArrayFormOfInteger {
         }
 
 //        Collections.reverse(list);
+
+        Integer[] nums = list.toArray(new Integer[0]);
+        System.out.println(Arrays.toString(nums));
         return list;
     }
 }

@@ -60,7 +60,7 @@ public class CustomBloomFilters {
 
     public static void main(String[] args) {
         Stopwatch started = Stopwatch.createStarted();
-        int size = 10000000;
+        int size = 10000000; //1KW
         CustomBloomFilters filters = new CustomBloomFilters(size);
         for (int i = 0; i < size; i++) {
             filters.add(i);
