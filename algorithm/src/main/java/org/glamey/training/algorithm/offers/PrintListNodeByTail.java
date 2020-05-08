@@ -1,8 +1,17 @@
-package org.glamey.training.algorithm.leetcode.listnode;
+package org.glamey.training.algorithm.offers;
 
+
+import org.glamey.training.algorithm.leetcode.listnode.ListNode;
+import org.glamey.training.algorithm.leetcode.listnode.ListNodeUtil;
 
 import java.util.Stack;
 
+
+/**
+ * 从尾到头打印单向链表
+ * <p>
+ * https://wiki.jikexueyuan.com/project/for-offer/question-five.html
+ */
 public class PrintListNodeByTail {
 
     public static void main(String[] args) {
