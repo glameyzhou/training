@@ -3,8 +3,13 @@ package org.glamey.training.algorithm.tree;
 import java.util.*;
 
 
+/**
+ * 二叉树任意两个节点的最小公共父节点
+ * 限制：
+ * 1、每个节点值均不同。
+ * 2、两个节点均存在于父树中
+ */
 public class SmallestCommonParentNode {
-
 
 
     /**
