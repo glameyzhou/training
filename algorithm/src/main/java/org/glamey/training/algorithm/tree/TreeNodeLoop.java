@@ -3,14 +3,24 @@ package org.glamey.training.algorithm.tree;
 import java.util.LinkedList;
 import java.util.Queue;
 
+/**
+ * 广度遍历
+ */
 public class TreeNodeLoop {
 
-    /**
-     * 二叉树广度遍历，按照层次遍历
-     *
-     * @param root
-     * @return
-     */
+    public static void main(String[] args) {
+        TreeNode root = new TreeNode(4);
+        root.right = new TreeNode(5);
+        TreeNode left = new TreeNode(3);
+        left.left = new TreeNode(1);
+        root.left = left;
+
+        String bsf = bsf(root);
+        System.out.println(bsf);
+
+
+    }
+
     public static String bsf(TreeNode root) {
         if (root == null) {
             return null;
@@ -31,8 +41,8 @@ public class TreeNodeLoop {
                     queue.offer(node.right);
                 }
             }
-            builder.deleteCharAt(builder.length() - 1);
-            builder.append("\r\n");
+            builder.deleteCharAt(builder.length() - 2);
+            builder.append(System.getProperty("line.separator"));
         }
         return builder.toString();
     }

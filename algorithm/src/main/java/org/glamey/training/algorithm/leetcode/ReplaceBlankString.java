@@ -22,12 +22,12 @@ public class ReplaceBlankString {
             return source;
         }
 
-        int blankSize = 0;
+        int blankCount = 0;
         char[] chars = source.toCharArray();
         for (char c : chars) {
-            if (' ' == c) blankSize ++;
+            if (' ' == c) blankCount ++;
         }
-        char[] retChars = new char[chars.length + blankSize * 2];
+        char[] retChars = new char[chars.length + blankCount * 2];
         int index = 0;
         for (int i = 0; i < chars.length; i++) {
             if (chars[i] == ' ') {
