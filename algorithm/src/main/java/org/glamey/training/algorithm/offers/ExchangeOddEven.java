@@ -14,9 +14,7 @@ import java.util.Arrays;
 public class ExchangeOddEven {
 
     public static void main(String[] args) {
-        int[] nums = new int[]{1, 2, 3, 4};
-        int[] ret = exchange(nums);
-        System.out.println(Arrays.toString(ret));
+        System.out.println(Arrays.toString(exchange(new int[]{1, 2, 3, 4})));
     }
 
     private static int[] exchange(int[] nums) {
@@ -33,10 +31,14 @@ public class ExchangeOddEven {
                 high--;
             }
 
-            int tmp = nums[high];
-            nums[high] = nums[low];
-            nums[low] = tmp;
+            swap(nums, low, high);
         }
         return nums;
+    }
+
+    private static void swap(int[] nums, int low, int high) {
+        int tmp = nums[high];
+        nums[high] = nums[low];
+        nums[low] = tmp;
     }
 }

@@ -2,6 +2,7 @@ package org.glamey.training.algorithm.leetcode;
 
 import com.google.common.collect.Maps;
 
+import java.util.Arrays;
 import java.util.Map;
 
 /**
@@ -36,6 +37,28 @@ public class TwoSum_1 {
                 System.out.println(i);
             }
         }
+
+        int[] ret = sum(new int[]{2, 7, 11, 15}, 9);
+        System.out.println(Arrays.toString(ret));
+
+
+    }
+
+
+
+    private static int[] sum(int[] nums, int target) {
+        if (nums == null) return new int[0];
+        int left = 0, right = nums.length - 1;
+        while (left < right) {
+            if (nums[left] + nums[right] == target) {
+                return new int[]{left + 1, right + 1};
+            } else if (nums[left] + nums[right] > target) {
+                right --;
+            } else {
+                left ++;
+            }
+        }
+        return new int[0];
     }
 
     private int[] twoSum(int[] ints, int target) {

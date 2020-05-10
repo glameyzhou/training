@@ -29,6 +29,9 @@ public class TwoSum_2 {
     }
 
     public int[] twoSum(int[] numbers, int target) {
+        if (numbers == null) {
+            return new int[0];
+        }
         int low = 0, high = numbers.length - 1, sum;
         while (low < high) {
             sum = numbers[low] + numbers[high];
@@ -40,6 +43,6 @@ public class TwoSum_2 {
                 return new int[]{low + 1, high + 1};
             }
         }
-        return new int[]{-1, -1};
+        return new int[0];
     }
 }

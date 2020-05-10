@@ -3,6 +3,7 @@ package org.glamey.training.algorithm.leetcode.listnode;
 import com.google.common.collect.Sets;
 
 import java.util.Set;
+import java.util.Stack;
 
 /**
  * 给你一个链表，每 k 个节点一组进行翻转，请你返回翻转后的链表。
@@ -33,6 +34,77 @@ public class ReverseNodesInKGroup {
         int len = removeVowels("hello");
         System.out.println(len);
 
+
+        ListNode listNode = ListNodeUtil.create(new int[]{1, 2, 3, 4, 5, 6, 7});
+        ListNode reverseK = reverseK(listNode, 4);
+        ListNodeUtil.print(reverseK);
+
+
+        String s = "123456";
+        System.out.println(reverseOddEven(s));
+    }
+
+    private static String reverseOddEven(String s) {
+        if (s == null || "".equals(s)) {
+            return s;
+        }
+        int left = 0, right = s.length() - 1;
+        char[] chars = s.toCharArray();
+        while (left < right) {
+            while (left < right && (chars[left] - '0') % 2 != 0) {
+                left ++;
+            }
+            while (left < right && (chars[right] - '0') % 2 == 0) {
+                right --;
+            }
+            if (left > right) {
+                break;
+            }
+            char tmp = chars[left];
+            chars[left] = chars[right];
+            chars[right] = tmp;
+
+            left ++;
+            right --;
+        }
+        return new String(chars);
+    }
+
+    /**
+     * K个一组翻转链表，如果最后不够K个元素，不用翻转。
+     * 时间复杂度：O(N)
+     * 空间复杂度：O(K)
+     * @param root
+     * @param k
+     * @return
+     */
+    public static ListNode reverseK(ListNode root, int k) {
+        if (root == null) return null;
+        ListNode dumpy = new ListNode(-1), head = root, p = dumpy;
+        Stack<Integer> stack = new Stack<>();
+        int count = 0;
+        while (head != null) {
+            stack.push(head.val);
+            head = head.next;
+            count++;
+            if (count == k) {
+                while (!stack.isEmpty()) {
+                    ListNode node = new ListNode(stack.pop());
+                    p.next = node;
+                    p = node;
+                }
+                count = 0;
+            }
+        }
+        ListNode node = null, tmp;
+        while (!stack.isEmpty()) {
+            tmp = node;
+            node = new ListNode(stack.pop());
+            node.next = tmp;
+        }
+        p.next = node;
+
+        return dumpy.next;
     }
 
     private static int removeVowels(String source) {
@@ -46,6 +118,8 @@ public class ReverseNodesInKGroup {
                 chars[ret++] = chars[i];
             }
         }
+        String subString = new String(chars, 0, ret);
+        System.out.println(subString);
         return ret;
     }
 

@@ -26,17 +26,17 @@ public class LongestCommonPrefix {
         System.out.println(longestCommonPrefix(strs));
     }
 
-    public static String longestCommonPrefix(String[] strs) {
-        if (strs == null || strs.length == 0) {
+    public static String longestCommonPrefix(String[] source) {
+        if (source == null || source.length == 0) {
             return "";
         }
 
-        String ans = strs[0];
+        String ans = source[0];
 
-        for (int i = 1; i < strs.length; i++) {
+        for (int i = 1; i < source.length; i++) {
             int j = 0;
-            for (; j < ans.length() && j < strs[i].length(); j++) {
-                if (ans.charAt(j) != strs[i].charAt(j)) {
+            for (; j < ans.length() && j < source[i].length(); j++) {
+                if (ans.charAt(j) != source[i].charAt(j)) {
                     break;
                 }
             }
