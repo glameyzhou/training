@@ -9,9 +9,8 @@ package org.glamey.training.algorithm.leetcode.greedy;
 public class BuySellStock {
 
     public static void main(String[] args) {
-        int[] array = new int[]{7, 1, 5, 3, 6, 4};
-        "".indexOf("");
-        System.out.println(maxProfit(array));
+        int[] nums = new int[]{7, 1, 5, 3, 6, 4};
+        System.out.println(maxProfit(nums));
     }
 
     public static int maxProfit(int[] prices) {

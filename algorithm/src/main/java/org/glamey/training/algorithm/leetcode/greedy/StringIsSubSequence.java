@@ -31,6 +31,7 @@ public class StringIsSubSequence {
     public static void main(String[] args) {
         System.out.println(new StringIsSubSequence().isSubSequence_2("abc", "ahbgdc"));
         System.out.println(new StringIsSubSequence().isSubSequence_2("axc", "ahbgdc"));
+
     }
 
     public boolean isSubSequence_2(String s, String t) {
