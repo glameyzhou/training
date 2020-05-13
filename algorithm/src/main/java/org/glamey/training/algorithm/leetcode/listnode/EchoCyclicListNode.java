@@ -10,7 +10,7 @@ public class EchoCyclicListNode {
         System.out.println(isEchoCyclicListNode_1(ListNodeUtil.create(new int[]{1, 2, 3, 1, 1})));
 
         System.out.println(isEchoCyclicListNode_2(ListNodeUtil.create(new int[]{1, 2, 3, 2, 1})));
-        System.out.println(isEchoCyclicListNode_2(ListNodeUtil.create(new int[]{1, 2, 3, 1, 1})));
+        System.out.println(isEchoCyclicListNode_2(ListNodeUtil.create(new int[]{1, 2, 2, 1})));
     }
 
     /**
@@ -40,38 +40,59 @@ public class EchoCyclicListNode {
         return true;
     }
 
+
     /**
-     * 翻转链表，然后对比
-     *
-     * @param root
+     * 原地处理
+     * 时间复杂度：O(n)
+     * 空间复杂度: O(1)
+     * 1、把链表切割为前后两部分（快慢指针，如果是奇数个节点的话，把中间的节点放在前半部分）
+     * 2、后半部分翻转
+     * 3、前后对比
+     * 4、恢复链表原貌
+     * @param head
      * @return
      */
-    private static boolean isEchoCyclicListNode_2(ListNode root) {
-        if (root == null) return true;
-        ListNode tmp = root;
-        ListNode reverseNode = reverse(tmp);
-        while (reverseNode != null && root!= null) {
-            if (reverseNode.val != root.val) {
-                return false;
-            }
-            reverseNode = reverseNode.next;
-            root = root.next;
+    private static boolean isEchoCyclicListNode_2(ListNode head) {
+        if (head == null) {
+            return true;
         }
+        //找到前半部分的尾结点（快慢指针方式）
+        ListNode firstHalfEnd = endOfFirstHalf(head);
+        //找到后半部分，并且做翻转
+        ListNode secondHalfStart = revertEndHalf(firstHalfEnd.next);
+
+        //比较两个链表是否为一样
+        ListNode p1 = head, p2 = secondHalfStart;
+        boolean isEchoCyclic = true;
+        while (p2 != null && isEchoCyclic) {
+            if (p1.val != p2.val) {
+                isEchoCyclic = false;
+            }
+            p1 = p1.next;
+            p2 = p2.next;
+        }
+        //最后是不是要还原链表的原貌
+        firstHalfEnd.next = revertEndHalf(secondHalfStart);
         return true;
     }
 
-    private static ListNode reverse(ListNode root) {
-        ListNode tmp = root;
-        ListNode pre = tmp, cur = tmp.next, next;
+    private static ListNode revertEndHalf(ListNode head) {
+        ListNode pre = null, cur = head;
         while (cur != null) {
-            next = cur.next;
+            ListNode next = cur.next;
             cur.next = pre;
             pre = cur;
             cur = next;
         }
-        tmp.next = null;
         return pre;
     }
 
-
+    private static ListNode endOfFirstHalf(ListNode head) {
+        ListNode fast = head, slow = head;
+        while (fast.next != null && fast.next.next != null) {
+            fast = fast.next.next;
+            slow = slow.next;
+        }
+        return slow;
+    }
 }

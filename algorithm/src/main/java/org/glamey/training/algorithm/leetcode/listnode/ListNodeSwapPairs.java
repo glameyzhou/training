@@ -16,7 +16,20 @@ package org.glamey.training.algorithm.leetcode.listnode;
  */
 public class ListNodeSwapPairs {
 
-    public ListNode swapPairs(ListNode head) {
-        return null;
+    public static void main(String[] args) {
+        ListNode head = ListNodeUtil.create(new int[]{1, 2, 3, 4});
+        ListNode swapPairs = swapPairs(head);
+        ListNodeUtil.print(swapPairs);
+    }
+
+    public static ListNode swapPairs(ListNode head) {
+        if (head == null || head.next == null) {
+            return head;
+        }
+        ListNode first = head;
+        ListNode second = head.next;
+        first.next = swapPairs(second.next);
+        second.next = first;
+        return second;
     }
 }
