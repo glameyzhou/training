@@ -19,7 +19,7 @@ public class QuickSort {
         doublePointSort(numbers, 0, numbers.length - 1);
         System.out.println(String.format("[双指针]后：%s", Arrays.toString(numbers)));
 
-        ShuffleArray.shuffle(numbers);
+        numbers = new int[]{9, 8, 7, 6, 5, 4, 3, 2, 1};
         System.out.println(String.format("[挖坑]前：%s", Arrays.toString(numbers)));
         diggerHole(numbers, 0, numbers.length - 1);
         System.out.println(String.format("[挖坑]后：%s", Arrays.toString(numbers)));
@@ -66,7 +66,7 @@ public class QuickSort {
             return;
         }
 
-        int i = head, j = tail, p = (head + tail) >> 1, pv = nums[p];
+        int i = head, j = tail, p = (head + tail) >>> 1, pv = nums[p];
 
         while (i <= j) {
 
