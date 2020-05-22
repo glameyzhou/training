@@ -2,6 +2,7 @@ package org.glamey.training.algorithm.tree;
 
 import java.util.LinkedList;
 import java.util.Queue;
+import java.util.Stack;
 
 /**
  * 广度遍历
@@ -17,8 +18,30 @@ public class TreeNodeLoop {
 
         String bsf = bsf(root);
         System.out.println(bsf);
+    }
 
-
+    /**
+     * 中序遍历
+     *
+     * @param root
+     * @return
+     */
+    public static String inOrder(TreeNode root) {
+        if (root == null) {
+            return "";
+        }
+        StringBuilder builder = new StringBuilder();
+        Stack<TreeNode> stack = new Stack<>();
+        while (!stack.isEmpty() || root != null) {
+            while (root != null) {
+                stack.push(root);
+                root = root.left;
+            }
+            root = stack.pop();
+            builder.append(root.val).append(", ");
+            root = root.right;
+        }
+        return builder.deleteCharAt(builder.length() - 2).toString();
     }
 
     public static String bsf(TreeNode root) {

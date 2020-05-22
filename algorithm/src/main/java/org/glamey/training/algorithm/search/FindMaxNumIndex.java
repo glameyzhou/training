@@ -11,6 +11,28 @@ public class FindMaxNumIndex {
     public static void main(String[] args) {
         int[] array = {0, 1, 2, 3, 4, 5, 4, 3};
         System.out.println(findMaxNumberIndexInArray(array));
+        System.out.println(getMaxNumberIndex(new int[]{1, 2, 3, 3, 2, 1}));
+        System.out.println(getMaxNumberIndex(new int[]{1, 2, 3, 1}));
+        System.out.println(getMaxNumberIndex(new int[]{3, 1}));
+        System.out.println(getMaxNumberIndex(new int[]{3}));
+    }
+
+    /**
+     * 双指针的方式来搞定
+     *
+     * @param nums
+     * @return
+     */
+    private static int getMaxNumberIndex(int[] nums) {
+        int left = 0, right = nums.length - 1;
+        while (left < right) {
+            if (nums[left] > nums[right]) {
+                right--;
+            } else {
+                left++;
+            }
+        }
+        return left;
     }
 
     // 目标是 array[i] > array[i + 1] && array[i] > array[i - 1]
