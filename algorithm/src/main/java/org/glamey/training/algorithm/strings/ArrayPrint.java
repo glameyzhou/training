@@ -16,7 +16,6 @@ import java.util.Arrays;
  */
 public class ArrayPrint {
 
-
     public static void main(String[] args) {
         int n = 4, count = 0;
         int[][] nums = new int[n][n];

@@ -1,6 +1,7 @@
 package org.glamey.training.algorithm.leetcode.listnode;
 
 import java.util.ArrayList;
+import java.util.LinkedList;
 import java.util.List;
 
 public class EchoCyclicListNode {
@@ -11,6 +12,17 @@ public class EchoCyclicListNode {
 
         System.out.println(isEchoCyclicListNode_2(ListNodeUtil.create(new int[]{1, 2, 3, 2, 1})));
         System.out.println(isEchoCyclicListNode_2(ListNodeUtil.create(new int[]{1, 2, 2, 1})));
+
+
+        LinkedList<Integer> originList = new LinkedList<>();
+        for (int i = 0; i < 4; i++) {
+            originList.addLast(i);
+        }
+
+        for (int i = 0; i < 4; i++) {
+            System.out.println(originList.poll());
+        }
+
     }
 
     /**
