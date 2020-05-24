@@ -19,13 +19,13 @@ public class SmallestCommonParentNode {
      * 3、b依次网上找，如果在set中碰到，说明有公共父节点，从map中返回即可。
      *
      * @param root
-     * @param a
-     * @param b
+     * @param rootA
+     * @param rootB
      * @return
      */
-    public TreeNode getSmallestCommonParentNode(TreeNode root, TreeNode a, TreeNode b) {
+    public TreeNode getSmallestCommonParentNode(TreeNode root, TreeNode rootA, TreeNode rootB) {
 
-        if (Objects.isNull(root) || Objects.isNull(a) || Objects.isNull(b)) {
+        if (Objects.isNull(root) || Objects.isNull(rootA) || Objects.isNull(rootB)) {
             return null;
         }
 
@@ -35,15 +35,15 @@ public class SmallestCommonParentNode {
 
         //已经访问过的节点值集合
         Set<Integer> accessed = new HashSet<>();
-        while (a != null) {
-            accessed.add(a.val);
-            a = parentMap.get(a.val);
+        while (rootA != null) {
+            accessed.add(rootA.val);
+            rootA = parentMap.get(rootA.val);
         }
-        while (b != null) {
-            if (accessed.contains(b.val)) {
-                return b;
+        while (rootB != null) {
+            if (accessed.contains(rootB.val)) {
+                return rootB;
             }
-            b = parentMap.get(b.val);
+            rootB = parentMap.get(rootB.val);
         }
 
         return null;
