@@ -11,6 +11,10 @@
 
     <artifactId>distribute</artifactId>
 
+    <properties>
+        <hystirx.version>1.5.18</hystirx.version>
+    </properties>
+
 
     <dependencies>
         <dependency>
@@ -132,6 +136,21 @@
             <groupId>com.google.guava</groupId>
             <artifactId>guava</artifactId>
         </dependency>
+
+
+        <!--hystrix-->
+        <dependency>
+            <groupId>com.netflix.hystrix</groupId>
+            <artifactId>hystrix-core</artifactId>
+            <version>${hystirx.version}</version>
+        </dependency>
+        <dependency>
+            <groupId>com.netflix.hystrix</groupId>
+            <artifactId>hystrix-metrics-event-stream</artifactId>
+            <version>${hystirx.version}</version>
+        </dependency>
+
+
 
     </dependencies>
 
