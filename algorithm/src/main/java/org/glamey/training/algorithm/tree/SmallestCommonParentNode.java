@@ -13,6 +13,47 @@ public class SmallestCommonParentNode {
 
 
     /**
+     *       1
+     *     2   3
+     *   4   9  7
+     *  5 6   10
+     *
+     *
+     * @param args
+     */
+
+    public static void main(String[] args) {
+        TreeNode t5 = new TreeNode(5);
+        TreeNode t6 = new TreeNode(6);
+        TreeNode t4 = new TreeNode(4);
+        t4.left = t5;
+        t4.right = t6;
+
+
+
+        TreeNode t9 = new TreeNode(9);
+        TreeNode t10 = new TreeNode(10);
+        t9.right = t10;
+
+        TreeNode t7 = new TreeNode(7);
+        TreeNode t3 = new TreeNode(3);
+        t3.left = t9;
+        t3.right = t7;
+
+        TreeNode t2 = new TreeNode(2);
+        TreeNode root = new TreeNode(1);
+        root.left = t2;
+        root.right = t3;
+
+        TreeNode commonParentNode = getSmallestCommonParentNode(root, t4, t9);
+        System.out.println(commonParentNode);
+
+
+    }
+
+
+
+    /**
      * 思路：
      * 1、遍历整个二叉树，将所有节点的值、对应的父节点保存在map中。
      * 2、a依次往上找，一直到父节点为空，并且保存p上面所有的节点值到set中。
@@ -23,7 +64,7 @@ public class SmallestCommonParentNode {
      * @param rootB
      * @return
      */
-    public TreeNode getSmallestCommonParentNode(TreeNode root, TreeNode rootA, TreeNode rootB) {
+    public static TreeNode getSmallestCommonParentNode(TreeNode root, TreeNode rootA, TreeNode rootB) {
 
         if (Objects.isNull(root) || Objects.isNull(rootA) || Objects.isNull(rootB)) {
             return null;
@@ -49,7 +90,7 @@ public class SmallestCommonParentNode {
         return null;
     }
 
-    private void processTreeByDfs(TreeNode root, Map<Integer, TreeNode> parentMap) {
+    private static void processTreeByDfs(TreeNode root, Map<Integer, TreeNode> parentMap) {
         if (root.left != null) {
             parentMap.put(root.left.val, root);
             processTreeByDfs(root.left, parentMap);

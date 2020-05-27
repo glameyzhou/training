@@ -34,8 +34,8 @@ public class EchoCyclicListNode {
      * @return
      */
     private static boolean isEchoCyclicListNode_1(ListNode root) {
-        if (root == null) return true;
-        List<Integer> list = new ArrayList<>();//超长链表有扩容的现象
+        if (root == null || root.next == null   ) return true;
+        /*List<Integer> list = new ArrayList<>();//超长链表有扩容的现象
         ListNode tmp = root;
         while (tmp != null) {
             list.add(tmp.val);
@@ -48,6 +48,21 @@ public class EchoCyclicListNode {
             }
             left++;
             right--;
+        }*/
+
+        LinkedList<Integer> list = new LinkedList<>();
+        ListNode tmp = root;
+        while (tmp != null) {
+            list.offerLast(tmp.val);
+            tmp = tmp.next;
+        }
+
+        while (!list.isEmpty()) {
+            if (list.peekFirst() != list.peekLast()) {
+                return false;
+            }
+            list.peekLast();
+            list.peekFirst();
         }
         return true;
     }

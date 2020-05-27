@@ -79,31 +79,34 @@ public class ReverseNodesInKGroup {
      * @return
      */
     public static ListNode reverseK(ListNode root, int k) {
-        if (root == null) return null;
-        ListNode dumpy = new ListNode(-1), head = root, p = dumpy;
+        if (root == null || k <= 1) {
+            return root;
+        }
+
+        ListNode dumpy = new ListNode(-1), tmp = dumpy;
+
         Stack<Integer> stack = new Stack<>();
         int count = 0;
-        while (head != null) {
-            stack.push(head.val);
-            head = head.next;
-            count++;
+        while (root != null) {
+            stack.push(root.val);
+            root = root.next;
+            count ++;
             if (count == k) {
                 while (!stack.isEmpty()) {
                     ListNode node = new ListNode(stack.pop());
-                    p.next = node;
-                    p = node;
+                    tmp.next = node;
+                    tmp = node;
                 }
                 count = 0;
             }
         }
-        ListNode node = null, tmp;
+        ListNode head = null, tmpNode;
         while (!stack.isEmpty()) {
-            tmp = node;
-            node = new ListNode(stack.pop());
-            node.next = tmp;
+            tmpNode = head;
+            head = new ListNode(stack.pop());
+            head.next = tmpNode;
         }
-        p.next = node;
-
+        tmp.next = head;
         return dumpy.next;
     }
 

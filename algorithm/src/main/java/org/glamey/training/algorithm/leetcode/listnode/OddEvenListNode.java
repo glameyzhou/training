@@ -27,8 +27,34 @@ public class OddEvenListNode {
         ListNode listNode = ListNodeUtil.create(new int[]{1, 2, 3, 4, 5});
         ListNode oddEvenList = oddEvenList(listNode);
         ListNodeUtil.print(oddEvenList);
+
+
+        ListNode node = oddEventList_v2(ListNodeUtil.create(new int[]{1, 2, 3, 4, 5}));
+        ListNodeUtil.print(node);
     }
 
+    private static ListNode oddEventList_v2(ListNode head) {
+        if (head == null) {
+            return null;
+        }
+        ListNode dumpyOdd = new ListNode(-1), tmpOdd = dumpyOdd;
+        ListNode dumpyEven = new ListNode(-1), tmpEven = dumpyEven;
+        int index = 1;
+        while (head != null) {
+            ListNode node = new ListNode(head.val);
+            if (index % 2 == 1) {
+                tmpOdd.next = node;
+                tmpOdd = node;
+            } else {
+               tmpEven.next = node;
+               tmpEven = node;
+            }
+            head = head.next;
+            index ++;
+        }
+        tmpOdd.next = dumpyEven.next;
+        return dumpyOdd.next;
+    }
 
     /**
      * 时间复杂度：O(N)

@@ -26,10 +26,11 @@ public class ListNodeSwapPairs {
         if (head == null || head.next == null) {
             return head;
         }
-        ListNode first = head;
-        ListNode second = head.next;
-        first.next = swapPairs(second.next);
-        second.next = first;
-        return second;
+
+        ListNode a = head, b = head.next;
+        a.next = swapPairs(b.next);
+        b.next = a;
+        return b;
+
     }
 }

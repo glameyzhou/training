@@ -62,14 +62,14 @@ public class DiameterOfBinaryTree {
      * @return
      */
     public static int diameterOfBinaryTree(TreeNode root) {
-        dept(root);
+        dfs(root);
         return maxDiameter - 1;
     }
 
-    private static int dept(TreeNode root) {
+    private static int dfs(TreeNode root) {
         if (root == null) return 0;
-        int leftDepth = dept(root.left);
-        int rightDepth = dept(root.right);
+        int leftDepth = dfs(root.left);
+        int rightDepth = dfs(root.right);
         maxDiameter = Math.max(maxDiameter, leftDepth + rightDepth);
         return Math.max(leftDepth, rightDepth) + 1;
     }
