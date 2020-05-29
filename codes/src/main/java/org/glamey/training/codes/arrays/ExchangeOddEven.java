@@ -1,5 +1,7 @@
 package org.glamey.training.codes.arrays;
 
+import org.glamey.training.codes.Utils;
+
 import java.util.Arrays;
 
 /**
@@ -30,14 +32,8 @@ public class ExchangeOddEven {
             while (low < high && nums[high] % 2 == 0) {
                 high--;
             }
-            swap(nums, low, high);
+            Utils.swap(nums, low, high);
         }
         return nums;
-    }
-
-    private static void swap(int[] nums, int low, int high) {
-        int tmp = nums[high];
-        nums[high] = nums[low];
-        nums[low] = tmp;
     }
 }

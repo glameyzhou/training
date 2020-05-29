@@ -26,11 +26,9 @@ public class TwoSum_IncreaseNums {
         if (nums == null || nums.length == 0)
             return new int[0];
 
-        int left = 0, right = nums.length - 1;
-
+        int left = 0, right = nums.length - 1, tmp;
         while (left < right) {
-            int tmp = nums[left] + nums[right];
-
+            tmp = nums[left] + nums[right];
             if (tmp == target) {
                 return new int[]{left, right};
             } else if (tmp < target) {
