@@ -7,7 +7,7 @@ import java.util.*;
  * 中序遍历：https://leetcode-cn.com/problems/binary-tree-inorder-traversal/
  * 后序遍历：https://leetcode-cn.com/problems/binary-tree-postorder-traversal/
  */
-public class LoopTreeNode {
+public class TreeNodeDFS {
 
     /**
      * 中序遍历-栈

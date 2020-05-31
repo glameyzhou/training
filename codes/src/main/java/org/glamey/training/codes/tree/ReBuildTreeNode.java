@@ -10,11 +10,13 @@ public class ReBuildTreeNode {
         int[] preOrder = new int[]{1, 2, 4, 7, 3, 5, 6, 8};
         int[] inOrder = new int[]{4, 7, 2, 1, 5, 3, 8, 6};
 
+        preOrder = new int[]{1, 2, 3, 4, 5, 6, 7};
+        inOrder = new int[]{3, 2, 4, 1, 6, 5, 7};
 
         TreeNode root = rebuildTreeNode(preOrder, 0, preOrder.length - 1,
                 inOrder, 0, inOrder.length - 1);
 
-        TreeNodeLoop.bsf(root);
+        System.out.println(TreeNodeBFS.bsf(root));
     }
 
     private static TreeNode rebuildTreeNode(int[] preOrder, int preL, int preR,

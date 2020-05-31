@@ -24,6 +24,20 @@ package org.glamey.training.codes.tree;
  */
 public class MaxDepthTreeNode {
 
+    public static void main(String[] args) {
+        TreeNode t15 = new TreeNode(15);
+        TreeNode t7 = new TreeNode(7);
+        TreeNode t9 = new TreeNode(9);
+        TreeNode t20 = new TreeNode(20);
+        TreeNode root = new TreeNode(3);
+        t9.left = t15;
+        t20.right = t7;
+        root.left = t9;
+        root.right = t20;
+
+        System.out.println(maxDepth(root) == 3);
+
+    }
 
     public static int maxDepth(TreeNode root) {
         if (root == null) {

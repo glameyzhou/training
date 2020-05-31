@@ -34,12 +34,12 @@ public class KthTreeNode {
         root.left = n3;
         root.right = n7;
 
-        System.out.println(TreeNodeLoop.inOrder(root));
+        System.out.println(TreeNodeBFS.inOrderByStack(root));
 
 
 
-        System.out.println(TreeNodeLoop.bsf(findKthTreeNodeByStack(root, 3)));
-        System.out.println(TreeNodeLoop.bsf(findKthTreeNodeByRecursion(root, 3)));
+        System.out.println(TreeNodeBFS.bsf(findKthTreeNodeByStack(root, 3)));
+        System.out.println(TreeNodeBFS.bsf(findKthTreeNodeByRecursion(root, 3)));
     }
 
     /**

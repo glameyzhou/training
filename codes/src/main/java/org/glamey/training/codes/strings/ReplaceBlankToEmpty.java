@@ -18,13 +18,44 @@ public class ReplaceBlankToEmpty {
 
     public static void main(String[] args) {
         System.out.println(replaceBlankToEmpty(" we are the world.").equals("%20we%20are%20the%20world."));
+        System.out.println(replaceBlankToEmpty(new StringBuffer(" we are the world.")).equals("%20we%20are%20the%20world."));
     }
+
+
+    private static String replaceBlankToEmpty(StringBuffer source) {
+        if (source == null || "".equals(source)) {
+            return "";
+        }
+        int blankCount = 0;
+        for (int i = 0; i < source.length(); i++) {
+            blankCount += source.charAt(i) == ' ' ? 1 : 0;
+        }
+        int retLen = source.length() + blankCount * 2;
+        int oldPointer = source.length() - 1;
+        int retPointer = retLen - 1;
+        source.setLength(retLen);
+        while (oldPointer >= 0) {
+            if (source.charAt(oldPointer) == ' ') {
+                source.setCharAt(retPointer--, '0');
+                source.setCharAt(retPointer--, '2');
+                source.setCharAt(retPointer--, '%');
+            } else {
+                source.setCharAt(retPointer--, source.charAt(oldPointer));
+            }
+            oldPointer--;
+        }
+        return source.toString();
+    }
+
 
     private static String replaceBlankToEmpty(String source) {
         if (Utils.isBlank(source)) {
             return source;
         }
-        int blankCount = getBlankCount(source);
+        int blankCount = 0;
+        for (int i = 0; i < source.length(); i++) {
+            blankCount += source.charAt(i) == ' ' ? 1 : 0;
+        }
         char[] origin = source.toCharArray();
         char[] ret = new char[origin.length + blankCount * 2];
         System.arraycopy(origin, 0, ret, 0, origin.length);
@@ -40,15 +71,5 @@ public class ReplaceBlankToEmpty {
             originIndex--;
         }
         return new String(ret);
-    }
-
-    private static int getBlankCount(String source) {
-        int count = 0;
-        for (int i = 0; i < source.length(); i++) {
-            if (source.charAt(i) == ' ') {
-                count++;
-            }
-        }
-        return count;
     }
 }

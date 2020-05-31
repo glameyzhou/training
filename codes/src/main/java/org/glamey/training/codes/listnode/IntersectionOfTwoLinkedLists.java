@@ -1,4 +1,4 @@
-package org.glamey.training.codes.leetcode;
+package org.glamey.training.codes.listnode;
 
 import org.glamey.training.codes.listnode.ListNode;
 import org.glamey.training.codes.listnode.ListNodeUtil;
