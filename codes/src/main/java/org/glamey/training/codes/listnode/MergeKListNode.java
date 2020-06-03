@@ -7,7 +7,7 @@ import java.util.PriorityQueue;
 
 /**
  * 合并K个有序链表
- *
+ * <p>
  * 以下集中方案：
  * 1、两两进行比较合并，再跟第三个合并。
  * 2、利用最小堆原理：默认把所有待合并的链表全部如堆，循环取出堆顶元素（堆顶元素必然是最小的，然后再把next元素入堆），堆顶元素必然是最小的元素。
@@ -40,7 +40,7 @@ public class MergeKListNode {
         while (!queue.isEmpty()) {
             ListNode node = queue.poll();
             tmp.next = node;
-            tmp = tmp.next;
+            tmp = node;
 
             if (tmp.next != null) {
                 queue.add(tmp.next);

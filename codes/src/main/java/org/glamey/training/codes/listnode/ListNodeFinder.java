@@ -1,6 +1,19 @@
 package org.glamey.training.codes.listnode;
 
 public class ListNodeFinder {
+
+
+    public static void main(String[] args) {
+        ListNode kthToTail = findKthToTail(ListNodeUtil.create(new int[]{1, 2, 3, 4, 5}), 5);
+        ListNodeUtil.print(kthToTail);
+
+        kthToTail = findKthToTail(ListNodeUtil.create(new int[]{1, 2, 3, 4, 5}), 6);
+        ListNodeUtil.print(kthToTail);
+
+        kthToTail = findKthToTail(ListNodeUtil.create(new int[]{1, 2, 3, 4, 5}), 1);
+        ListNodeUtil.print(kthToTail);
+    }
+
     /**
      * 找到第index个元素
      * <p>
@@ -27,6 +40,27 @@ public class ListNodeFinder {
         return null;
     }
 
+
+    /**
+     * 找到倒数第K的节点
+     *
+     * @return
+     */
+    public static ListNode findKthToTail(ListNode head, int k) {
+        if (head == null || k < 0) {
+            return head;
+        }
+
+        ListNode p = head, q = head;
+        int i = 0;
+        for (; p != null; i++) {
+            if (i >= k) {
+                q = q.next;
+            }
+            p = p.next;
+        }
+        return i < k ? null : q;
+    }
 
     /**
      * 查看倒数第index个元素

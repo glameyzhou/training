@@ -9,6 +9,39 @@ public class ListNodeDeleter {
 
         ListNode removeAll = deleteAllPresent(node, 4);
         ListNodeUtil.print(removeAll);
+
+
+        ListNodeUtil.print(deleteAllDuplicate(ListNodeUtil.create(new int[]{1, 2, 2, 2, 3, 3, 4})));
+        ListNodeUtil.print(deleteAllDuplicate(ListNodeUtil.create(new int[]{1,1, 2, 2, 2, 3, 3, 4})));
+        ListNodeUtil.print(deleteAllDuplicate(ListNodeUtil.create(new int[]{1,1,1,1,1})));
+    }
+
+
+    /**
+     *
+     * @param head
+     * @return
+     */
+    public static ListNode deleteAllDuplicate(ListNode head) {
+        if (head == null) {
+            return null;
+        }
+
+        ListNode p = new ListNode(-1);
+        p.next = head;
+        ListNode cur = p;
+        while (cur.next != null && cur.next.next != null) {
+            if (cur.next.val == cur.next.next.val) {
+                ListNode tmp = cur.next;
+                while (tmp.next != null && tmp.val == tmp.next.val) {
+                    tmp = tmp.next;
+                }
+                cur.next = tmp.next;
+            } else {
+                cur = cur.next;
+            }
+        }
+        return p.next;
     }
 
     public static ListNode deleteFirstPresent(ListNode node, int value) {

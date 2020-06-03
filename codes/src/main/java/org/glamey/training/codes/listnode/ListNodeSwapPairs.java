@@ -17,7 +17,7 @@ package org.glamey.training.codes.listnode;
 public class ListNodeSwapPairs {
 
     public static void main(String[] args) {
-        ListNode head = ListNodeUtil.create(new int[]{1, 2, 3, 4});
+        ListNode head = ListNodeUtil.create(new int[]{1, 2, 3, 4, 5});
         ListNode swapPairs = swapPairs(head);
         ListNodeUtil.print(swapPairs);
     }
@@ -26,11 +26,9 @@ public class ListNodeSwapPairs {
         if (head == null || head.next == null) {
             return head;
         }
-
         ListNode a = head, b = head.next;
         a.next = swapPairs(b.next);
         b.next = a;
         return b;
-
     }
 }

@@ -1,9 +1,6 @@
 package org.glamey.training.codes.search;
 
-import com.google.common.collect.Lists;
-
 import java.util.Comparator;
-import java.util.List;
 import java.util.PriorityQueue;
 
 /**
@@ -59,21 +56,26 @@ public class MedianFinder {
      *
      * @return
      */
-    public double find() {
+    public Double find() {
         //两个堆元素之和为偶数
         if ((count & 1) == 0) {
-            return (double) (maxHeap.peek() + minHeap.peek()) / 2;
+            return (double) ((maxHeap.peek() + minHeap.peek()) / 2);
         }
         //两个堆元素只和为奇数
         return (double) maxHeap.peek();
     }
 
+    /**
+     * 5,2,3,4,1,6,7,0,8
+     * 5.00 3.50 3.00 3.50 3.00 3.50 4.00 3.50 4.00
+     * @param args
+     */
     public static void main(String[] args) {
         MedianFinder finder = new MedianFinder();
-        List<Integer> list = Lists.newArrayList(4, 5, 1, 2, 3);
-        for (Integer integer : list) {
-            finder.add(integer);
+        int[] nums = new int[]{5, 2, 3, 4, 1, 6, 7, 0, 8};
+        for (int i = 0; i < nums.length; i++) {
+            finder.add(nums[i]);
+            System.out.println(finder.find());
         }
-        System.out.println(finder.find());
     }
 }
