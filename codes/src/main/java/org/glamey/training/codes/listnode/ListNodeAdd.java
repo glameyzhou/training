@@ -12,6 +12,17 @@ import java.util.Stack;
 public class ListNodeAdd {
 
 
+    public static void main(String[] args) {
+        ListNode headA = ListNodeUtil.create(new int[]{1, 2, 8, 3});
+        ListNode headB = ListNodeUtil.create(new int[]{8, 1, 7});
+
+        ListNodeUtil.print(addByStack(headA, headB));
+        ListNodeUtil.print(addByRecursion(headA, headB));
+
+
+    }
+
+
     /**
      * 通过栈的方式来实现
      *
@@ -19,7 +30,7 @@ public class ListNodeAdd {
      * @param n2
      * @return
      */
-    public static ListNode addTwoNodeByStack(ListNode n1, ListNode n2) {
+    public static ListNode addByStack(ListNode n1, ListNode n2) {
         if (n1 == null) {
             return n2;
         }
@@ -69,7 +80,7 @@ public class ListNodeAdd {
         return head;
     }
 
-    public static ListNode addTwoNodeByReverse(ListNode n1, ListNode n2) {
+    public static ListNode addByRecursion(ListNode n1, ListNode n2) {
         if (n1 == null) {
             return n2;
         }
@@ -77,7 +88,7 @@ public class ListNodeAdd {
         if (n2 == null) {
             return n1;
         }
-        ListNode head = null, tmp = null;
+        ListNode head = null, tmp;
         ListNode nodeA = ListNodeReverser.reverse(n1);
         ListNode nodeB = ListNodeReverser.reverse(n2);
         int a, b, sum, over = 0;
