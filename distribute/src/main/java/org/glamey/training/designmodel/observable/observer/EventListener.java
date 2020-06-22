@@ -5,5 +5,5 @@ package org.glamey.training.designmodel.observable.observer;
  */
 public interface EventListener extends java.util.EventListener {
 
-  void onEventListener(Event event);
+    void onEventListener(Event event);
 }

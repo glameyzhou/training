@@ -38,18 +38,14 @@ public class ABADemo {
         t2.join();
 
         //AtomicStampedReference
-
-        Thread t3 = new Thread(new Runnable() {
-            @Override
-            public void run() {
-                try {
-                    TimeUnit.SECONDS.sleep(1);
-                } catch (InterruptedException e) {
-                    e.printStackTrace();
-                }
-                reference.compareAndSet(100, 101, reference.getStamp(), reference.getStamp() + 1);
-                reference.compareAndSet(101, 100, reference.getStamp(), reference.getStamp() + 1);
+        Thread t3 = new Thread(() -> {
+            try {
+                TimeUnit.SECONDS.sleep(1);
+            } catch (InterruptedException e) {
+                e.printStackTrace();
             }
+            reference.compareAndSet(100, 101, reference.getStamp(), reference.getStamp() + 1);
+            reference.compareAndSet(101, 100, reference.getStamp(), reference.getStamp() + 1);
         });
 
         Thread t4 = new Thread(() -> {

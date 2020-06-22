@@ -22,19 +22,9 @@ public class Demo {
         }
 
         final BroadCaster broadCaster = new BroadCaster(EXECUTOR);
-        broadCaster.register(new EventListener() {
-            @Override
-            public void onEventListener(Event event) {
-                System.out.printf("我是监听器[%s],收到的消息内容是:%s\n", "a", event);
-            }
-        });
+        broadCaster.register(event -> System.out.printf("我是监听器[%s],收到的消息内容是:%s\n", "a", event));
 
-        broadCaster.register(new EventListener() {
-            @Override
-            public void onEventListener(Event event) {
-                System.out.printf("我是监听器[%s],收到的消息内容是:%s\n", "b", event);
-            }
-        });
+        broadCaster.register(event -> System.out.printf("我是监听器[%s],收到的消息内容是:%s\n", "b", event));
 
         events.forEach(e -> broadCaster.publishEvent(e));
         try {

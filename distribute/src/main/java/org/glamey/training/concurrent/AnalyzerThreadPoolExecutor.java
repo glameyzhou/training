@@ -65,9 +65,10 @@ public class AnalyzerThreadPoolExecutor {
 
         int index = 0;
         while (true) {
-            System.out.println(String.format("corePoolSize=%d, maxPoolSize=%d, keepAliveTime=%s, allowCoreThreadTimeout=%s",
+            System.out.println(String.format("corePoolSize=%d, maxPoolSize=%d, keepAliveTime=%s, allowCoreThreadTimeout=%s, threadName=%s",
                     executor.getCorePoolSize(), executor.getMaximumPoolSize(), executor.getKeepAliveTime(TimeUnit.SECONDS),
-                    executor.allowsCoreThreadTimeOut()));
+                    executor.allowsCoreThreadTimeOut(),
+                    new Thread(executor.getQueue().peek()).getName()));
 
             TimeUnit.SECONDS.sleep(1);
             index++;

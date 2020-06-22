@@ -16,6 +16,7 @@ public class Demo {
         list.add("b");
         list.add("c");
 
+        System.out.println(list.size());
         list.remove(1);
         System.out.println(list.size());
 

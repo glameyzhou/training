@@ -5,5 +5,5 @@ package org.glamey.training.designmodel.observable;
  */
 public interface Observer<T extends Observable> {
 
-  void change(T t);
+    void change(T t);
 }

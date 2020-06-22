@@ -10,5 +10,5 @@ import lombok.Data;
 @Data
 @AllArgsConstructor
 public class Event<T> {
-  private T t;
+    private T t;
 }
