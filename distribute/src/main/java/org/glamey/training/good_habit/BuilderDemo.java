@@ -8,6 +8,14 @@ package org.glamey.training.good_habit;
 
 public class BuilderDemo {
 
+
+  public static void main(String[] args) {
+    BuilderDemo demo = new Builder().address("add").userName("zhangsan").build();
+    System.out.println(demo.getUserName() + " " + demo.getAddress());
+
+//    BuilderDemo demo = new Builder().address("add").userName("zhangsan").build();
+  }
+
   private String userName;
   private String address;
 

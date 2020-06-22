@@ -21,11 +21,9 @@ public class SupplierMain {
             System.out.println(integer);
         }
 
-        Supplier<Integer> expireSupplier = Suppliers.memoizeWithExpiration(new Supplier<Integer>() {
-            public Integer get() {
-                System.out.println("expireSupplier ...");
-                return 100;
-            }
+        Supplier<Integer> expireSupplier = Suppliers.memoizeWithExpiration(() -> {
+            System.out.println("expireSupplier ...");
+            return 100;
         }, 5, TimeUnit.SECONDS);
 
         for (int i = 0; i < 10; i++) {

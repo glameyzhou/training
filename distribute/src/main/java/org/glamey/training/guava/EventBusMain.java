@@ -20,11 +20,11 @@ public class EventBusMain {
         //消息收到后立即响应，处理时间以来Observer
         EventBus asyncEventBus = new AsyncEventBus(Executors.newFixedThreadPool(2));
         asyncEventBus.register(new EventObserver());
-        doWork(asyncEventBus);
+        publishEvent(asyncEventBus);
         System.out.println("---------------------------------------->");
     }
 
-    private static void doWork(EventBus eventBus) throws InterruptedException {
+    private static void publishEvent(EventBus eventBus) throws InterruptedException {
         for (int i = 0; i < 100; i++) {
             if (i % 2 == 0) {
                 eventBus.post(i);
