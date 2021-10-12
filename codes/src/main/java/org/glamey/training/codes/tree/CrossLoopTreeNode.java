@@ -6,11 +6,11 @@ import java.util.List;
 
 /**
  * 按照层级交叉遍历一棵树(之字型打印二叉树)
- *              3
- *            9  10
- *          11      19
- *
- *   输出 [3, 10, 9, 11, 19]
+ * 3
+ * 9  10
+ * 11      19
+ * <p>
+ * 输出 [3, 10, 9, 11, 19]
  */
 public class CrossLoopTreeNode {
 
@@ -56,7 +56,7 @@ public class CrossLoopTreeNode {
                     queue.offer(node.right);
                 }
             }
-            level ++;
+            level++;
             ret.addAll(list);
         }
         return ret;

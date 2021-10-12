@@ -40,9 +40,6 @@ public class LongestNoRepeatSubString {
 
     /**
      * 暴力方式
-     *
-     * @param source
-     * @return
      */
     private static int complex(String source) {
         if (source == null || "".equals(source)) {
@@ -71,8 +68,9 @@ public class LongestNoRepeatSubString {
     }
 
     public static int lengthOfLongestSubstring(String str) {
-        if (str == null || str.length() < 1)
+        if (str == null || str.length() < 1) {
             return 0;
+        }
 
         // 记录字符上次出现的位置
         HashMap<Character, Integer> map = new HashMap<>();
@@ -82,8 +80,9 @@ public class LongestNoRepeatSubString {
         for (int i = 0, strLen = str.length(); i < strLen; i++) {
             Character ch = str.charAt(i);
             Integer index = map.get(ch);
-            if (index != null)
+            if (index != null) {
                 pre = Math.max(pre, index);
+            }
             max = Math.max(max, i - pre);
             map.put(ch, i);
         }
@@ -100,9 +99,6 @@ public class LongestNoRepeatSubString {
      * 4、如果字符已经在map中存在，更新start
      * 5、如果字符不在map中，更新maxLen
      * 6、返回maxLen
-     *
-     * @param source
-     * @return
      */
     private static int longestNoRepeatSubString(String source) {
         if (source == null || "".equals(source)) {

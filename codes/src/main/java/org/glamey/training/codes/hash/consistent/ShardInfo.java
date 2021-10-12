@@ -6,7 +6,7 @@ package org.glamey.training.codes.hash.consistent;
  * @author yang.zhou 2019.11.04.17
  */
 public abstract class ShardInfo<R> {
-    private int weight;
+    private final int weight;
 
     public ShardInfo(int weight) {
         this.weight = weight;

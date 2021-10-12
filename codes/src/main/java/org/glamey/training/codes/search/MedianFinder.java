@@ -28,8 +28,8 @@ import java.util.PriorityQueue;
  * @author yang.zhou 2019.11.27.14
  */
 public class MedianFinder {
-    private PriorityQueue<Integer> minHeap;
-    private PriorityQueue<Integer> maxHeap;
+    private final PriorityQueue<Integer> minHeap;
+    private final PriorityQueue<Integer> maxHeap;
     private int count; //两个堆的元素只和
 
     public MedianFinder() {
@@ -53,8 +53,6 @@ public class MedianFinder {
 
     /**
      * 如果两个队列size大小一样的话，分别取头节点求平均数。反之取大顶堆头节点。
-     *
-     * @return
      */
     public Double find() {
         //两个堆元素之和为偶数
@@ -68,11 +66,10 @@ public class MedianFinder {
     /**
      * 5,2,3,4,1,6,7,0,8
      * 5.00 3.50 3.00 3.50 3.00 3.50 4.00 3.50 4.00
-     * @param args
      */
     public static void main(String[] args) {
         MedianFinder finder = new MedianFinder();
-        int[] nums = new int[]{5, 2, 3, 4, 1, 6, 7, 0, 8};
+        int[] nums = new int[] {5, 2, 3, 4, 1, 6, 7, 0, 8};
         for (int i = 0; i < nums.length; i++) {
             finder.add(nums[i]);
             System.out.println(finder.find());

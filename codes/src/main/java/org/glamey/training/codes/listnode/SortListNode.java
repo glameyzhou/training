@@ -7,7 +7,7 @@ package org.glamey.training.codes.listnode;
 public class SortListNode {
 
     public static void main(String[] args) {
-        ListNode head = ListNodeUtil.create(new int[]{2, 9, 10, 6, 30, 8});
+        ListNode head = ListNodeUtil.create(new int[] {2, 9, 10, 6, 30, 8});
         ListNode sorted = sort(head);
         ListNodeUtil.print(sorted);
 

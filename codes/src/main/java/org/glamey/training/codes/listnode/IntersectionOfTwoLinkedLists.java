@@ -1,16 +1,13 @@
 package org.glamey.training.codes.listnode;
 
-import org.glamey.training.codes.listnode.ListNode;
-import org.glamey.training.codes.listnode.ListNodeUtil;
-
 /**
  * 求 两个单向链表的交集
  */
 public class IntersectionOfTwoLinkedLists {
 
     public static void main(String[] args) {
-        ListNode head1 = ListNodeUtil.create(new int[]{1, 2, 3, 4, 5, 6});
-        ListNode head2 = ListNodeUtil.create(new int[]{1, 3, 4, 6, 7});
+        ListNode head1 = ListNodeUtil.create(new int[] {1, 2, 3, 4, 5, 6});
+        ListNode head2 = ListNodeUtil.create(new int[] {1, 3, 4, 6, 7});
 
         ListNode intersection = intersection(head1, head2);
         ListNodeUtil.print(intersection);

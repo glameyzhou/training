@@ -1,12 +1,12 @@
 package org.glamey.training.codes.loadbalance.roundrobbin;
 
-import org.glamey.training.codes.loadbalance.LoadBalance;
-import org.glamey.training.codes.loadbalance.domian.ServerIp;
-import org.glamey.training.codes.loadbalance.domian.Weight;
-
 import java.util.Collection;
 import java.util.LinkedHashMap;
 import java.util.Map;
+
+import org.glamey.training.codes.loadbalance.LoadBalance;
+import org.glamey.training.codes.loadbalance.domian.ServerIp;
+import org.glamey.training.codes.loadbalance.domian.Weight;
 
 /**
  * 平滑权重轮询算法
@@ -14,24 +14,22 @@ import java.util.Map;
  * https://tenfy.cn/2018/11/12/smooth-weighted-round-robin/
  * https://www.fanhaobai.com/2018/12/load-balance-smooth-weighted-round-robin.html
  * https://colobu.com/2016/12/04/smooth-weighted-round-robin-algorithm/
- *
+ * <p>
  * 1、每个节点，用当前值+权重  currentWeight += weight
  * 2、找到当前权重值最大的Weight，即为返回的节点 weight.ip
  * 3、将待返回的节点当前权重值减去总权重。weight.currentWeight -= sumWeight
- *
+ * <p>
  * 总权重 S = X1 + X2 + X3 + .... + Xn
- *
+ * <p>
  * N个节点当前权重的初始化 {0,0,....0}，长度为n,值均为0
  * 第一轮初始化 {X1,X2,X3....Xn}
  * 最大节点是j,那么j节点减去S  {X1,X2,X3..Xj-S..Xn}
- *
- *
+ * <p>
+ * <p>
  * X1 + X2 + X3 + ...+Xj-S + .. + Xn ==>
  * X1 + X2 + X3 + ... + Xn -S ==>
  * S - S ==>
  * 0
- *
- *
  */
 public class SmoothWeightRoundRobbinLB implements LoadBalance {
 

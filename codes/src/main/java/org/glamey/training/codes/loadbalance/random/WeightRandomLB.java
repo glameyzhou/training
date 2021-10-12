@@ -1,12 +1,11 @@
 package org.glamey.training.codes.loadbalance.random;
 
-import org.glamey.training.codes.loadbalance.LoadBalance;
-import org.glamey.training.codes.loadbalance.domian.ServerIp;
-
 import java.util.HashMap;
 import java.util.Map;
 import java.util.concurrent.ThreadLocalRandom;
-import java.util.function.ToIntFunction;
+
+import org.glamey.training.codes.loadbalance.LoadBalance;
+import org.glamey.training.codes.loadbalance.domian.ServerIp;
 
 /**
  * 加权随机算法
@@ -27,8 +26,6 @@ public class WeightRandomLB implements LoadBalance {
     /**
      * 我们按照坐标来算
      * 0-----A-----B----C
-     *
-     * @return
      */
     @Override
     public String getServer() {
@@ -55,7 +52,8 @@ public class WeightRandomLB implements LoadBalance {
             analyzerMap.put(ip, analyzerMap.getOrDefault(ip, 0) + 1);
         }
 
-        for (Map.Entry<String, Integer> entry : analyzerMap.entrySet())
+        for (Map.Entry<String, Integer> entry : analyzerMap.entrySet()) {
             System.out.println(entry.getKey() + " " + entry.getValue());
+        }
     }
 }

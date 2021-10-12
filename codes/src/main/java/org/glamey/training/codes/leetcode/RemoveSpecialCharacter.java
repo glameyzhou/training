@@ -16,12 +16,13 @@ public class RemoveSpecialCharacter {
     private static final char removeStr = '\b';
 
     public static String remove_1(String target) {
-        if (target == null || "".equals(target))
+        if (target == null || "".equals(target)) {
             return target;
+        }
 
 
         int position = 0;
-        char result[] = new char[target.length()];
+        char[] result = new char[target.length()];
         for (int i = 0; i < target.length(); i++) {
             char current = target.charAt(i);
             if (current != removeStr) {
@@ -36,8 +37,9 @@ public class RemoveSpecialCharacter {
     }
 
     public static String remove_2(String target) {
-        if (target == null || "".equals(target))
+        if (target == null || "".equals(target)) {
             return target;
+        }
 
         StringBuilder builder = new StringBuilder(target.length());
         int count = 0;
@@ -57,8 +59,9 @@ public class RemoveSpecialCharacter {
     }
 
     public static String remove_3(String target) {
-        if (target == null || "".equals(target))
+        if (target == null || "".equals(target)) {
             return target;
+        }
         return null;
     }
 

@@ -30,7 +30,9 @@ public class DetectCapital {
         //小写
         else {
             boolean firstUpperCase = Character.isUpperCase(chars[0]);
-            if (chars.length == 2) return true;
+            if (chars.length == 2) {
+                return true;
+            }
             for (int i = 1; i < chars.length - 1; i++) {
                 if (Character.isUpperCase(chars[i])) {
                     return false;

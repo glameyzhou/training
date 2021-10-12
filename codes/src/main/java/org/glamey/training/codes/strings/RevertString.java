@@ -18,11 +18,6 @@ public class RevertString {
      * 1 bacdef  翻转前两位
      * 2 bafedc  翻转后四位
      * 3 cdefab  翻转所有
-     *
-     * @param source
-     * @param k
-     * @param len
-     * @return
      */
     private static String revertString(String source, int k, int len) {
         if (k <= 0 || len <= 0 || k == len) {

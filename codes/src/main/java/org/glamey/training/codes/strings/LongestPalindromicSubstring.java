@@ -31,13 +31,11 @@ public class LongestPalindromicSubstring {
         System.out.println(bySplit("babad"));
         System.out.println(bySplit("cbbd"));
     }
-    /*************************************【暴力循环方式，遍历所有的字符串，然后判定每个字符串是否为回文】*****************************************************/
+    /*************************************【暴力循环方式，遍历所有的字符串，然后判定每个字符串是否为回文】
+     * *****************************************************/
     /**
      * 暴力方式求解
      * 时间复杂度为O(N^3)
-     *
-     * @param source
-     * @return
      */
     public static String byComplex(String source) {
         if (Utils.isBlank(source) || source.length() < 2) {
@@ -59,7 +57,9 @@ public class LongestPalindromicSubstring {
 
     private static boolean isPalindrome(char[] chars, int left, int right) {
         while (left <= right) {
-            if (chars[left] != chars[right]) return false;
+            if (chars[left] != chars[right]) {
+                return false;
+            }
             left++;
             right--;
         }
@@ -69,15 +69,13 @@ public class LongestPalindromicSubstring {
 
     /**************************************[中心往外扩充的方式]****************************************************/
     /**
-     * https://leetcode-cn.com/problems/longest-palindromic-substring/solution/zhong-xin-kuo-san-dong-tai-gui-hua-by-liweiwei1419/
+     * https://leetcode-cn.com/problems/longest-palindromic-substring/solution/zhong-xin-kuo-san-dong-tai-gui-hua-by
+     * -liweiwei1419/
      * 中心扩散的原理
      * 枚举所有中心O(N),中心扩散判定回文需要O(N)，总体时间复杂度为O(N^2)
      * <p>
      * 奇数个元素，中心是实际的元素。
      * 偶数个元素，中心是一个间隙。
-     *
-     * @param source
-     * @return
      */
     public static String bySpread(String source) {
         if (Utils.isBlank(source) || source.length() < 2) {
@@ -115,7 +113,8 @@ public class LongestPalindromicSubstring {
         return source.substring(i + 1, j); //include startIndex, exclude endIndex
     }
 
-    /***************************************【每个字符前后插入特殊字符的方式，这样不用判定是否为偶数个字符】***************************************************/
+    /***************************************【每个字符前后插入特殊字符的方式，这样不用判定是否为偶数个字符】
+     * ***************************************************/
     public static String bySplit(String source) {
         if (Utils.isBlank(source) || source.length() < 2) {
             return source;
@@ -140,13 +139,11 @@ public class LongestPalindromicSubstring {
 
     /**
      * # b # a # b #
-     *
-     * @param chars
-     * @param index
-     * @return
      */
     private static int maxPalindrome(char[] chars, int index) {
-        if (index <= 0) return 0;
+        if (index <= 0) {
+            return 0;
+        }
         int i = index, j = index;
         int count = 0;
         while (i >= 0 && j < chars.length) {

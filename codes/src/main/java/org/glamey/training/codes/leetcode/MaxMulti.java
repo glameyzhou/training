@@ -11,9 +11,6 @@ public class MaxMulti {
      * 最大连续子数组乘积问题
      * <p>
      * 形如 {2,3,0,-1,2,5} --> 2 * 5 = 10
-     *
-     * @param arrays
-     * @return
      */
     public static int maxMultiOfContinue(int[] arrays) {
         if (arrays == null || arrays.length == 0) {
@@ -33,8 +30,7 @@ public class MaxMulti {
     }
 
     /**
-     * @param arrays
-     * @return
+     *
      */
     public static int maxMultiOfContinue_slow(int[] arrays) {
         if (arrays == null || arrays.length == 0) {

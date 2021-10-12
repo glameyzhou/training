@@ -19,7 +19,7 @@ public class BinarySearchTree {
     public static void main(String[] args) {
         BinarySearchTree binarySearchTree = new BinarySearchTree();
         IntStream.of(9, 5, 20, 15, 30).forEach(binarySearchTree::insert);
-        System.out.println(binarySearchTree.toString());
+        System.out.println(binarySearchTree);
 
         System.out.println("---");
         TreeNode search = binarySearchTree.search(20);
@@ -35,9 +35,6 @@ public class BinarySearchTree {
 
     /**
      * search
-     *
-     * @param key
-     * @return
      */
     public TreeNode search(int key) {
         TreeNode current = root;
@@ -53,9 +50,6 @@ public class BinarySearchTree {
 
     /**
      * insert
-     *
-     * @param key
-     * @return
      */
     public TreeNode insert(int key) {
         TreeNode node = new TreeNode(key), current = root, parent;
@@ -89,9 +83,6 @@ public class BinarySearchTree {
 
     /**
      * bst 广度优先遍历
-     *
-     * @param node
-     * @return
      */
     public String toString(TreeNode node) {
         if (node == null) {
@@ -106,8 +97,12 @@ public class BinarySearchTree {
             for (int i = 0; i < size; i++) {
                 TreeNode n = queue.poll();
                 builder.append(n.val).append(",");
-                if (n.left != null) queue.offer(n.left);
-                if (n.right != null) queue.offer(n.right);
+                if (n.left != null) {
+                    queue.offer(n.left);
+                }
+                if (n.right != null) {
+                    queue.offer(n.right);
+                }
             }
             list.add(builder.deleteCharAt(builder.length() - 1).toString());
         }

@@ -7,7 +7,6 @@
  * Map<ShardInfo, NodeResource> key=node info, value=node resource
  * <p>
  *
- *
  * @author yang.zhou 2019.11.04.18
  */
 package org.glamey.training.codes.hash.consistent;

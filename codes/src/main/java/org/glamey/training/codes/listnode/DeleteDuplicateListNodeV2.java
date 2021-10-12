@@ -19,15 +19,13 @@ public class DeleteDuplicateListNodeV2 {
 
 
     public static void main(String[] args) {
-        ListNodeUtil.print(deleteDuplicates(ListNodeUtil.create(new int[]{1, 2, 3, 4})));
-        ListNodeUtil.print(deleteDuplicates(ListNodeUtil.create(new int[]{1, 1, 1, 2, 2, 2})));
-        ListNodeUtil.print(deleteDuplicates(ListNodeUtil.create(new int[]{1, 2, 2, 3})));
+        ListNodeUtil.print(deleteDuplicates(ListNodeUtil.create(new int[] {1, 2, 3, 4})));
+        ListNodeUtil.print(deleteDuplicates(ListNodeUtil.create(new int[] {1, 1, 1, 2, 2, 2})));
+        ListNodeUtil.print(deleteDuplicates(ListNodeUtil.create(new int[] {1, 2, 2, 3})));
     }
 
     /**
      * 删除所有重复的节点
-     * @param head
-     * @return
      */
     public static ListNode deleteDuplicates(ListNode head) {
         if (head == null) {

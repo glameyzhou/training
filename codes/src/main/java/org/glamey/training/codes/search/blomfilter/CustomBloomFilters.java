@@ -1,24 +1,27 @@
 package org.glamey.training.codes.search.blomfilter;
 
-import com.google.common.base.Stopwatch;
-import com.google.common.collect.Lists;
-import com.google.common.hash.Hashing;
-
 import java.nio.charset.Charset;
+import java.nio.charset.StandardCharsets;
 import java.util.Arrays;
 import java.util.List;
 import java.util.concurrent.TimeUnit;
 
-/** -Xms64m -Xmx64m -XX:+PrintHeapAtGC
+import com.google.common.base.Stopwatch;
+import com.google.common.collect.Lists;
+import com.google.common.hash.Hashing;
+
+/**
+ * -Xms64m -Xmx64m -XX:+PrintHeapAtGC
+ *
  * @author yang.zhou 2019.12.03.17
  */
 public class CustomBloomFilters {
 
-    private int[] array;
+    private final int[] array;
 
-    private int size;
+    private final int size;
 
-    private List<HashAlgorithm> hashAlgorithms;
+    private final List<HashAlgorithm> hashAlgorithms;
 
     public CustomBloomFilters(int size) {
         this.size = size;
@@ -26,11 +29,12 @@ public class CustomBloomFilters {
         Arrays.fill(array, 0);
         this.hashAlgorithms = Lists.newArrayList(
                 source -> {
-                    int hash = Hashing.md5().newHasher().putString(source, Charset.forName("UTF-8")).hash().hashCode();
+                    int hash = Hashing.md5().newHasher().putString(source, StandardCharsets.UTF_8).hash().hashCode();
                     return hash > 0 ? hash : -hash;
                 },
                 source -> {
-                    int hash = Hashing.murmur3_32().newHasher().putString(source, Charset.forName("UTF-8")).hash().hashCode();
+                    int hash = Hashing.murmur3_32().newHasher().putString(source, StandardCharsets.UTF_8).hash()
+                            .hashCode();
                     return hash > 0 ? hash : -hash;
                 }
         );

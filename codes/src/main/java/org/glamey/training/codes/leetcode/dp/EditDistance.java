@@ -44,19 +44,19 @@ public class EditDistance {
 
     /**
      * 空间复杂度 O(m*n)
-     *
-     * @param word1
-     * @param word2
-     * @return
      */
     public int minDistance_1(String word1, String word2) {
         int n1 = word1.length();
         int n2 = word2.length();
         int[][] dp = new int[n1 + 1][n2 + 1];
         // dp[0][0...n2]的初始值
-        for (int j = 1; j <= n2; j++) dp[0][j] = dp[0][j - 1] + 1;
+        for (int j = 1; j <= n2; j++) {
+            dp[0][j] = dp[0][j - 1] + 1;
+        }
         // dp[0...n1][0] 的初始值
-        for (int i = 1; i <= n1; i++) dp[i][0] = dp[i - 1][0] + 1;
+        for (int i = 1; i <= n1; i++) {
+            dp[i][0] = dp[i - 1][0] + 1;
+        }
         // 通过公式推出 dp[n1][n2]
         for (int i = 1; i <= n1; i++) {
             for (int j = 1; j <= n2; j++) {
@@ -73,18 +73,15 @@ public class EditDistance {
 
     /**
      * 空间复杂度O(min(m,n))
-     *
-     * @param word1
-     * @param word2
-     * @return
      */
     public int minDistance_2(String word1, String word2) {
         int n1 = word1.length();
         int n2 = word2.length();
         int[] dp = new int[n2 + 1];
         // dp[0...n2]的初始值
-        for (int j = 0; j <= n2; j++)
+        for (int j = 0; j <= n2; j++) {
             dp[j] = j;
+        }
         // dp[j] = min(dp[j-1], pre, dp[j]) + 1
         for (int i = 1; i <= n1; i++) {
             int temp = dp[0];

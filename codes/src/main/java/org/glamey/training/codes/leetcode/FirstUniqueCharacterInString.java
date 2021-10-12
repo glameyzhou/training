@@ -52,9 +52,6 @@ public class FirstUniqueCharacterInString {
 
     /**
      * 直接通过char操作
-     *
-     * @param source
-     * @return
      */
     public static int firstUniqCharacter(String source) {
         if (source == null || "".equals(source)) {

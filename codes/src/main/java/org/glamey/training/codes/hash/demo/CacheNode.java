@@ -1,8 +1,9 @@
 package org.glamey.training.codes.hash.demo;
 
+import org.glamey.training.codes.hash.consistent.ShardInfo;
+
 import lombok.Getter;
 import lombok.Setter;
-import org.glamey.training.codes.hash.consistent.ShardInfo;
 
 /**
  * @author yang.zhou 2019.11.04.18

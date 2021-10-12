@@ -37,16 +37,12 @@ public class KthTreeNode {
         System.out.println(TreeNodeBFS.inOrderByStack(root));
 
 
-
         System.out.println(TreeNodeBFS.bsf(findKthTreeNodeByStack(root, 3)));
         System.out.println(TreeNodeBFS.bsf(findKthTreeNodeByRecursion(root, 3)));
     }
 
     /**
      * 栈的方式实现
-     * @param root
-     * @param k
-     * @return
      */
     private static TreeNode findKthTreeNodeByStack(TreeNode root, int k) {
         if (root == null || k <= 0) {
@@ -60,7 +56,7 @@ public class KthTreeNode {
                 root = root.left;
             }
             root = stack.pop();
-            count ++;
+            count++;
             if (count == k) {
                 return root;
             }
@@ -79,6 +75,7 @@ public class KthTreeNode {
      */
 
     static int count = 0;
+
     private static TreeNode findKthTreeNodeByRecursion(TreeNode root, int k) {
         if (root == null || k <= 0) {
             return null;
@@ -92,9 +89,6 @@ public class KthTreeNode {
             return root;
         }
         node = findKthTreeNodeByRecursion(root.right, k);
-        if (node != null) {
-            return node;
-        }
-        return null;
+        return node;
     }
 }

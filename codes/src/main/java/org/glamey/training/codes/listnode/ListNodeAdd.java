@@ -13,8 +13,8 @@ public class ListNodeAdd {
 
 
     public static void main(String[] args) {
-        ListNode headA = ListNodeUtil.create(new int[]{1, 2, 8, 3});
-        ListNode headB = ListNodeUtil.create(new int[]{8, 1, 7});
+        ListNode headA = ListNodeUtil.create(new int[] {1, 2, 8, 3});
+        ListNode headB = ListNodeUtil.create(new int[] {8, 1, 7});
 
         ListNodeUtil.print(addByStack(headA, headB));
         ListNodeUtil.print(addByRecursion(headA, headB));
@@ -25,10 +25,6 @@ public class ListNodeAdd {
 
     /**
      * 通过栈的方式来实现
-     *
-     * @param n1
-     * @param n2
-     * @return
      */
     public static ListNode addByStack(ListNode n1, ListNode n2) {
         if (n1 == null) {

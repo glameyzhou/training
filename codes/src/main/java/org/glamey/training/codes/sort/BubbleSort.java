@@ -1,9 +1,9 @@
 package org.glamey.training.codes.sort;
 
 
-import org.glamey.training.codes.Utils;
-
 import java.util.Arrays;
+
+import org.glamey.training.codes.Utils;
 
 /**
  * @author zhouyang.zhou. 2017.03.13.11.

@@ -43,9 +43,6 @@ public class SingleNumber {
     /**
      * 数学方式
      * 2a + 2b + 2c - (a + b + c) = c
-     *
-     * @param nums
-     * @return
      */
     private static int findByMathFormula(int[] nums) {
         return 2 * Arrays.stream(nums).distinct().sum() - Arrays.stream(nums).sum();

@@ -6,8 +6,8 @@ package org.glamey.training.codes.listnode;
 public class ListNodeMerger {
 
     public static void main(String[] args) {
-        ListNode n1 = ListNodeUtil.create(new int[]{1, 3, 5});
-        ListNode n2 = ListNodeUtil.create(new int[]{1, 2});
+        ListNode n1 = ListNodeUtil.create(new int[] {1, 3, 5});
+        ListNode n2 = ListNodeUtil.create(new int[] {1, 2});
         ListNode merge = merge(n1, n2);
         ListNodeUtil.print(merge);
     }
@@ -26,8 +26,12 @@ public class ListNodeMerger {
             p = p.next;
         }
 
-        if (n1 != null) p.next = n1;
-        if (n2 != null) p.next = n2;
+        if (n1 != null) {
+            p.next = n1;
+        }
+        if (n2 != null) {
+            p.next = n2;
+        }
 
         return dummy.next;
     }
@@ -35,9 +39,6 @@ public class ListNodeMerger {
     /**
      * 时间复杂度O(max(n1.size, n2.size))
      * 空间复杂度O(n1+n2)
-     * @param n1
-     * @param n2
-     * @return
      */
     public static ListNode merge(ListNode n1, ListNode n2) {
         ListNode dumpy = new ListNode(-1), p = dumpy;
@@ -58,9 +59,6 @@ public class ListNodeMerger {
     /**
      * 时间复杂度O(max(n1.size, n2.size))
      * 空间复杂度O(n1+n2)
-     * @param n1
-     * @param n2
-     * @return
      */
     public static ListNode mergeByLoop(ListNode n1, ListNode n2) {
         ListNode dummy = new ListNode(0), p = dummy, cur;
@@ -76,8 +74,12 @@ public class ListNodeMerger {
             p.next = cur;
             p = cur;
         }
-        if (n1 != null) p.next = n1;
-        if (n2 != null) p.next = n2;
+        if (n1 != null) {
+            p.next = n1;
+        }
+        if (n2 != null) {
+            p.next = n2;
+        }
 
         return dummy.next;
     }

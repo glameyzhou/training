@@ -59,8 +59,6 @@ public class InvertBinaryTree {
 
     /**
      * 在原树的基础上面修改
-     *
-     * @param root
      */
     public static void invertTreeNodByRecursion(TreeNode root) {
         if (root == null) {
@@ -80,9 +78,6 @@ public class InvertBinaryTree {
 
     /**
      * 递归遍历（生成新树）
-     *
-     * @param tree
-     * @return
      */
     public static TreeNode invertTreeByRecursion(TreeNode tree) {
         if (tree == null) {
@@ -100,9 +95,6 @@ public class InvertBinaryTree {
      * <p>
      * 借助队列压入节点。
      * 后续对每次弹出的节点的左右孩子进行交换。
-     *
-     * @param root
-     * @return
      */
     private static TreeNode invertByBfs(TreeNode root) {
         if (root == null) {

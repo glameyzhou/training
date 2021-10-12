@@ -18,10 +18,12 @@ public class AverageOfLevels {
                 TreeNode n = queue.remove();
                 sum += n.val;
                 count++;
-                if (n.left != null)
+                if (n.left != null) {
                     temp.add(n.left);
-                if (n.right != null)
+                }
+                if (n.right != null) {
                     temp.add(n.right);
+                }
             }
             queue = temp;
             res.add(sum * 1.0 / count);

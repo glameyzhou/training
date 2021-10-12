@@ -35,8 +35,10 @@ public class EchoCyclic2 {
         int left = 0, right = source.length() - 1;
         while (left < right) {
             if (source.charAt(left) != source.charAt(right))
-                //尝试跳过左边，或者跳过右边
+            //尝试跳过左边，或者跳过右边
+            {
                 return processEchoCyclic(source, left, right - 1) || processEchoCyclic(source, left + 1, right);
+            }
             left++;
             right--;
         }

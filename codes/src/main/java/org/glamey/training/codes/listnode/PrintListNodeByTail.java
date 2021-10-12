@@ -12,7 +12,7 @@ import java.util.Stack;
 public class PrintListNodeByTail {
 
     public static void main(String[] args) {
-        ListNode head = ListNodeUtil.create(new int[]{1, 2, 3, 4, 5});
+        ListNode head = ListNodeUtil.create(new int[] {1, 2, 3, 4, 5});
 
         printListNodeByTailThroughStack(head);
 
@@ -23,8 +23,6 @@ public class PrintListNodeByTail {
      * 通过递归来实现
      * 时间复杂度：O(N)
      * 空间复杂度：O(1) 其实也有栈空间的
-     *
-     * @param head
      */
     private static void printListNodeByTailThroughRecursion(ListNode head) {
         if (head == null) {
@@ -38,8 +36,6 @@ public class PrintListNodeByTail {
      * 通过栈的方式来实现。
      * 时间复杂度：O(n)
      * 空间复杂度：O(n)
-     *
-     * @param head
      */
     private static void printListNodeByTailThroughStack(ListNode head) {
         if (head == null) {

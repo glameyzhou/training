@@ -1,8 +1,8 @@
 package org.glamey.training.codes.search;
 
-import org.glamey.training.codes.Utils;
-
 import java.util.Arrays;
+
+import org.glamey.training.codes.Utils;
 
 /**
  * 给定一个包含 n + 1 个整数的数组 nums，其数字都在 1 到 n 之间（包括 1 和 n），可知至少存在一个重复的整数。假设只有一个重复的整数，找出这个重复的数。
@@ -31,9 +31,9 @@ import java.util.Arrays;
 public class FindDuplicateNumber {
 
     public static void main(String[] args) {
-        System.out.println(findByBinarySearch(new int[]{1, 3, 4, 2, 2}));
-        System.out.println(findByInPlaceSwap(new int[]{1, 2, 3, 4, 2}));
-        System.out.println(findBySort(new int[]{1, 2, 3, 4, 2}));
+        System.out.println(findByBinarySearch(new int[] {1, 3, 4, 2, 2}));
+        System.out.println(findByInPlaceSwap(new int[] {1, 2, 3, 4, 2}));
+        System.out.println(findBySort(new int[] {1, 2, 3, 4, 2}));
     }
 
 
@@ -55,9 +55,6 @@ public class FindDuplicateNumber {
      * 原地操作。
      * 时间复杂度：O(N)
      * 空间复杂度：O(1)
-     *
-     * @param nums
-     * @return
      */
     public static int findByInPlaceSwap(int[] nums) {
         if (nums == null || nums.length == 0) {
@@ -88,9 +85,6 @@ public class FindDuplicateNumber {
     /**
      * 通过使用二分查找来实现
      * 遍历的不是下标，而是下标上面的数字
-     *
-     * @param nums
-     * @return
      */
     private static int findByBinarySearch(int[] nums) {
         Arrays.sort(nums);

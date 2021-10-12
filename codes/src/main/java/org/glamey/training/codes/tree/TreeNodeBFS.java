@@ -1,6 +1,10 @@
 package org.glamey.training.codes.tree;
 
-import java.util.*;
+import java.util.ArrayList;
+import java.util.LinkedList;
+import java.util.List;
+import java.util.Queue;
+import java.util.Stack;
 import java.util.stream.Collectors;
 
 /**
@@ -37,7 +41,9 @@ public class TreeNodeBFS {
     }
 
     private static void _inOrderByRecursion(TreeNode root, List<Integer> list) {
-        if (root == null) return;
+        if (root == null) {
+            return;
+        }
         _inOrderByRecursion(root.left, list);
         list.add(root.val);
         _inOrderByRecursion(root.right, list);
@@ -45,9 +51,6 @@ public class TreeNodeBFS {
 
     /**
      * 中序遍历(左根右)
-     *
-     * @param root
-     * @return
      */
     public static String inOrderByStack(TreeNode root) {
         if (root == null) {
@@ -69,9 +72,6 @@ public class TreeNodeBFS {
 
     /**
      * 广度优先遍历
-     *
-     * @param root
-     * @return
      */
     public static String bsf(TreeNode root) {
         if (root == null) {

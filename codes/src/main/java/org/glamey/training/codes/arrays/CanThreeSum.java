@@ -3,7 +3,7 @@ package org.glamey.training.codes.arrays;
 public class CanThreeSum {
 
     public static void main(String[] args) {
-        int[] nums = new int[]{0, 2, 1, -6, 6, -7, 9, 1, 2, 0, 1};
+        int[] nums = new int[] {0, 2, 1, -6, 6, -7, 9, 1, 2, 0, 1};
 
         boolean canThreeSum = canThreeSum(nums);
     }

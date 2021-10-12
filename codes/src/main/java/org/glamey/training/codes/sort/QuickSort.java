@@ -19,7 +19,7 @@ public class QuickSort {
         doublePointSort(numbers, 0, numbers.length - 1);
         System.out.println(String.format("[双指针]后：%s", Arrays.toString(numbers)));
 
-        numbers = new int[]{9, 8, 7, 6, 5, 4, 3, 2, 1};
+        numbers = new int[] {9, 8, 7, 6, 5, 4, 3, 2, 1};
         System.out.println(String.format("[挖坑]前：%s", Arrays.toString(numbers)));
         diggerHole(numbers, 0, numbers.length - 1);
         System.out.println(String.format("[挖坑]后：%s", Arrays.toString(numbers)));

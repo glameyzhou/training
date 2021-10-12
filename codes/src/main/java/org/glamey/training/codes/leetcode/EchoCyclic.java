@@ -11,7 +11,9 @@ public class EchoCyclic {
     }
 
     private static boolean isEchoCyclic(String source) {
-        if (Utils.isBlank(source)) return true;
+        if (Utils.isBlank(source)) {
+            return true;
+        }
         source = source.toLowerCase();
         int left = 0, right = source.length() - 1;
         while (left < right) {
@@ -21,9 +23,15 @@ public class EchoCyclic {
             while (source.charAt(right) > 'z' || source.charAt(right) < 'a') {
                 right--;
             }
-            if (left == right) return true;
-            if (left > right) return false;
-            if (source.charAt(left) != source.charAt(right)) return false;
+            if (left == right) {
+                return true;
+            }
+            if (left > right) {
+                return false;
+            }
+            if (source.charAt(left) != source.charAt(right)) {
+                return false;
+            }
             left++;
             right--;
         }

@@ -19,11 +19,11 @@ package org.glamey.training.codes.listnode;
 public class DeleteDuplicateListNode {
 
     public static void main(String[] args) {
-        ListNodeUtil.print(deleteDuplicates(ListNodeUtil.create(new int[]{1, 1, 1, 2, 2, 2, 3})));
-        ListNodeUtil.print(deleteDuplicates(ListNodeUtil.create(new int[]{1, 1, 3, 4,})));
+        ListNodeUtil.print(deleteDuplicates(ListNodeUtil.create(new int[] {1, 1, 1, 2, 2, 2, 3})));
+        ListNodeUtil.print(deleteDuplicates(ListNodeUtil.create(new int[] {1, 1, 3, 4,})));
 
-        ListNodeUtil.print(deleteDuplicate_v2(ListNodeUtil.create(new int[]{1, 1, 1, 2, 2, 2, 3})));
-        ListNodeUtil.print(deleteDuplicate_v2(ListNodeUtil.create(new int[]{1, 1, 3, 4,})));
+        ListNodeUtil.print(deleteDuplicate_v2(ListNodeUtil.create(new int[] {1, 1, 1, 2, 2, 2, 3})));
+        ListNodeUtil.print(deleteDuplicate_v2(ListNodeUtil.create(new int[] {1, 1, 3, 4,})));
     }
 
 
@@ -47,9 +47,6 @@ public class DeleteDuplicateListNode {
     /**
      * 删除重复链表（保留最后一个）
      * 时间复杂度：O(n)
-     *
-     * @param head
-     * @return
      */
     public static ListNode deleteDuplicates(ListNode head) {
         if (head == null || head.next == null) {

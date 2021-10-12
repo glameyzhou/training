@@ -22,16 +22,13 @@ public class MaximumSubarray {
 
 
     public static void main(String[] args) {
-        System.out.println(maxLongestSubArray(new int[]{-2, 1, -3, 4, -1, 2, 1, -5, 4})); //6
-        System.out.println(greedy(new int[]{-2, -3, -1, 1, -5, 4})); //4
+        System.out.println(maxLongestSubArray(new int[] {-2, 1, -3, 4, -1, 2, 1, -5, 4})); //6
+        System.out.println(greedy(new int[] {-2, -3, -1, 1, -5, 4})); //4
     }
 
     /**
      * 时间复杂度O(n)
      * 空间复杂度O(1)
-     *
-     * @param nums
-     * @return
      */
     private static int greedy(int[] nums) {
         //初始化值均为第0个元素
@@ -55,9 +52,6 @@ public class MaximumSubarray {
     /**
      * 暴力破解方法
      * 时间复杂度O(N*N)
-     *
-     * @param nums
-     * @return
      */
     private static int maxLongestSubArray(int[] nums) {
         if (nums == null || nums.length == 0) {

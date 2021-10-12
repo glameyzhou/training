@@ -43,9 +43,6 @@ public class ReverseWord {
     /**
      * 通过双端队列来实现
      * 需要删除字符串头尾的空格
-     *
-     * @param source
-     * @return
      */
     private static String _reverseWords(String source) {
         if (source == null || "".equals(source)) {
@@ -75,9 +72,6 @@ public class ReverseWord {
 
     /**
      * 通过栈的形式来处理。
-     *
-     * @param source
-     * @return
      */
     private static String reverseWords(String source) {
         Stack<String> stack = new Stack<>();

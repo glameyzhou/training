@@ -23,15 +23,11 @@ package org.glamey.training.codes.binarysearch;
 public class SearchInRotatedSortedArray {
 
     public static void main(String[] args) {
-        System.out.println(search(new int[]{3, 4, 5, 6, 7, 0, 1, 2, 2}, 0));
+        System.out.println(search(new int[] {3, 4, 5, 6, 7, 0, 1, 2, 2}, 0));
     }
 
     /**
      * 查询有序数组旋转后的指定数字下标
-     *
-     * @param nums
-     * @param target
-     * @return
      */
     public static int search(int[] nums, int target) {
         if (nums == null || nums.length == 0) {

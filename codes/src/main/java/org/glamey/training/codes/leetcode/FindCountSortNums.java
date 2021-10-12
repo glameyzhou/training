@@ -26,7 +26,7 @@ package org.glamey.training.codes.leetcode;
 public class FindCountSortNums {
 
     public static void main(String[] args) {
-        int count = search(new int[]{5, 7, 7, 8, 8, 10}, 8);
+        int count = search(new int[] {5, 7, 7, 8, 8, 10}, 8);
         System.out.println(count);
     }
 

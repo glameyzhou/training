@@ -34,7 +34,7 @@ public class SearchInsertPosition {
 
 
     public static void main(String[] args) {
-        int[] nums = new int[]{1, 3, 5, 6};
+        int[] nums = new int[] {1, 3, 5, 6};
         System.out.println(searchInsert(nums, 7));
         System.out.println(searchInsert(nums, 3));
         System.out.println(searchInsert(nums, 2));
@@ -42,10 +42,6 @@ public class SearchInsertPosition {
 
     /**
      * 二分法检索，返回low下标即可
-     *
-     * @param nums
-     * @param target
-     * @return
      */
     public static int searchInsert(int[] nums, int target) {
         int left = 0, right = nums.length - 1;

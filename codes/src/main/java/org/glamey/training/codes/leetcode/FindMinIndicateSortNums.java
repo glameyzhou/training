@@ -7,9 +7,9 @@ package org.glamey.training.codes.leetcode;
 public class FindMinIndicateSortNums {
 
     public static void main(String[] args) {
-        System.out.println(findMinIndex(new int[]{1, 2, 3, 3, 3, 4, 5, 5, 6, 7}, 3) == 2);
-        System.out.println(findMinIndex(new int[]{1, 2, 3, 3, 3, 4, 5, 5, 6, 7}, 10) == -1);
-        System.out.println(findMinIndex(new int[]{0, 1, 1, 1, 1, 2}, 1) == 1);
+        System.out.println(findMinIndex(new int[] {1, 2, 3, 3, 3, 4, 5, 5, 6, 7}, 3) == 2);
+        System.out.println(findMinIndex(new int[] {1, 2, 3, 3, 3, 4, 5, 5, 6, 7}, 10) == -1);
+        System.out.println(findMinIndex(new int[] {0, 1, 1, 1, 1, 2}, 1) == 1);
     }
 
 

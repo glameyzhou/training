@@ -22,7 +22,7 @@ package org.glamey.training.codes.leetcode;
 public class TwoSum_2 {
 
     public static void main(String[] args) {
-        int[] indicates = new TwoSum_2().twoSum(new int[]{2, 7, 11, 15}, 9);
+        int[] indicates = new TwoSum_2().twoSum(new int[] {2, 7, 11, 15}, 9);
         for (int indicate : indicates) {
             System.out.println(indicate);
         }
@@ -40,7 +40,7 @@ public class TwoSum_2 {
             } else if (sum < target) {
                 low++;
             } else {
-                return new int[]{low + 1, high + 1};
+                return new int[] {low + 1, high + 1};
             }
         }
         return new int[0];

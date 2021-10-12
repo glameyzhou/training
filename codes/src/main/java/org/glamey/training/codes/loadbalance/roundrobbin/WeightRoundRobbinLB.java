@@ -1,10 +1,10 @@
 package org.glamey.training.codes.loadbalance.roundrobbin;
 
-import org.glamey.training.codes.loadbalance.LoadBalance;
-import org.glamey.training.codes.loadbalance.domian.ServerIp;
-
 import java.util.Map;
 import java.util.concurrent.atomic.AtomicInteger;
+
+import org.glamey.training.codes.loadbalance.LoadBalance;
+import org.glamey.training.codes.loadbalance.domian.ServerIp;
 
 /**
  * 基于权重的轮询算法

@@ -29,10 +29,6 @@ public class PathSum {
      * 递归形式
      * 时间复杂度：O(n)
      * 空间复杂度：O(height) 递归时候的栈深
-     *
-     * @param root
-     * @param sum
-     * @return
      */
     public static boolean hasPathSumByRecursion(TreeNode root, int sum) {
         if (root == null) {
@@ -50,10 +46,6 @@ public class PathSum {
     /**
      * 时间复杂度：和递归方法相同是 O(N)O(N)。
      * 空间复杂度：当树不平衡的最坏情况下是 O(N)O(N) 。在最好情况（树是平衡的）下是 O(log N)
-     *
-     * @param root
-     * @param sum
-     * @return
      */
     public static boolean hasPathSumByLoop(TreeNode root, int sum) {
         if (root == null) {

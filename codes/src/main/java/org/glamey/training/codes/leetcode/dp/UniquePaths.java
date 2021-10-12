@@ -62,10 +62,6 @@ public class UniquePaths {
      * <p>
      * 时间复杂度O(m*n)
      * 空间复杂度O(m*n)
-     *
-     * @param m
-     * @param n
-     * @return
      */
     public int uniquePaths_1(int m, int n) {
         if (m <= 0 || n <= 0) {
@@ -92,9 +88,6 @@ public class UniquePaths {
     /**
      * 时间复杂度O(m*n)
      * 空间复杂度O(min(m,n))
-     * @param m
-     * @param n
-     * @return
      */
     public int uniquePaths_2(int m, int n) {
         if (m * n <= 0) {

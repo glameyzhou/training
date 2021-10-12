@@ -1,6 +1,10 @@
 package org.glamey.training.codes.tree;
 
-import java.util.*;
+import java.util.ArrayList;
+import java.util.LinkedList;
+import java.util.List;
+import java.util.Queue;
+import java.util.Stack;
 
 /**
  * 前序遍历：https://leetcode-cn.com/problems/binary-tree-preorder-traversal/
@@ -11,8 +15,6 @@ public class TreeNodeDFS {
 
     /**
      * 中序遍历-栈
-     * @param root
-     * @return
      */
     public List<Integer> inOrderByStack(TreeNode root) {
         LinkedList<Integer> ret = new LinkedList<>();
@@ -32,10 +34,9 @@ public class TreeNodeDFS {
         }
         return ret;
     }
+
     /**
      * 中序遍历-递归
-     * @param node
-     * @return
      */
     public List<Integer> inOrderByRecursion(TreeNode node) {
         LinkedList<Integer> ret = new LinkedList<>();
@@ -55,10 +56,8 @@ public class TreeNodeDFS {
 
     /**
      * 前序遍历-栈
-     *
+     * <p>
      * 先把
-     * @param root
-     * @return
      */
     public List<Integer> preOderByStack(TreeNode root) {
         LinkedList<Integer> ret = new LinkedList<>();
@@ -84,9 +83,6 @@ public class TreeNodeDFS {
 
     /**
      * 前序遍历-递归
-     *
-     * @param root
-     * @return
      */
     public List<Integer> preOrderByRecursion(TreeNode root) {
         List<Integer> list = new ArrayList<>();
@@ -106,9 +102,6 @@ public class TreeNodeDFS {
 
     /**
      * 层次广度遍历
-     *
-     * @param root
-     * @return
      */
     public static List<Integer> bsf(TreeNode root) {
         if (root == null) {

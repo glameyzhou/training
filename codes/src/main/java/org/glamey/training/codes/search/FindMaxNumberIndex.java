@@ -11,10 +11,10 @@ public class FindMaxNumberIndex {
     public static void main(String[] args) {
         int[] array = {0, 1, 2, 3, 4, 5, 4, 3};
         System.out.println(findByBinarySearch(array));
-        System.out.println(findByDoublePointer(new int[]{1, 2, 3, 3, 2, 1}));
-        System.out.println(findByDoublePointer(new int[]{1, 2, 3, 1}));
-        System.out.println(findByDoublePointer(new int[]{3, 1}));
-        System.out.println(findByDoublePointer(new int[]{3}));
+        System.out.println(findByDoublePointer(new int[] {1, 2, 3, 3, 2, 1}));
+        System.out.println(findByDoublePointer(new int[] {1, 2, 3, 1}));
+        System.out.println(findByDoublePointer(new int[] {3, 1}));
+        System.out.println(findByDoublePointer(new int[] {3}));
     }
 
     /**
@@ -23,9 +23,6 @@ public class FindMaxNumberIndex {
      * 条件是 L < R
      * 如果nums[L] >= nums[R] R --,反之L++
      * 最终返回L即可。
-     *
-     * @param nums
-     * @return
      */
     public static int findByDoublePointer(int[] nums) {
         int left = 0, right = nums.length - 1;
@@ -43,9 +40,6 @@ public class FindMaxNumberIndex {
 
     /**
      * 通过二分法查找
-     *
-     * @param array
-     * @return
      */
     public static int findByBinarySearch(int[] array) {
         int len = array.length, low = 0, high = len - 1, mid = low + (high - low) >>> 1;

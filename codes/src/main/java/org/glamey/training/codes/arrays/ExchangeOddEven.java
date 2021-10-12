@@ -1,8 +1,8 @@
 package org.glamey.training.codes.arrays;
 
-import org.glamey.training.codes.Utils;
-
 import java.util.Arrays;
+
+import org.glamey.training.codes.Utils;
 
 /**
  * 剑指Offer-21 调整数组顺序使奇数位于偶数前面
@@ -16,12 +16,13 @@ import java.util.Arrays;
 public class ExchangeOddEven {
 
     public static void main(String[] args) {
-        System.out.println(Arrays.toString(exchange(new int[]{1, 2, 3, 4})));
+        System.out.println(Arrays.toString(exchange(new int[] {1, 2, 3, 4})));
     }
 
     private static int[] exchange(int[] nums) {
-        if (nums == null || nums.length == 0)
+        if (nums == null || nums.length == 0) {
             return new int[0];
+        }
 
         int low = 0, high = nums.length - 1;
         while (low < high) {

@@ -1,9 +1,9 @@
 package org.glamey.training.codes.hash.demo;
 
-import com.google.common.collect.Lists;
-
 import java.util.List;
 import java.util.Random;
+
+import com.google.common.collect.Lists;
 
 /**
  * @author yang.zhou 2019.11.04.18

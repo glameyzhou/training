@@ -10,9 +10,9 @@ package org.glamey.training.codes.binarysearch;
  */
 public class BinarySearchLoop {
     public static void main(String[] args) {
-        System.out.println(loopSearch(new int[]{1, 3, 4, 6, 7, 8, 10, 13, 14}, 7) == 4);
-        System.out.println(loopSearch(new int[]{1, 3, 4, 6, 7, 8, 10, 13, 14}, 1) == 0);
-        System.out.println(loopSearch(new int[]{1, 3, 4, 6, 7, 8, 10, 13, 14}, 9) == -1);
+        System.out.println(loopSearch(new int[] {1, 3, 4, 6, 7, 8, 10, 13, 14}, 7) == 4);
+        System.out.println(loopSearch(new int[] {1, 3, 4, 6, 7, 8, 10, 13, 14}, 1) == 0);
+        System.out.println(loopSearch(new int[] {1, 3, 4, 6, 7, 8, 10, 13, 14}, 9) == -1);
     }
 
     private static int loopSearch(int[] nums, int target) {

@@ -1,9 +1,9 @@
 package org.glamey.training.codes.listnode;
 
-import com.google.common.collect.Lists;
-
 import java.util.Comparator;
 import java.util.PriorityQueue;
+
+import com.google.common.collect.Lists;
 
 /**
  * 合并K个有序链表
@@ -15,9 +15,9 @@ import java.util.PriorityQueue;
 public class MergeKListNode {
     public static void main(String[] args) {
         ListNode[] listNodes = Lists.newArrayList(
-                ListNodeUtil.create(new int[]{1, 4, 5}),
-                ListNodeUtil.create(new int[]{1, 3, 4}),
-                ListNodeUtil.create(new int[]{2, 6})
+                ListNodeUtil.create(new int[] {1, 4, 5}),
+                ListNodeUtil.create(new int[] {1, 3, 4}),
+                ListNodeUtil.create(new int[] {2, 6})
         ).toArray(new ListNode[0]);
         ListNode listNode = mergeKListNode(listNodes);
         ListNodeUtil.print(listNode);

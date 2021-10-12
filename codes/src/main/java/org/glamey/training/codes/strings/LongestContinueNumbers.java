@@ -3,7 +3,8 @@ package org.glamey.training.codes.strings;
 /**
  * 字符串中，找到连续的最长的数字字符串
  * <p>
- * https://www.nowcoder.com/practice/bd891093881d4ddf9e56e7cc8416562d?tpId=179&&tqId=34157&rp=1&ru=/activity/oj&qru=/ta/exam-other/question-ranking
+ * https://www.nowcoder.com/practice/bd891093881d4ddf9e56e7cc8416562d?tpId=179&&tqId=34157&rp=1&ru=/activity/oj&qru
+ * =/ta/exam-other/question-ranking
  */
 public class LongestContinueNumbers {
 

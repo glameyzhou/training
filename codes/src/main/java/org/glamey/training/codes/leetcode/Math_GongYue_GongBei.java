@@ -14,10 +14,6 @@ public class Math_GongYue_GongBei {
 
     /**
      * 最小公倍数
-     *
-     * @param m
-     * @param n
-     * @return
      */
     public static int getMinCommonMultiple(int m, int n) {
         return m * n / getMaxCommonDivisor(m, n);
@@ -25,10 +21,6 @@ public class Math_GongYue_GongBei {
 
     /**
      * 最大公约数
-     *
-     * @param m
-     * @param n
-     * @return
      */
     public static int getMaxCommonDivisor(int m, int n) {
         //用于保持 m >= n

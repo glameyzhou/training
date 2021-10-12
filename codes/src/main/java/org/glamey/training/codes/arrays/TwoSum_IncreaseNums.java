@@ -17,20 +17,21 @@ import java.util.Arrays;
 public class TwoSum_IncreaseNums {
 
     public static void main(String[] args) {
-        int[] nums = new int[]{2, 7, 11, 15};
+        int[] nums = new int[] {2, 7, 11, 15};
         int[] ret = twoSum_IncreaseNums(nums, 13);
         System.out.println(Arrays.toString(ret));
     }
 
     private static int[] twoSum_IncreaseNums(int[] nums, int target) {
-        if (nums == null || nums.length == 0)
+        if (nums == null || nums.length == 0) {
             return new int[0];
+        }
 
         int left = 0, right = nums.length - 1, tmp;
         while (left < right) {
             tmp = nums[left] + nums[right];
             if (tmp == target) {
-                return new int[]{left, right};
+                return new int[] {left, right};
             } else if (tmp < target) {
                 left++;
             } else {

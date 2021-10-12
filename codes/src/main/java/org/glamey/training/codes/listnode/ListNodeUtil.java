@@ -6,9 +6,9 @@ package org.glamey.training.codes.listnode;
 public class ListNodeUtil {
 
     public static void main(String[] args) {
-        ListNode n1 = create(new int[]{1, 2, 3});
+        ListNode n1 = create(new int[] {1, 2, 3});
         print(n1);
-        ListNode n2 = create(new int[]{1, 2});
+        ListNode n2 = create(new int[] {1, 2});
         print(n2);
 
         System.out.println(eq(null, null));

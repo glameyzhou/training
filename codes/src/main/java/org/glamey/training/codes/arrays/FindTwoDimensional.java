@@ -18,7 +18,7 @@ public class FindTwoDimensional {
         int[][] nums = new int[4][3];
         for (int i = 0; i < 4; i++) {
             for (int j = 0; j < 3; j++) {
-                nums[i][j] = num ++;
+                nums[i][j] = num++;
             }
         }
         for (int i = 0; i < 4; i++) {
@@ -34,26 +34,31 @@ public class FindTwoDimensional {
     /**
      * 时间复杂度O(m*logn)
      * 按照每行或者每列进行一次二分查找
-     *
-     * @param nums
-     * @param target
-     * @return
      */
     public static boolean findByBinarySearch(int[][] nums, int target) {
-        if (nums == null) return false;
+        if (nums == null) {
+            return false;
+        }
         for (int i = 0; i < nums.length; i++) {
             int binaryIndex = binarySearch(nums[i], target);
-            if (binaryIndex != -1) return true;
+            if (binaryIndex != -1) {
+                return true;
+            }
         }
         return false;
     }
+
     private static int binarySearch(int[] nums, int target) {
         int left = 0, right = nums.length - 1;
         while (left <= right) {
             int mid = left + (right - left) / 2;
-            if (nums[mid] == target) return mid;
-            else if (nums[mid] > target) right = mid - 1;
-            else left = mid + 1;
+            if (nums[mid] == target) {
+                return mid;
+            } else if (nums[mid] > target) {
+                right = mid - 1;
+            } else {
+                left = mid + 1;
+            }
         }
         return -1;
     }
@@ -64,18 +69,21 @@ public class FindTwoDimensional {
      * 从左下角开始查询
      * row = nums.length - 1,
      * columns = 0
-     * @param nums
-     * @param target
-     * @return
      */
     public static boolean findByMath(int[][] nums, int target) {
-        if (nums == null) return false;
+        if (nums == null) {
+            return false;
+        }
         int rows = nums.length - 1, columns = 0, tmp;
         while (rows >= 0 && columns <= nums[0].length - 1) {
             tmp = nums[rows][columns];
-            if (target == tmp) return true;
-            else if (target < tmp) columns ++;
-            else rows --;
+            if (target == tmp) {
+                return true;
+            } else if (target < tmp) {
+                columns++;
+            } else {
+                rows--;
+            }
         }
         return false;
     }

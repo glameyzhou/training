@@ -79,10 +79,6 @@ public class IsSubTree {
 
     /**
      * 查看两棵树的各个节点是否一致
-     *
-     * @param root
-     * @param subTree
-     * @return
      */
     private static boolean isSubTreeProcess(TreeNode root, TreeNode subTree) {
         if (root == null || subTree == null) {

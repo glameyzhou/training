@@ -1,10 +1,10 @@
 package org.glamey.training.codes.loadbalance.random;
 
 
+import java.util.concurrent.ThreadLocalRandom;
+
 import org.glamey.training.codes.loadbalance.LoadBalance;
 import org.glamey.training.codes.loadbalance.domian.ServerIp;
-
-import java.util.concurrent.ThreadLocalRandom;
 
 /**
  * 随机算法。

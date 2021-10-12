@@ -1,10 +1,10 @@
 package org.glamey.training.codes.leetcode;
 
-import com.google.common.collect.ImmutableMap;
-import com.google.common.collect.Lists;
-
 import java.util.List;
 import java.util.Stack;
+
+import com.google.common.collect.ImmutableMap;
+import com.google.common.collect.Lists;
 
 /**
  * 给定一个只包括 '('，')'，'{'，'}'，'['，']' 的字符串，判断字符串是否有效。
@@ -65,22 +65,28 @@ public class ParenthesesMatcher {
     }
 
 
-    private static final ImmutableMap<Character, Character> BRACKET_MAPPING = ImmutableMap.of('(', ')', '[', ']', '{', '}');
+    private static final ImmutableMap<Character, Character> BRACKET_MAPPING =
+            ImmutableMap.of('(', ')', '[', ']', '{', '}');
 
     /**
-     * @param s
-     * @return
+     *
      */
     public static boolean isValid(String s) {
-        if ((s.length() & 1) != 0) return false;
+        if ((s.length() & 1) != 0) {
+            return false;
+        }
         Stack<Character> stack = new Stack<>();
         char[] chars = s.toCharArray();
         for (char c : chars) {
             if (BRACKET_MAPPING.containsKey(c)) {
                 stack.push(c);
             } else {
-                if (stack.isEmpty()) return false;
-                if (c != BRACKET_MAPPING.get(stack.peek())) return false;
+                if (stack.isEmpty()) {
+                    return false;
+                }
+                if (c != BRACKET_MAPPING.get(stack.peek())) {
+                    return false;
+                }
                 stack.pop();
             }
         }

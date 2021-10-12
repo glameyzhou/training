@@ -1,6 +1,11 @@
 package org.glamey.training.codes.tree;
 
-import java.util.*;
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.Collections;
+import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
 
 /**
  * 给你一个二叉树的根结点，请你找出出现次数最多的子树元素和。一个结点的「子树元素和」定义为以该结点为根的二叉树上所有结点的元素之和（包括结点本身）。
@@ -51,7 +56,7 @@ public class MostFrequentSubtreeSum {
         Map<Integer, Integer> map = new HashMap<>();
         mostFrequentProcessor(root, map);
         List<Map.Entry<Integer, Integer>> countList = new ArrayList<>(map.entrySet());
-//        countList.sort((a, b) -> b.getValue() - a.getValue());
+        //        countList.sort((a, b) -> b.getValue() - a.getValue());
         Collections.sort(countList, (o1, o2) -> o2.getValue() - o1.getValue());
         return countList.stream().filter(e -> e.getValue() == max).mapToInt(Map.Entry::getKey).toArray();
     }

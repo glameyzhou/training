@@ -15,18 +15,18 @@ public class QuickSortDemo {
         quickSort_v1(nums, 0, nums.length - 1);
         System.out.println("after v1 -> " + Arrays.toString(nums) + "\r\n");
 
-        nums = new int[]{47, 29, 71, 99, 78, 19, 24, 47};
+        nums = new int[] {47, 29, 71, 99, 78, 19, 24, 47};
         System.out.println("before v2 -> " + Arrays.toString(nums));
         quickSort_v2(nums, 0, nums.length - 1);
         System.out.println("after v2 -> " + Arrays.toString(nums) + "\r\n");
 
-        nums = new int[]{9, 8, 7, 6, 5, 4, 3, 2, 1};
+        nums = new int[] {9, 8, 7, 6, 5, 4, 3, 2, 1};
         System.out.println("before v3 -> " + Arrays.toString(nums));
         quickSort_v3(nums, 0, nums.length - 1);
         System.out.println("after v3 -> " + Arrays.toString(nums) + "\r\n");
 
 
-        nums = new int[]{9, 8, 7, 6, 5, 4, 3, 2, 1};
+        nums = new int[] {9, 8, 7, 6, 5, 4, 3, 2, 1};
         System.out.println("before v4 -> " + Arrays.toString(nums));
         quickSort_v4(nums, 0, nums.length - 1);
         System.out.println("after v4 -> " + Arrays.toString(nums) + "\r\n");

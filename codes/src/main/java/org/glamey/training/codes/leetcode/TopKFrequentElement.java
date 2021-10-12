@@ -1,8 +1,14 @@
 package org.glamey.training.codes.leetcode;
 
-import com.google.common.primitives.Ints;
+import java.util.ArrayList;
+import java.util.Collections;
+import java.util.Comparator;
+import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
+import java.util.PriorityQueue;
 
-import java.util.*;
+import com.google.common.primitives.Ints;
 
 /**
  * 给定一个非空的整数数组，返回其中出现频率前 k 高的元素。
@@ -60,10 +66,6 @@ public class TopKFrequentElement {
 
     /**
      * 最小堆处理
-     *
-     * @param nums
-     * @param k
-     * @return
      */
     public static List<Integer> topKFrequent_(int[] nums, int k) {
         Map<Integer, Integer> map = new HashMap<>();
@@ -89,10 +91,6 @@ public class TopKFrequentElement {
 
     /**
      * map value comparator
-     *
-     * @param nums
-     * @param k
-     * @return
      */
     public static List<Integer> topKFrequent(int[] nums, int k) {
         Map<Integer, Integer> map = new HashMap<>();

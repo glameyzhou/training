@@ -16,10 +16,6 @@ public class ListNodeCompareAndMerge {
     /**
      * 时间复杂度：O(n)
      * 空间复杂度：O(n)
-     *
-     * @param root
-     * @param target
-     * @return
      */
     private static ListNode compareAndMerge(ListNode root, int target) {
         ListNode dumpy_a = new ListNode(-1), tmp_a = dumpy_a;

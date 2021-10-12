@@ -28,9 +28,9 @@ import java.util.HashSet;
 public class FindRepeatNumber {
 
     public static void main(String[] args) {
-        System.out.println(findRepeatNumber(new int[]{2, 3, 1, 0, 2, 5, 3}));
-        System.out.println(findRepeatNumber_v2(new int[]{2, 3, 1, 0, 2, 5, 3}));
-        System.out.println(findRepeatNumber_v3(new int[]{2, 3, 1, 0, 2, 5, 3}));
+        System.out.println(findRepeatNumber(new int[] {2, 3, 1, 0, 2, 5, 3}));
+        System.out.println(findRepeatNumber_v2(new int[] {2, 3, 1, 0, 2, 5, 3}));
+        System.out.println(findRepeatNumber_v3(new int[] {2, 3, 1, 0, 2, 5, 3}));
     }
 
 
@@ -39,8 +39,6 @@ public class FindRepeatNumber {
      * 空间复杂度：O(1)
      * 在排序后的情况下，index = nums[index]。
      * 如果index != nums[index], 那么讲当前值，与nums[index]下标的值进行交换
-     * @param nums
-     * @return
      */
     private static int findRepeatNumber_v3(int[] nums) {
         if (nums == null || nums.length == 1) {
@@ -55,7 +53,7 @@ public class FindRepeatNumber {
         for (int i = 0; i < nums.length; i++) {
             while (i != nums[i]) {
                 int tmp = nums[nums[i]];
-                if (nums[i] ==  tmp) {
+                if (nums[i] == tmp) {
                     return tmp;
                 }
                 nums[nums[i]] = nums[i];
@@ -64,10 +62,9 @@ public class FindRepeatNumber {
         }
         return -1;
     }
+
     /**
      * O(N*logN)
-     * @param nums
-     * @return
      */
     private static int findRepeatNumber_v2(int[] nums) {
         Arrays.sort(nums);

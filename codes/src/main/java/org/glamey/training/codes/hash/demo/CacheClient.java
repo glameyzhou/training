@@ -1,8 +1,8 @@
 package org.glamey.training.codes.hash.demo;
 
-import org.glamey.training.codes.hash.consistent.ConsistentShardingCluster;
-
 import java.util.List;
+
+import org.glamey.training.codes.hash.consistent.ConsistentShardingCluster;
 
 /**
  * @author yang.zhou 2019.11.04.18

@@ -1,9 +1,9 @@
 package org.glamey.training.codes.loadbalance.roundrobbin;
 
+import java.util.concurrent.atomic.AtomicInteger;
+
 import org.glamey.training.codes.loadbalance.LoadBalance;
 import org.glamey.training.codes.loadbalance.domian.ServerIp;
-
-import java.util.concurrent.atomic.AtomicInteger;
 
 /**
  * 轮询算法

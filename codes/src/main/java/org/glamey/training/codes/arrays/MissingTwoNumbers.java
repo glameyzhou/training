@@ -13,15 +13,15 @@ import java.util.List;
 public class MissingTwoNumbers {
 
     public static void main(String[] args) {
-        System.out.println(Arrays.toString(findTheMissingTwoNumbers(new int[]{1, 3})));
-        System.out.println(Arrays.toString(findTheMissingTwoNumbers(new int[]{1})));
-        System.out.println(Arrays.toString(findTheMissingTwoNumbers(new int[]{3})));
-        System.out.println(Arrays.toString(findTheMissingTwoNumbers(new int[]{2, 4})));
+        System.out.println(Arrays.toString(findTheMissingTwoNumbers(new int[] {1, 3})));
+        System.out.println(Arrays.toString(findTheMissingTwoNumbers(new int[] {1})));
+        System.out.println(Arrays.toString(findTheMissingTwoNumbers(new int[] {3})));
+        System.out.println(Arrays.toString(findTheMissingTwoNumbers(new int[] {2, 4})));
     }
 
     private static int[] findTheMissingTwoNumbers(int[] nums) {
         if (nums == null) {
-            return new int[]{1, 2};
+            return new int[] {1, 2};
         }
 
         List<Integer> list = new ArrayList<>();

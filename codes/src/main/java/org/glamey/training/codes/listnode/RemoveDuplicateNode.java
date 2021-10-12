@@ -30,7 +30,7 @@ import java.util.Set;
  */
 public class RemoveDuplicateNode {
     public static void main(String[] args) {
-        ListNode node = ListNodeUtil.create(new int[]{1});
+        ListNode node = ListNodeUtil.create(new int[] {1});
         ListNode remove = removeDuplicateNodes(node);
         ListNodeUtil.print(remove);
 

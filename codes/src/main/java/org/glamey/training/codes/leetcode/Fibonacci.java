@@ -1,8 +1,8 @@
 package org.glamey.training.codes.leetcode;
 
-import com.google.common.base.Stopwatch;
-
 import java.util.concurrent.TimeUnit;
+
+import com.google.common.base.Stopwatch;
 
 /**
  * f(n) = f(n-1) + f(n-2) n >= 2
@@ -20,8 +20,6 @@ public class Fibonacci {
 
     /**
      * 数组方式构建
-     *
-     * @param n
      */
     public static void byArray(int n) {
         Stopwatch started = Stopwatch.createStarted();
@@ -39,8 +37,6 @@ public class Fibonacci {
 
     /**
      * 交换方式构建
-     *
-     * @param n
      */
     public static void bySwap(int n) {
         Stopwatch started = Stopwatch.createStarted();
@@ -58,8 +54,6 @@ public class Fibonacci {
 
     /**
      * 递归方式构建
-     *
-     * @param n
      */
     public static void byRecursive(int n) {
         Stopwatch started = Stopwatch.createStarted();

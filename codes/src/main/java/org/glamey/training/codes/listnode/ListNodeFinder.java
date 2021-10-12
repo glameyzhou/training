@@ -4,13 +4,13 @@ public class ListNodeFinder {
 
 
     public static void main(String[] args) {
-        ListNode kthToTail = findKthToTail(ListNodeUtil.create(new int[]{1, 2, 3, 4, 5}), 5);
+        ListNode kthToTail = findKthToTail(ListNodeUtil.create(new int[] {1, 2, 3, 4, 5}), 5);
         ListNodeUtil.print(kthToTail);
 
-        kthToTail = findKthToTail(ListNodeUtil.create(new int[]{1, 2, 3, 4, 5}), 6);
+        kthToTail = findKthToTail(ListNodeUtil.create(new int[] {1, 2, 3, 4, 5}), 6);
         ListNodeUtil.print(kthToTail);
 
-        kthToTail = findKthToTail(ListNodeUtil.create(new int[]{1, 2, 3, 4, 5}), 1);
+        kthToTail = findKthToTail(ListNodeUtil.create(new int[] {1, 2, 3, 4, 5}), 1);
         ListNodeUtil.print(kthToTail);
     }
 
@@ -18,10 +18,6 @@ public class ListNodeFinder {
      * 找到第index个元素
      * <p>
      * 顺序loop即可
-     *
-     * @param node
-     * @param index
-     * @return
      */
     public static ListNode findByIndex(ListNode node, int index) {
         if (node == null) {
@@ -43,8 +39,6 @@ public class ListNodeFinder {
 
     /**
      * 找到倒数第K的节点
-     *
-     * @return
      */
     public static ListNode findKthToTail(ListNode head, int k) {
         if (head == null || k < 0) {
@@ -66,10 +60,6 @@ public class ListNodeFinder {
      * 查看倒数第index个元素
      * <p>
      * 思路：使用步长的方式来解决。
-     *
-     * @param node
-     * @param reverseIndex
-     * @return
      */
     public static ListNode findByReverseIndex(ListNode node, int reverseIndex) {
         if (node == null) {

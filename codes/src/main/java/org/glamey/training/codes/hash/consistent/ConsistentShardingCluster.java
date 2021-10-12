@@ -1,9 +1,13 @@
 package org.glamey.training.codes.hash.consistent;
 
+import java.util.LinkedHashMap;
+import java.util.List;
+import java.util.Map;
+import java.util.SortedMap;
+import java.util.TreeMap;
+
 import org.glamey.training.codes.hash.Hashing;
 import org.glamey.training.codes.hash.SafeEncoder;
-
-import java.util.*;
 
 /**
  * 一致性hash
@@ -37,7 +41,7 @@ public class ConsistentShardingCluster<R, S extends ShardInfo<R>> {
             String key;
             for (int j = 0; j < FACTOR * weight; j++) {
                 key = null == name || "".equals(name) ?
-                        "SHARD-" + i + "-NODE-" + j : name + "-NODE-" + j;
+                      "SHARD-" + i + "-NODE-" + j : name + "-NODE-" + j;
                 nodes.put(algorithm.hash(SafeEncoder.encode(key)), shardInfo);
             }
             resources.put(shardInfo, shardInfo.createResource());

@@ -20,8 +20,8 @@ import java.util.Arrays;
  */
 public class SearchBoundRange {
     public static void main(String[] args) {
-        System.out.println(Arrays.toString(searchBoundRange(new int[]{5, 7, 7, 8, 8, 10}, 8)));
-        System.out.println(Arrays.toString(searchBoundRange(new int[]{5, 7, 7, 8, 8, 10}, 6)));
+        System.out.println(Arrays.toString(searchBoundRange(new int[] {5, 7, 7, 8, 8, 10}, 8)));
+        System.out.println(Arrays.toString(searchBoundRange(new int[] {5, 7, 7, 8, 8, 10}, 6)));
     }
 
     /**
@@ -29,24 +29,20 @@ public class SearchBoundRange {
      * target == nums[mid] && (mid == 0 || nums[mid - 1] < target)
      * 右边界判定：
      * target == nums[mid] && (mid == nums.length - 1 || nums[mid+1] > target)
-     *
-     * @param nums
-     * @param target
-     * @return
      */
     public static int[] searchBoundRange(int[] nums, int target) {
         if (nums == null || nums.length == 0) {
-            return new int[]{-1, -1};
+            return new int[] {-1, -1};
         }
         int leftBounder = searchLeftBound(nums, target, 0, nums.length - 1);
         if (leftBounder == -1) {
-            return new int[]{-1, -1};
+            return new int[] {-1, -1};
         }
         int rightBounder = searchRightBound(nums, target, leftBounder + 1, nums.length - 1);
         if (rightBounder == -1) {
-            return new int[]{leftBounder, leftBounder};
+            return new int[] {leftBounder, leftBounder};
         }
-        return new int[]{leftBounder, rightBounder};
+        return new int[] {leftBounder, rightBounder};
     }
 
     private static int searchLeftBound(int[] nums, int target, int left, int right) {

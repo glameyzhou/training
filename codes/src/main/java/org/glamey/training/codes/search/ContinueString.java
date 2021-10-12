@@ -1,10 +1,11 @@
 package org.glamey.training.codes.search;
 
+import org.glamey.training.codes.Utils;
+
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.Setter;
 import lombok.ToString;
-import org.glamey.training.codes.Utils;
 
 /**
  * 最长连续的数字字符串

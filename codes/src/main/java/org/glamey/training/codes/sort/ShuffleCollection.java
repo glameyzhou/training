@@ -1,9 +1,14 @@
 package org.glamey.training.codes.sort;
 
-import com.google.common.collect.Lists;
+import java.util.ArrayList;
+import java.util.List;
+import java.util.ListIterator;
+import java.util.Random;
+import java.util.RandomAccess;
+
 import org.glamey.training.codes.Utils;
 
-import java.util.*;
+import com.google.common.collect.Lists;
 
 /**
  * 针对集合的洗牌函数

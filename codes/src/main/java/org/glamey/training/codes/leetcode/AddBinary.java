@@ -31,11 +31,13 @@ public class AddBinary {
     }
 
     public String addBinary(String a, String b) {
-        if (a == null || "".equals(a))
+        if (a == null || "".equals(a)) {
             return b;
+        }
 
-        if (b == null || "".equals(b))
+        if (b == null || "".equals(b)) {
             return a;
+        }
 
         StringBuffer buffer = new StringBuffer();
         int overVal = 0, sum = overVal;

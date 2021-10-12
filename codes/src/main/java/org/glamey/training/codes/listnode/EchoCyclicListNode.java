@@ -5,11 +5,11 @@ import java.util.LinkedList;
 public class EchoCyclicListNode {
 
     public static void main(String[] args) {
-        System.out.println(isEchoCyclicListNode_1(ListNodeUtil.create(new int[]{1, 2, 3, 2, 1})));
-        System.out.println(isEchoCyclicListNode_1(ListNodeUtil.create(new int[]{1, 2, 3, 1, 1})));
+        System.out.println(isEchoCyclicListNode_1(ListNodeUtil.create(new int[] {1, 2, 3, 2, 1})));
+        System.out.println(isEchoCyclicListNode_1(ListNodeUtil.create(new int[] {1, 2, 3, 1, 1})));
 
-        System.out.println(isEchoCyclicListNode_2(ListNodeUtil.create(new int[]{1, 2, 3, 2, 1})));
-        System.out.println(isEchoCyclicListNode_2(ListNodeUtil.create(new int[]{1, 2, 2, 1})));
+        System.out.println(isEchoCyclicListNode_2(ListNodeUtil.create(new int[] {1, 2, 3, 2, 1})));
+        System.out.println(isEchoCyclicListNode_2(ListNodeUtil.create(new int[] {1, 2, 2, 1})));
 
 
         LinkedList<Integer> originList = new LinkedList<>();
@@ -27,12 +27,11 @@ public class EchoCyclicListNode {
      * 将链表复制到数组中，通过数组的下标方式O(1)获取对应的值，双指针的方式来判定是否回文。
      * 时间复杂度： O(n) + O(n/2) = O(n)
      * 空间复杂度：O(n)
-     *
-     * @param root
-     * @return
      */
     private static boolean isEchoCyclicListNode_1(ListNode root) {
-        if (root == null || root.next == null   ) return true;
+        if (root == null || root.next == null) {
+            return true;
+        }
         /*List<Integer> list = new ArrayList<>();//超长链表有扩容的现象
         ListNode tmp = root;
         while (tmp != null) {
@@ -74,8 +73,6 @@ public class EchoCyclicListNode {
      * 2、后半部分翻转
      * 3、前后对比
      * 4、恢复链表原貌
-     * @param head
-     * @return
      */
     private static boolean isEchoCyclicListNode_2(ListNode head) {
         if (head == null) {

@@ -12,8 +12,8 @@ import java.util.Stack;
  * @author yang.zhou 2020.01.17.10
  */
 public class StackQueue<E> {
-    private Stack<E> s1;
-    private Stack<E> s2;
+    private final Stack<E> s1;
+    private final Stack<E> s2;
 
     public StackQueue() {
         this.s1 = new Stack<>();
@@ -30,8 +30,6 @@ public class StackQueue<E> {
 
     /**
      * get the first element
-     *
-     * @return
      */
     public E poll() {
         if (s1.isEmpty() && s2.isEmpty()) {
@@ -62,8 +60,9 @@ public class StackQueue<E> {
 
         for (int i = 0; i < 10; i++) {
             stackQueue.offer(i);
-            if (new Random().nextInt(10) % 2 == 0)
+            if (new Random().nextInt(10) % 2 == 0) {
                 System.out.println(stackQueue.poll());
+            }
         }
         System.out.println(stackQueue.poll());
     }

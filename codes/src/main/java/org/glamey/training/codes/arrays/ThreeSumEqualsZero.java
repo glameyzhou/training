@@ -18,7 +18,7 @@ import java.util.List;
 public class ThreeSumEqualsZero {
 
     public static void main(String[] args) {
-        int[] nums = new int[]{-1, 0, 1, 2, -1, -4};
+        int[] nums = new int[] {-1, 0, 1, 2, -1, -4};
         List<List<Integer>> ret = threeSum(nums);
         System.out.println(ret);
     }

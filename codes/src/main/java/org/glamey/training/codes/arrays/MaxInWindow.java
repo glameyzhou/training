@@ -17,7 +17,7 @@ import java.util.LinkedList;
 public class MaxInWindow {
 
     public static void main(String[] args) {
-        int[] nums = new int[]{1, 3, -1, -3, 5, 3, 6, 7};
+        int[] nums = new int[] {1, 3, -1, -3, 5, 3, 6, 7};
         int k = 3;
 
         //通过一次遍历实现
@@ -28,10 +28,6 @@ public class MaxInWindow {
 
     /**
      * 时间复杂度 O(Nk)
-     *
-     * @param nums
-     * @param k
-     * @return
      */
     private static int[] byLoop(int[] nums, int k) {
         if (nums == null || nums.length == 0 || k <= 0) {
@@ -53,8 +49,6 @@ public class MaxInWindow {
     /**
      * 时间复杂度 O(N)
      *
-     * @param nums
-     * @param size
      * @return @see java.util.List
      * 1, 3, -1, -3, 5, 3, 6, 7
      */

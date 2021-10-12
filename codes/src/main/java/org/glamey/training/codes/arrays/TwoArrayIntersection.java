@@ -12,8 +12,8 @@ import java.util.List;
 public class TwoArrayIntersection {
 
     public static void main(String[] args) {
-        int[] m = new int[]{1, 3, 5, 6, 10};
-        int[] n = new int[]{2, 5, 8};
+        int[] m = new int[] {1, 3, 5, 6, 10};
+        int[] n = new int[] {2, 5, 8};
         int[] intersection = new TwoArrayIntersection().byBinarySearch(m, n);
         System.out.println(Arrays.toString(intersection));
 
@@ -23,14 +23,12 @@ public class TwoArrayIntersection {
 
     /**
      * 时间复杂度O(M*logN)
-     *
-     * @param m
-     * @param n
-     * @return
      */
     public static int[] byBinarySearch(int[] m, int[] n) {
         List<Integer> ret = new ArrayList<>();
-        if (m == null || n == null) return new int[0];
+        if (m == null || n == null) {
+            return new int[0];
+        }
         int left = 0, right = m.length - 1;
         for (int i = n.length - 1; i >= 0; i--) {
             int index = binarySearch(m, n[i], left, right);
@@ -61,14 +59,12 @@ public class TwoArrayIntersection {
      * 通过双指针的方式来实现
      * 时间复杂度 O(m + n)
      * 空间复杂度 O(min(m,n))
-     *
-     * @param m
-     * @param n
-     * @return
      */
     public static int[] byDoublePointer(int[] m, int[] n) {
         List<Integer> intersection = new ArrayList<>();
-        if (m == null || n == null) return new int[0];
+        if (m == null || n == null) {
+            return new int[0];
+        }
         int i = 0, j = 0;
         while (i < m.length && j < n.length) {
             if (m[i] == n[j]) {
@@ -82,6 +78,6 @@ public class TwoArrayIntersection {
             }
         }
         return intersection.size() == 0 ? new int[0] :
-                intersection.stream().mapToInt(Integer::intValue).toArray();
+               intersection.stream().mapToInt(Integer::intValue).toArray();
     }
 }

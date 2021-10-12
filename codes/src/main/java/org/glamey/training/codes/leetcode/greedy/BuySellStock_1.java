@@ -27,20 +27,17 @@ package org.glamey.training.codes.leetcode.greedy;
 public class BuySellStock_1 {
 
     public static void main(String[] args) {
-        System.out.println(maxProfit_easy(new int[]{7, 1, 5, 3, 6, 4}));
-        System.out.println(maxProfit_complex(new int[]{7, 1, 5, 3, 6, 4}));
+        System.out.println(maxProfit_easy(new int[] {7, 1, 5, 3, 6, 4}));
+        System.out.println(maxProfit_complex(new int[] {7, 1, 5, 3, 6, 4}));
 
-        System.out.println(maxProfit_easy(new int[]{7, 6, 4, 3, 1}));
-        System.out.println(maxProfit_complex(new int[]{7, 6, 4, 3, 1}));
+        System.out.println(maxProfit_easy(new int[] {7, 6, 4, 3, 1}));
+        System.out.println(maxProfit_complex(new int[] {7, 6, 4, 3, 1}));
 
 
     }
 
     /**
      * 时间复杂度 O(n)
-     *
-     * @param prices
-     * @return
      */
     public static int maxProfit_easy(int[] prices) {
         int maxProfit = 0, minPrice = Integer.MAX_VALUE;
@@ -56,9 +53,6 @@ public class BuySellStock_1 {
 
     /**
      * 时间复杂度 O(n^2)
-     *
-     * @param prices
-     * @return
      */
     public static int maxProfit_complex(int[] prices) {
         int maxProfit = 0;

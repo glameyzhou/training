@@ -27,13 +27,19 @@ public class StringContains {
         int loopMax = charS.length - charT.length;
         for (int i = 0; i <= loopMax; i++) {
             //找到source中匹配的第一个字符
-            while (charS[i] != first && ++i <= loopMax) ;
+            while (charS[i] != first && ++i <= loopMax)
+                ;
 
-            if (i > loopMax) return false;
+            if (i > loopMax) {
+                return false;
+            }
             int s = i + 1, end = s + charT.length - 1;
-            for (int k = 1; s < end && charS[s] == charT[k]; k++, s++) ;
+            for (int k = 1; s < end && charS[s] == charT[k]; k++, s++)
+                ;
             //找到完整的字符串，直接返回
-            if (s == end) return true;
+            if (s == end) {
+                return true;
+            }
         }
         return false;
     }

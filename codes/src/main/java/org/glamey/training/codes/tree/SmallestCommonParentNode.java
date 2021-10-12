@@ -1,6 +1,10 @@
 package org.glamey.training.codes.tree;
 
-import java.util.*;
+import java.util.HashMap;
+import java.util.HashSet;
+import java.util.Map;
+import java.util.Objects;
+import java.util.Set;
 
 
 /**
@@ -13,13 +17,10 @@ public class SmallestCommonParentNode {
 
 
     /**
-     *       1
-     *     2   3
-     *   4   9  7
-     *  5 6   10
-     *
-     *
-     * @param args
+     * 1
+     * 2   3
+     * 4   9  7
+     * 5 6   10
      */
 
     public static void main(String[] args) {
@@ -28,7 +29,6 @@ public class SmallestCommonParentNode {
         TreeNode t4 = new TreeNode(4);
         t4.left = t5;
         t4.right = t6;
-
 
 
         TreeNode t9 = new TreeNode(9);
@@ -52,17 +52,11 @@ public class SmallestCommonParentNode {
     }
 
 
-
     /**
      * 思路：
      * 1、遍历整个二叉树，将所有节点的值、对应的父节点保存在map中。
      * 2、a依次往上找，一直到父节点为空，并且保存p上面所有的节点值到set中。
      * 3、b依次网上找，如果在set中碰到，说明有公共父节点，从map中返回即可。
-     *
-     * @param root
-     * @param rootA
-     * @param rootB
-     * @return
      */
     public static TreeNode getSmallestCommonParentNode(TreeNode root, TreeNode rootA, TreeNode rootB) {
 

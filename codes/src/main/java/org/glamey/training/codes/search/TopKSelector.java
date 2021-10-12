@@ -1,11 +1,11 @@
 package org.glamey.training.codes.search;
 
-import com.google.common.base.Preconditions;
-import com.google.common.collect.Lists;
-
 import java.util.Arrays;
 import java.util.List;
 import java.util.PriorityQueue;
+
+import com.google.common.base.Preconditions;
+import com.google.common.collect.Lists;
 
 /**
  * TOP K
@@ -44,10 +44,6 @@ public class TopKSelector {
      * 查询数组中最大的K个值
      * <p>
      * Min Heap
-     *
-     * @param source
-     * @param k
-     * @return
      */
     public static List<Integer> maxTopK(Iterable<Integer> source, int k) {
         checkParameter(source, k);
@@ -77,10 +73,6 @@ public class TopKSelector {
      * 查询数组中的最小的K个值
      * <p>
      * Max Heap
-     *
-     * @param source
-     * @param k
-     * @return
      */
     public static List<Integer> minTopK(Iterable<Integer> source, int k) {
         checkParameter(source, k);

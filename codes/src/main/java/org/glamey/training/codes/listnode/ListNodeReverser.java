@@ -27,9 +27,6 @@ public class ListNodeReverser {
      * head->1->2->3->4
      * <p>
      * 4->3->2->1->null
-     *
-     * @param head
-     * @return
      */
     public static ListNode reverse_recursive(ListNode head) {
         if (head == null || head.next == null) {
@@ -49,8 +46,8 @@ public class ListNodeReverser {
 
 
     public static void main(String[] args) {
-        int[] array = new int[]{1,2,3,4};
-        ListNode head  = new ListNode(array[0]);
+        int[] array = new int[] {1, 2, 3, 4};
+        ListNode head = new ListNode(array[0]);
         ListNode tmp = head;
         for (int i = 1; i < array.length; i++) {
             ListNode node = new ListNode(array[i]);

@@ -22,9 +22,6 @@ public class MergeDemo {
 
     /**
      * 数组先合并，后排序
-     *
-     * @param m
-     * @param n
      */
     private static int[] mergeAndSort(int[] m, int[] n) {
         int mLen = m.length, nLen = n.length, kLen = mLen + nLen;
@@ -40,9 +37,6 @@ public class MergeDemo {
     /**
      * 从大到小排序
      * 合并、排序同时进行
-     *
-     * @param nums1
-     * @param nums2
      */
     private static int[] merge(int[] nums1, int[] nums2) {
         int l1 = nums1.length, l2 = nums2.length;

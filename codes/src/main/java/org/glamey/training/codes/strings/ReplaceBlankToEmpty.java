@@ -18,7 +18,8 @@ public class ReplaceBlankToEmpty {
 
     public static void main(String[] args) {
         System.out.println(replaceBlankToEmpty(" we are the world.").equals("%20we%20are%20the%20world."));
-        System.out.println(replaceBlankToEmpty(new StringBuffer(" we are the world.")).equals("%20we%20are%20the%20world."));
+        System.out.println(
+                replaceBlankToEmpty(new StringBuffer(" we are the world.")).equals("%20we%20are%20the%20world."));
     }
 
 

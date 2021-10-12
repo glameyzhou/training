@@ -1,11 +1,11 @@
 package org.glamey.training.codes.leetcode;
 
-import com.google.common.collect.Lists;
+import static java.lang.Integer.MAX_VALUE;
+import static java.lang.Integer.MIN_VALUE;
 
 import java.util.ArrayList;
 
-import static java.lang.Integer.MAX_VALUE;
-import static java.lang.Integer.MIN_VALUE;
+import com.google.common.collect.Lists;
 
 /**
  * https://leetcode-cn.com/problems/reverse-integer/

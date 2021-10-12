@@ -34,9 +34,6 @@ public class Factorial {
 
     /**
      * 递归的方式实现斐波那契数列
-     *
-     * @param n
-     * @return
      */
     public int factorial_1(int n) {
         // n! = (n-1)! * n
@@ -49,9 +46,6 @@ public class Factorial {
 
     /**
      * 动态规划方式实现斐波那契数列
-     *
-     * @param n
-     * @return
      */
     public int factorial_2(int n) {
         if (n == 0 || n == 1) {

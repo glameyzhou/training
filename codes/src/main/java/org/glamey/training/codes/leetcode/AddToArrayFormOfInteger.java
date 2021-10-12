@@ -48,12 +48,14 @@ import java.util.List;
 public class AddToArrayFormOfInteger {
 
     public static void main(String[] args) {
-        System.out.println(addToArray(new int[]{1, 2, 3}, 1877));
-        System.out.println(addToArray(new int[]{9, 9, 9}, 1));
+        System.out.println(addToArray(new int[] {1, 2, 3}, 1877));
+        System.out.println(addToArray(new int[] {9, 9, 9}, 1));
     }
 
     private static List<Integer> addToArray(int[] nums, int k) {
-        if (k == 0 || nums == null || nums.length == 0) return null;
+        if (k == 0 || nums == null || nums.length == 0) {
+            return null;
+        }
 
         LinkedList<Integer> list = new LinkedList<>();
         int cur = k, index = nums.length - 1;

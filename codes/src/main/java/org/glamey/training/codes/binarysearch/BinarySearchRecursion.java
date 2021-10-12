@@ -13,7 +13,7 @@ package org.glamey.training.codes.binarysearch;
 public class BinarySearchRecursion {
 
     public static void main(String[] args) {
-        int[] nums = new int[]{1, 3, 4, 6, 7, 8, 10, 13, 14};
+        int[] nums = new int[] {1, 3, 4, 6, 7, 8, 10, 13, 14};
         System.out.println(recursionSearch(nums, 7, 0, nums.length - 1) == 4);
         System.out.println(recursionSearch(nums, 1, 0, nums.length - 1) == 0);
         System.out.println(recursionSearch(nums, 9, 0, nums.length - 1) == -1);

@@ -7,41 +7,41 @@ package org.glamey.training.codes.leetcode;
  */
 public class MinDiffer {
 
-  public static int minDiff(int[] nums) {
+    public static int minDiff(int[] nums) {
 
-    if(nums == null) {
-      return -1;
+        if (nums == null) {
+            return -1;
+        }
+
+        int len = nums.length;
+        if (len < 2) {
+            return -1;
+        }
+
+        if (len == 2) {
+            return diff(nums[0], nums[1]);
+        }
+
+        int minDiff = 0, curDiff = 0;
+        for (int i = 1; i < len; i++) {
+            curDiff = diff(nums[i - 1], nums[i]);
+            if (minDiff >= curDiff) {
+                minDiff = curDiff;
+            }
+        }
+        return minDiff;
     }
 
-    int len = nums.length;
-    if(len < 2) {
-      return -1;
+    private static int diff(int a, int b) {
+        if (a >= b) {
+            return b - a;
+        }
+        return a - b;
     }
 
-    if(len == 2) {
-      return diff(nums[0], nums[1]);
+    public static void main(String[] args) {
+        int[] nums = {10, 4, 2, 20, 100, -2};
+        int minDiff = minDiff(nums);
+        System.out.printf("mindDiff=%d\n", minDiff);
     }
-
-    int minDiff = 0, curDiff = 0;
-    for (int i = 1; i < len; i++) {
-       curDiff = diff(nums[i - 1], nums[i]);
-       if(minDiff >= curDiff) {
-         minDiff = curDiff;
-       }
-    }
-    return minDiff;
-  }
-
-  private static int diff(int a, int b) {
-    if(a >= b) {
-      return b - a;
-    }
-    return a - b;
-  }
-
-  public static void main(String[] args) {
-    int[] nums = {10, 4, 2, 20, 100, -2};
-    int minDiff = minDiff(nums);
-    System.out.printf("mindDiff=%d\n", minDiff);
-  }
 }

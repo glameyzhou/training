@@ -22,12 +22,12 @@ package org.glamey.training.codes.listnode;
 public class OddEvenListNode {
 
     public static void main(String[] args) {
-        ListNode listNode = ListNodeUtil.create(new int[]{1, 2, 3, 4, 5});
+        ListNode listNode = ListNodeUtil.create(new int[] {1, 2, 3, 4, 5});
         ListNode oddEvenList = byLoop(listNode);
         ListNodeUtil.print(oddEvenList);
 
 
-        ListNode node = byNewListNode(ListNodeUtil.create(new int[]{1, 2, 3, 4, 5}));
+        ListNode node = byNewListNode(ListNodeUtil.create(new int[] {1, 2, 3, 4, 5}));
         ListNodeUtil.print(node);
     }
 
@@ -57,9 +57,6 @@ public class OddEvenListNode {
     /**
      * 时间复杂度：O(N)
      * 空间复杂度：O(1)，但是我们需要四个指针
-     *
-     * @param head
-     * @return
      */
     private static ListNode byLoop(ListNode head) {
         if (head == null) {

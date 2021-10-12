@@ -1,10 +1,10 @@
 package org.glamey.training.codes.sort;
 
 
-import org.glamey.training.codes.Utils;
-
 import java.util.Arrays;
 import java.util.Random;
+
+import org.glamey.training.codes.Utils;
 
 /**
  * 针对数组的洗牌函数

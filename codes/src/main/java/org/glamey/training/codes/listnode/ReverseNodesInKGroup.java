@@ -1,10 +1,11 @@
 package org.glamey.training.codes.listnode;
 
-import com.google.common.collect.Sets;
-import org.glamey.training.codes.Utils;
-
 import java.util.Set;
 import java.util.Stack;
+
+import org.glamey.training.codes.Utils;
+
+import com.google.common.collect.Sets;
 
 /**
  * 给你一个链表，每 k 个节点一组进行翻转，请你返回翻转后的链表。
@@ -36,7 +37,7 @@ public class ReverseNodesInKGroup {
         System.out.println(len);
 
 
-        ListNode listNode = ListNodeUtil.create(new int[]{1, 2, 3, 4, 5, 6, 7});
+        ListNode listNode = ListNodeUtil.create(new int[] {1, 2, 3, 4, 5, 6, 7});
         ListNode reverseK = reverseKGroupByLoop(listNode, 4);
         ListNodeUtil.print(reverseK);
 
@@ -114,10 +115,6 @@ public class ReverseNodesInKGroup {
      * K个一组翻转链表，如果最后不够K个元素，不用翻转。
      * 时间复杂度：O(N)
      * 空间复杂度：O(K)
-     *
-     * @param root
-     * @param k
-     * @return
      */
     public static ListNode reverseKGroupByStack(ListNode root, int k) {
         if (root == null || k <= 1) {
@@ -193,7 +190,9 @@ public class ReverseNodesInKGroup {
     }
 
     private static void swap(char[] chars, int low, int high) {
-        if (low >= high) return;
+        if (low >= high) {
+            return;
+        }
         char tmp = chars[low];
         chars[low] = chars[high];
         chars[high] = tmp;

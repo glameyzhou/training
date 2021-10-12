@@ -25,16 +25,13 @@ import java.util.Map;
 public class SingleNumber2 {
 
     public static void main(String[] args) {
-        System.out.println(Arrays.toString(findByMap(new int[]{1, 2, 1, 3, 2, 5})));
-        System.out.println(Arrays.toString(findBySort(new int[]{1, 2, 1, 3, 2, 5})));
+        System.out.println(Arrays.toString(findByMap(new int[] {1, 2, 1, 3, 2, 5})));
+        System.out.println(Arrays.toString(findBySort(new int[] {1, 2, 1, 3, 2, 5})));
     }
 
     /**
      * 先排序，后遍历，遍历步长为2，如果是单数的话，必须不相等，直接返回即可
      * 时间复杂度O(N*logN)
-     *
-     * @param nums
-     * @return
      */
     public static int[] findBySort(int[] nums) {
         if (nums == null || nums.length < 2) {
@@ -43,7 +40,7 @@ public class SingleNumber2 {
         quickSort(nums, 0, nums.length - 1);
         for (int i = 1; i < nums.length; i += 2) {
             if (nums[i] != nums[i - 1]) {
-                return new int[]{nums[i - 1], nums[i]};
+                return new int[] {nums[i - 1], nums[i]};
             }
         }
         return new int[0];
@@ -75,9 +72,6 @@ public class SingleNumber2 {
     /**
      * 异或操作：比较位相同:0，比较位不同:1
      * 最好的办法是：将两个单数分到不同的组中，然后两组分别异或求解。
-     *
-     * @param nums
-     * @return
      */
     private static int[] singleNumberOfXor(int[] nums) {
         return new int[0];
@@ -87,9 +81,6 @@ public class SingleNumber2 {
      * 基于hash处理
      * 时间复杂度：O(N)
      * 空间复杂度：O(N)
-     *
-     * @param nums
-     * @return
      */
     private static int[] findByMap(int[] nums) {
         HashMap<Integer, Integer> map = new HashMap<>(nums.length);

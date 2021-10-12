@@ -4,11 +4,10 @@
  * 平衡二叉树：节点的左右子树高度不超过1。
  * 二叉搜索树：中序遍历的结果是一个递增序列，左孩子都小于根结点，右孩子都大于根节点。
  * 前缀树：也叫字典树，不太懂。
- *
+ * <p>
  * https://mp.weixin.qq.com/s/k4-RaW4ROlo6chSXsO_4AA
- *
+ * <p>
  * https://juejin.im/post/5ead8119e51d454dc146626e#heading-22
- *
  */
 package org.glamey.training.codes.tree;
 

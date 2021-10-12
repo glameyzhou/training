@@ -23,11 +23,9 @@ public class IntersectionTwoListNode {
     /**
      * 1,2,3,4,5
      * 1,3,4,5
-     *
-     * @param args
      */
     public static void main(String[] args) {
-        ListNode headA = ListNodeUtil.create(new int[]{1, 2, 3, 4, 5});
+        ListNode headA = ListNodeUtil.create(new int[] {1, 2, 3, 4, 5});
         ListNode headB = new ListNode(-1);
         headB.next = headA; // -1,1,2,3,4,5
 
@@ -43,10 +41,6 @@ public class IntersectionTwoListNode {
     /**
      * 时间复杂度：O(len(A) + len(B))
      * 空间复杂度：O(1)
-     *
-     * @param headA
-     * @param headB
-     * @return
      */
     private static ListNode getIntersectionNode(ListNode headA, ListNode headB) {
         ListNode a = headA, b = headB;

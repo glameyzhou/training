@@ -13,8 +13,12 @@ public class StringSums {
     }
 
     public static String sumString(String a, String b) {
-        if (Utils.isBlank(a)) return b;
-        if (Utils.isBlank(b)) return a;
+        if (Utils.isBlank(a)) {
+            return b;
+        }
+        if (Utils.isBlank(b)) {
+            return a;
+        }
         char[] charA = a.toCharArray(), charB = b.toCharArray();
         int m, n, sum, over = 0, i = charA.length - 1, j = charB.length - 1;
         StringBuilder builder = new StringBuilder(Math.max(charA.length, charB.length) + 1);

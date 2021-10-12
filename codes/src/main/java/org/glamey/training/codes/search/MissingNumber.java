@@ -31,15 +31,12 @@ public class MissingNumber {
      * 思路：异或操作。不缺数的集合异或当前集合，最终的结果就是缺少的值
      * 异或操作
      * [3,2,4,0]
-     *
-     *
+     * <p>
+     * <p>
      * 0^3 ^ 1^2 ^ 2^4 ^ 3^0 ^ 4
      * = 0^0 ^ 3^3 ^ 2^2 ^ 4^4 ^ 1
      * = 0^0^0^0^1
      * =1
-     *
-     * @param nums
-     * @return
      */
     public int missingNumber_oxr(int[] nums) {
         int missing = nums.length;
@@ -55,9 +52,6 @@ public class MissingNumber {
      * 等差数列{an}的通项公式为：an=a1+(n-1)d。
      * 前n项和公式为：Sn=n*a1+n(n-1)d/2或Sn=n(a1+an)/2 。
      * sum = (0 + nums.length) * n / 2
-     *
-     * @param nums
-     * @return
      */
     public int missingNumber_sum(int[] nums) {
         int expectedSum = (nums.length * (nums.length + 1)) >>> 1;
@@ -65,6 +59,6 @@ public class MissingNumber {
         for (int num : nums) {
             actualNum += num;
         }
-        return expectedSum - actualNum  ;
+        return expectedSum - actualNum;
     }
 }

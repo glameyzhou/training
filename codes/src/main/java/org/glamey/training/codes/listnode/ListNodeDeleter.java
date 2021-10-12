@@ -3,24 +3,22 @@ package org.glamey.training.codes.listnode;
 public class ListNodeDeleter {
 
     public static void main(String[] args) {
-        ListNode node = ListNodeUtil.create(new int[]{4, 5, 1, 4, 9});
-//        ListNode remove = deleteFirstPresent(node, 4);
-//        ListNodeUtil.print(remove);
+        ListNode node = ListNodeUtil.create(new int[] {4, 5, 1, 4, 9});
+        //        ListNode remove = deleteFirstPresent(node, 4);
+        //        ListNodeUtil.print(remove);
 
         ListNode removeAll = deleteAllPresent(node, 4);
         ListNodeUtil.print(removeAll);
 
 
-        ListNodeUtil.print(deleteAllDuplicate(ListNodeUtil.create(new int[]{1, 2, 2, 2, 3, 3, 4})));
-        ListNodeUtil.print(deleteAllDuplicate(ListNodeUtil.create(new int[]{1,1, 2, 2, 2, 3, 3, 4})));
-        ListNodeUtil.print(deleteAllDuplicate(ListNodeUtil.create(new int[]{1,1,1,1,1})));
+        ListNodeUtil.print(deleteAllDuplicate(ListNodeUtil.create(new int[] {1, 2, 2, 2, 3, 3, 4})));
+        ListNodeUtil.print(deleteAllDuplicate(ListNodeUtil.create(new int[] {1, 1, 2, 2, 2, 3, 3, 4})));
+        ListNodeUtil.print(deleteAllDuplicate(ListNodeUtil.create(new int[] {1, 1, 1, 1, 1})));
     }
 
 
     /**
      *
-     * @param head
-     * @return
      */
     public static ListNode deleteAllDuplicate(ListNode head) {
         if (head == null) {
@@ -97,10 +95,6 @@ public class ListNodeDeleter {
      * 给定一个链表: 1->2->3->4->5, 和 n = 2.
      * 当删除了倒数第二个节点后，链表变为 1->2->3->5.
      * https://leetcode-cn.com/problems/remove-nth-node-from-end-of-list/submissions/
-     *
-     * @param head
-     * @param n
-     * @return
      */
     public static ListNode removeNthFromEnd(ListNode head, int n) {
         if (head == null) {
