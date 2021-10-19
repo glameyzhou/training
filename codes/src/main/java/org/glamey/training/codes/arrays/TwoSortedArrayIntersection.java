@@ -9,15 +9,15 @@ import java.util.List;
  * 1、使用双指针，分别指向两个数组的头部。依次对比每个值，如果numA[i] == numB[j]，成立，同时i++,j++,numA[i] > numB[j] j++，反之i++
  * 2、通过二分查找法,倒序循环数组A，查看numA[maxIndex]是否存在numB中，如果存在，设置下次遍历的index=binarySearchIndex - 1;
  */
-public class TwoArrayIntersection {
+public class TwoSortedArrayIntersection {
 
     public static void main(String[] args) {
         int[] m = new int[] {1, 3, 5, 6, 10};
         int[] n = new int[] {2, 5, 8};
-        int[] intersection = new TwoArrayIntersection().byBinarySearch(m, n);
+        int[] intersection = new TwoSortedArrayIntersection().byBinarySearch(m, n);
         System.out.println(Arrays.toString(intersection));
 
-        intersection = new TwoArrayIntersection().byDoublePointer(m, n);
+        intersection = new TwoSortedArrayIntersection().byDoublePointer(m, n);
         System.out.println(Arrays.toString(intersection));
     }
 
