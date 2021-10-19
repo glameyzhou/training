@@ -63,7 +63,7 @@ public class ListNodeAdd {
              */
             tmp = head;
             head = new ListNode(sumValue % 10);
-            head.next = tmp;//高位指向低位
+            head.next = tmp; //高位指向低位
             over = sumValue / 10;
         }
 

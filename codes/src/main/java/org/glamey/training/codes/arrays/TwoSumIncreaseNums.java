@@ -14,15 +14,15 @@ import java.util.Arrays;
  * 输入：nums = [10,26,30,31,47,60], target = 40
  * 输出：[10,30] 或者 [30,10]
  */
-public class TwoSum_IncreaseNums {
+public class TwoSumIncreaseNums {
 
     public static void main(String[] args) {
         int[] nums = new int[] {2, 7, 11, 15};
-        int[] ret = twoSum_IncreaseNums(nums, 13);
+        int[] ret = twoSumIncreaseNums(nums, 13);
         System.out.println(Arrays.toString(ret));
     }
 
-    private static int[] twoSum_IncreaseNums(int[] nums, int target) {
+    private static int[] twoSumIncreaseNums(int[] nums, int target) {
         if (nums == null || nums.length == 0) {
             return new int[0];
         }

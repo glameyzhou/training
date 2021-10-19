@@ -18,9 +18,9 @@ public class SmallestCommonParentNode {
 
     /**
      * 1
-     * 2   3
-     * 4   9  7
-     * 5 6   10
+     * 2     3
+     * 4    9   7
+     * 5   6    10
      */
 
     public static void main(String[] args) {
@@ -47,8 +47,6 @@ public class SmallestCommonParentNode {
 
         TreeNode commonParentNode = getSmallestCommonParentNode(root, t4, t9);
         System.out.println(commonParentNode);
-
-
     }
 
 
@@ -65,33 +63,33 @@ public class SmallestCommonParentNode {
         }
 
         //存储当前节点值与父节点对象
-        Map<Integer, TreeNode> parentMap = new HashMap<>();
-        processTreeByDfs(root, parentMap);
+        Map<Integer, TreeNode> curParentMap = new HashMap<>();
+        processTreeByDfs(root, curParentMap);
 
         //已经访问过的节点值集合
         Set<Integer> accessed = new HashSet<>();
         while (rootA != null) {
             accessed.add(rootA.val);
-            rootA = parentMap.get(rootA.val);
+            rootA = curParentMap.get(rootA.val);
         }
         while (rootB != null) {
             if (accessed.contains(rootB.val)) {
                 return rootB;
             }
-            rootB = parentMap.get(rootB.val);
+            rootB = curParentMap.get(rootB.val);
         }
 
         return null;
     }
 
-    private static void processTreeByDfs(TreeNode root, Map<Integer, TreeNode> parentMap) {
+    private static void processTreeByDfs(TreeNode root, Map<Integer, TreeNode> curParentMap) {
         if (root.left != null) {
-            parentMap.put(root.left.val, root);
-            processTreeByDfs(root.left, parentMap);
+            curParentMap.put(root.left.val, root);
+            processTreeByDfs(root.left, curParentMap);
         }
         if (root.right != null) {
-            parentMap.put(root.right.val, root);
-            processTreeByDfs(root.right, parentMap);
+            curParentMap.put(root.right.val, root);
+            processTreeByDfs(root.right, curParentMap);
         }
     }
 }

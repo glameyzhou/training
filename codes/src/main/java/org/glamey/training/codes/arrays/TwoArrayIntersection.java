@@ -77,7 +77,6 @@ public class TwoArrayIntersection {
                 i++;
             }
         }
-        return intersection.size() == 0 ? new int[0] :
-               intersection.stream().mapToInt(Integer::intValue).toArray();
+        return intersection.size() == 0 ? new int[0] : intersection.stream().mapToInt(Integer::intValue).toArray();
     }
 }
