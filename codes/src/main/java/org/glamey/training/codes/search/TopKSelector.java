@@ -1,6 +1,7 @@
 package org.glamey.training.codes.search;
 
 import java.util.Arrays;
+import java.util.Comparator;
 import java.util.List;
 import java.util.PriorityQueue;
 
@@ -47,13 +48,13 @@ public class TopKSelector {
      */
     public static List<Integer> maxTopK(Iterable<Integer> source, int k) {
         checkParameter(source, k);
-        PriorityQueue<Integer> queue = new PriorityQueue<>(k);
+        PriorityQueue<Integer> queue = new PriorityQueue<>(k, Comparator.<Integer>naturalOrder());
         for (Integer i : source) {
             if (queue.size() < k) {
                 queue.add(i);
             } else {
-                int min = queue.peek();
-                if (i > min) {
+                int top = queue.peek();
+                if (i > top) {
                     queue.poll();
                     queue.add(i);
                 }
@@ -81,8 +82,8 @@ public class TopKSelector {
             if (queue.size() < k) {
                 queue.add(i);
             } else {
-                Integer max = queue.peek();
-                if (i < max) {
+                Integer root = queue.peek();
+                if (i < root) {
                     queue.poll();
                     queue.add(i);
                 }

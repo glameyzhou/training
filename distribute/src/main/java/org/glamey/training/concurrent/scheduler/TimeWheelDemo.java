@@ -1,8 +1,11 @@
 package org.glamey.training.concurrent.scheduler;
 
+import com.google.common.util.concurrent.Uninterruptibles;
 import org.jboss.netty.util.HashedWheelTimer;
+import org.jboss.netty.util.Timeout;
 import org.jboss.netty.util.Timer;
 
+import java.util.Set;
 import java.util.concurrent.TimeUnit;
 
 /**
@@ -16,6 +19,7 @@ public class TimeWheelDemo {
         Timer timer = new HashedWheelTimer(r -> {
             Thread thread = new Thread(r);
             thread.setName("thread_demo_");
+            thread.setDaemon(true);
             return thread;
         });
         timer.newTimeout(timeout -> {
@@ -28,5 +32,12 @@ public class TimeWheelDemo {
                 }
             }
         }, 5, TimeUnit.SECONDS);
+
+        Uninterruptibles.sleepUninterruptibly(10, TimeUnit.SECONDS);
+
+        Set<Timeout> stop = timer.stop();
+        for (Timeout timeout : stop) {
+            System.out.println(timeout.getClass());
+        }
     }
 }
