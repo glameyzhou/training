@@ -2,6 +2,8 @@ package org.glamey.training.demo;
 
 import java.util.Arrays;
 import java.util.Random;
+import java.util.stream.Collectors;
+import java.util.stream.IntStream;
 
 /**
  * @author yang.zhou 2020.01.30.10
@@ -42,5 +44,12 @@ public class ArrayMarker {
         int tmp = nums[i];
         nums[i] = nums[j];
         nums[j] = tmp;
+    }
+
+    public static String toString(int[] nums) {
+        if (nums == null) {
+            return "[]";
+        }
+        return IntStream.of(nums).boxed().map(String::valueOf).collect(Collectors.joining(", "));
     }
 }

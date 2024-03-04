@@ -8,7 +8,6 @@
     <modules>
         <module>distribute</module>
         <module>codes</module>
-        <module>grpc</module>
     </modules>
 
 

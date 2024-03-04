@@ -26,7 +26,45 @@ public class EchoCyclic2 {
     public static void main(String[] args) {
         System.out.println(isEchoCyclic2("aba"));
         System.out.println(isEchoCyclic2("cabcacbeba"));
+
+        System.out.println(process("aba"));
+        System.out.println(process("cabcacbeba"));
+
     }
+
+
+    public static boolean process(String source) {
+        if (source == null || source.length() < 2) {
+            return true;
+        }
+        int left = 0, right = source.length() - 1;
+        while (left < right) {
+            char leftVal = source.charAt(left);
+            char rightVal = source.charAt(right);
+            if (leftVal != rightVal) {
+                // 跳过左边一个字符、跳过右边一个字符
+                return skipCharProcess(source, left + 1, right) || skipCharProcess(source, left, right - 1);
+
+            }
+            left++;
+            right--;
+        }
+        return true;
+    }
+
+    public static boolean skipCharProcess(String source, int left, int right) {
+        while (left < right) {
+            char leftVal = source.charAt(left);
+            char rightVal = source.charAt(right);
+            if (leftVal != rightVal) {
+                return false;
+            }
+            left++;
+            right--;
+        }
+        return true;
+    }
+
 
     private static boolean isEchoCyclic2(String source) {
         if (Utils.isBlank(source) || source.length() < 2) {

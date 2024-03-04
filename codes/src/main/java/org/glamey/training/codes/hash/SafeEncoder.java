@@ -14,4 +14,6 @@ public class SafeEncoder {
     public static final String decode(byte[] bytes) {
         return new String(bytes, Charsets.UTF_8);
     }
+    // Long类型的数组，数组中100条记录，共10W数据，占内存共76兆。
+    // 8*100*100000/1024/1024=76M
 }

@@ -13,7 +13,6 @@ public class TwoSum extends Object {
         int[] nums = new int[]{2, 7, 11, 15};
         int[] ints = twoSum(nums, 9);
         System.out.println(Arrays.toString(ints));
-        System.out.println(new TwoSum().toString());
     }
 
     public static int[] twoSum(int[] nums, int target) {
