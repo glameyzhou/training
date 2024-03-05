@@ -29,12 +29,28 @@ public class BuySellStock_1 {
     public static void main(String[] args) {
         System.out.println(maxProfit_easy(new int[] {7, 1, 5, 3, 6, 4}));
         System.out.println(maxProfit_complex(new int[] {7, 1, 5, 3, 6, 4}));
+        System.out.println(max(new int[] {7, 1, 5, 3, 6, 4}));
 
         System.out.println(maxProfit_easy(new int[] {7, 6, 4, 3, 1}));
         System.out.println(maxProfit_complex(new int[] {7, 6, 4, 3, 1}));
-
+        System.out.println(max(new int[] {7, 6, 4, 3, 1}));
 
     }
+
+    public static int max(int[] nums) {
+        int max = 0;
+        for (int i = 0; i < nums.length; i++) {
+            int tmp;
+            for (int j = i + 1; j < nums.length; j++) {
+                tmp = nums[j] - nums[i];
+                max = max < tmp && tmp > 0 ? tmp : max;
+            }
+        }
+        return max;
+    }
+
+
+
 
     /**
      * 时间复杂度 O(n)

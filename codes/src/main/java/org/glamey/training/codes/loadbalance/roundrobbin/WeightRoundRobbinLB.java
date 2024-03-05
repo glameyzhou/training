@@ -30,7 +30,7 @@ public class WeightRoundRobbinLB implements LoadBalance {
             if (offset <= entry.getValue()) {
                 return entry.getKey();
             }
-            offset = offset - entry.getValue();
+            offset -= entry.getValue();
         }
         return null;
     }

@@ -1,8 +1,11 @@
 package org.glamey.training.codes.loadbalance.random;
 
 
+import java.util.Map;
 import java.util.concurrent.ThreadLocalRandom;
+import java.util.function.BiFunction;
 
+import com.google.common.collect.Maps;
 import org.glamey.training.codes.loadbalance.LoadBalance;
 import org.glamey.training.codes.loadbalance.domian.ServerIp;
 
@@ -22,8 +25,14 @@ public class RandomLB implements LoadBalance {
 
     public static void main(String[] args) {
         RandomLB randomLoadBalance = new RandomLB();
+        Map<String, Integer> map = Maps.newConcurrentMap();
         for (int i = 0; i < 100; i++) {
-            System.out.println(randomLoadBalance.getServer());
+            String server = randomLoadBalance.getServer();
+            map.compute(server, (key, oldVal) -> oldVal == null ? 1 : oldVal + 1);
+        }
+
+        for (Map.Entry<String, Integer> entry : map.entrySet()) {
+            System.out.println(entry.getKey() + "-->" + entry.getValue());
         }
     }
 }

@@ -14,7 +14,7 @@ public class RoundRobbinLB implements LoadBalance {
 
     @Override
     public String getServer() {
-        if (count.get() >= ServerIp.IPS.size()) {
+        if (count.get() >= ServerIp.IPS.size() || count.get() == Integer.MAX_VALUE) {
             count.set(0);
         }
         String server = ServerIp.IPS.get(count.get());

@@ -1,12 +1,12 @@
 package org.glamey.training.codes.loadbalance.roundrobbin;
 
-import java.util.Collection;
-import java.util.LinkedHashMap;
-import java.util.Map;
-
 import org.glamey.training.codes.loadbalance.LoadBalance;
 import org.glamey.training.codes.loadbalance.domian.ServerIp;
 import org.glamey.training.codes.loadbalance.domian.Weight;
+
+import java.util.Collection;
+import java.util.LinkedHashMap;
+import java.util.Map;
 
 /**
  * 平滑权重轮询算法
