@@ -1,14 +1,8 @@
 package org.glamey.training.codes.leetcode;
 
-import java.util.ArrayList;
-import java.util.Collections;
-import java.util.Comparator;
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
-import java.util.PriorityQueue;
-
 import com.google.common.primitives.Ints;
+
+import java.util.*;
 
 /**
  * 给定一个非空的整数数组，返回其中出现频率前 k 高的元素。
@@ -48,7 +42,7 @@ public class TopKFrequentElement {
             map.put(num, map.getOrDefault(num, 0) + 1);
         }
 
-        PriorityQueue<Integer> queue = new PriorityQueue<>((o1, o2) -> map.get(o1) - map.get(02));
+        PriorityQueue<Integer> queue = new PriorityQueue<>((a, b) -> map.get(a) - map.get(b));
         for (Integer key : map.keySet()) {
             queue.offer(key);
             if (queue.size() > k) {
@@ -72,7 +66,6 @@ public class TopKFrequentElement {
         for (Integer i : nums) {
             map.put(i, map.getOrDefault(i, 0) + 1);
         }
-
         PriorityQueue<Integer> queue = new PriorityQueue<>(Comparator.comparingInt(map::get));
         for (Integer integer : map.keySet()) {
             queue.offer(integer);
@@ -96,6 +89,7 @@ public class TopKFrequentElement {
         Map<Integer, Integer> map = new HashMap<>();
         for (Integer i : nums) {
             map.put(i, map.getOrDefault(i, 0) + 1);
+            map.compute(i, (k1, v) -> v == null ? 1 : v + 1);
         }
         List<Integer> list = new ArrayList<>(10);
         List<Map.Entry<Integer, Integer>> entries = new ArrayList<>(map.entrySet());
