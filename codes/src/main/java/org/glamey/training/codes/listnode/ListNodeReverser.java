@@ -10,12 +10,12 @@ public class ListNodeReverser {
             return null;
         }
 
-        ListNode p = head, cur = head.next, tmp;
+        ListNode p = head, cur = head.next, next;
         while (cur != null) {
-            tmp = cur.next;
+            next = cur.next;
             cur.next = p;
             p = cur;
-            cur = tmp;
+            cur = next;
         }
         head.next = null;
         return p;
