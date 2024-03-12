@@ -8,6 +8,7 @@ import java.util.Queue;
 
 /**
  * https://leetcode.cn/problems/average-of-levels-in-binary-tree/
+ *
  * 二叉树的层平均值
  * 返回一个列表，每个值代表当前行的平均值,值的类型记得标记为Double类型。
  */

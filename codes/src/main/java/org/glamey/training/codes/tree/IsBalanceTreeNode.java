@@ -5,7 +5,7 @@ package org.glamey.training.codes.tree;
  * <p>
  * 本题中，一棵高度平衡二叉树定义为：
  * <p>
- * 一个二叉树每个节点 的左右两个子树的高度差的绝对值不超过1。
+ * 一个二叉树每个节点的左右两个子树的高度差的绝对值不超过1。
  * <p>
  * 示例 1:
  * <p>
@@ -29,9 +29,9 @@ package org.glamey.training.codes.tree;
  * 3   3
  * / \
  * 4   4
- * 返回 false 。
+ * 返回false 。
  * <p>
- *  
+ * 
  * <p>
  * 通过次数72,721提交次数141,021
  * <p>
