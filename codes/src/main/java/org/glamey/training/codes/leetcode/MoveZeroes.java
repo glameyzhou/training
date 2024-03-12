@@ -25,16 +25,38 @@ public class MoveZeroes {
         int[] nums = {0, 1, 0, 3, 12};
         moveZeros(nums);
         System.out.println(Arrays.toString(nums));
+
+        int[] array = {0, 1, 0, 3, 12};
+        System.out.println(Arrays.toString(array));
+        moveZerosByDoublePointer(array);
+        System.out.println(Arrays.toString(array));
     }
 
-    public static void moveZeros(int[] nums) {
+
+    public static void moveZerosByDoublePointer(int[] nums) {
+        if (nums == null) {
+            return;
+        }
         int index = 0;
         for (int i = 0; i < nums.length; i++) {
             if (nums[i] != 0) {
-                nums[index++] = nums[i];
+                int tmp = nums[i];
+                nums[i] = nums[index];
+                nums[index] = tmp;
+                index ++;
             }
         }
+    }
 
+
+    public static void moveZeros(int[] nums) {
+        int index = 0;
+        //0,1,0,3,0,5
+        for (int i = 0; i < nums.length; i++) {
+            if (nums[i] != 0) {
+                nums[index++] = nums[i]; //直接把非零的数据往前复制。
+            }
+        }
         while (index < nums.length) {
             nums[index++] = 0;
         }

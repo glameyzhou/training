@@ -3,6 +3,8 @@ package org.glamey.training.codes;
 
 import com.google.common.base.Preconditions;
 
+import java.util.Random;
+
 /**
  * @author zhouyang.zhou. 2017.03.14.14.
  */
@@ -54,5 +56,17 @@ public class Utils {
 
     public static boolean isNotBlank(String source) {
         return !isBlank(source);
+    }
+
+
+    public static void shuffle(int[] nums) {
+        if (nums == null) {
+            return;
+        }
+        Random random = new Random();
+        for (int i = nums.length - 1; i > 0; i --) {
+            int index = random.nextInt(i);
+            swap(nums, index, i);
+        }
     }
 }
