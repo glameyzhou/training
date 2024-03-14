@@ -1,14 +1,17 @@
 package org.glamey.training.codes.leetcode;
 
+import java.util.ArrayList;
 import java.util.LinkedList;
 import java.util.List;
 
 /**
- * 对于非负整数 X 而言，X 的数组形式是每位数字按从左到右的顺序形成的数组。例如，如果 X = 1231，那么其数组形式为 [1,2,3,1]。
+ * done 20240314
+ *
+ * 对于非负整数X而言，X的数组形式是每位数字按从左到右的顺序形成的数组。例如，如果X = 1231，那么其数组形式为[1,2,3,1]。
  * <p>
- * 给定非负整数 X 的数组形式 A，返回整数 X+K 的数组形式。
+ * 给定非负整数 X 的数组形式A，返回整数X+K的数组形式。
  * <p>
- *  
+ * 
  * <p>
  * 示例 1：
  * <p>
@@ -30,14 +33,14 @@ import java.util.List;
  * 输入：A = [9,9,9,9,9,9,9,9,9,9], K = 1
  * 输出：[1,0,0,0,0,0,0,0,0,0,0]
  * 解释：9999999999 + 1 = 10000000000
- *  
+ * 
  * <p>
  * 提示：
  * <p>
  * 1 <= A.length <= 10000
  * 0 <= A[i] <= 9
  * 0 <= K <= 10000
- * 如果 A.length > 1，那么 A[0] != 0
+ * 如果A.length > 1，那么A[0] != 0
  * <p>
  * 来源：力扣（LeetCode）
  * 链接：https://leetcode-cn.com/problems/add-to-array-form-of-integer
@@ -50,6 +53,22 @@ public class AddToArrayFormOfInteger {
     public static void main(String[] args) {
         System.out.println(addToArray(new int[] {1, 2, 3}, 1877));
         System.out.println(addToArray(new int[] {9, 9, 9}, 1));
+
+        System.out.println(addToArrayForm(new int[] {1, 2, 3}, 1877));
+        System.out.println(addToArrayForm(new int[] {9, 9, 9}, 1));
+    }
+
+    public static List<Integer> addToArrayForm(int[] num, int k) {
+        List<Integer> ret = new ArrayList<>();
+        int over = 0, index = num.length - 1;
+        while (index >= 0 || k > 0 || over != 0) {
+            int sum = (index >= 0 ? num[index] : 0) + (k % 10) + over;
+            ret.add(0, sum % 10);
+            over = sum / 10;
+            k /= 10;
+            index --;
+        }
+        return ret;
     }
 
     private static List<Integer> addToArray(int[] nums, int k) {

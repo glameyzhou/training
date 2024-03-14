@@ -3,6 +3,7 @@ package org.glamey.training.codes.leetcode;
 import java.util.Stack;
 
 /**
+ * done 20240314
  * https://leetcode.cn/problems/valid-parentheses/description/
  * <p>
  * 检查字符串的中括号是否对称

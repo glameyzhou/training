@@ -15,7 +15,7 @@ public class CountBits {
     public static void main(String[] args) {
         int[] ret = countBits(5);
         System.out.println(Arrays.toString(ret));
-        System.out.println(Arrays.equals(ret, new int[]{0, 1, 1, 2, 1, 2}));;
+        System.out.println(Arrays.equals(ret, new int[]{0, 1, 1, 2, 1, 2}));
     }
     public static int[] countBits(int n) {
         int[] ret = new int[n + 1];
