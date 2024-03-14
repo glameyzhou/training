@@ -1,5 +1,7 @@
 package org.glamey.training.codes.search;
 
+import java.util.Arrays;
+
 /**
  * 给定一个包含 0, 1, 2, ..., n 中 n 个数的序列，找出 0 .. n 中没有出现在序列中的那个数。
  * <p>
@@ -20,11 +22,29 @@ package org.glamey.training.codes.search;
  */
 public class MissingNumber {
 
+    public static void rotate(int[] nums, int k) {
+        int len = nums.length;
+        int m = k % len;
+        for (int i = 0; i < m; i ++) {
+            swap(nums, i, len - m + i);
+        }
+    }
+
+    private static void swap(int[] nums, int i, int j) {
+        int tmp = nums[i];
+        nums[i] = nums[j];
+        nums[j] = tmp;
+    }
+
 
     public static void main(String[] args) {
-        int[] nums = {3, 2, 4, 0};
-        System.out.println(new MissingNumber().missingNumber_oxr(nums));
-        System.out.println(new MissingNumber().missingNumber_sum(nums));
+        int[] nums = {1, 2, 3, 4, 5, 6, 7};
+        int k = 3;
+        rotate(nums, k);
+        System.out.println(Arrays.toString(nums));
+//        int[] nums = {3, 2, 4, 0};
+//        System.out.println(new MissingNumber().missingNumber_oxr(nums));
+//        System.out.println(new MissingNumber().missingNumber_sum(nums));
     }
 
     /**

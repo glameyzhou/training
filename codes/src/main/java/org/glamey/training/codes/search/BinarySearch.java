@@ -1,5 +1,7 @@
 package org.glamey.training.codes.search;
 
+import java.util.Arrays;
+
 /**
  * @author zhouyang.zhou. 2017.03.13.10.
  */
@@ -7,8 +9,12 @@ public class BinarySearch {
 
     public static void main(String[] args) {
         int[] nums = {1, 2, 3, 4, 5, 8};
-        int index = binarySearch(nums, 5);
+        int k = 5;
+        int index = binarySearch(nums, k);
         System.out.println("index -> " + index);
+
+        // 官方实现方式
+        System.out.println(Arrays.binarySearch(nums, k));
     }
 
 

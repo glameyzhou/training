@@ -5,7 +5,7 @@ import java.util.Arrays;
 import org.glamey.training.codes.Utils;
 
 /**
- * 给定一个包含 n + 1 个整数的数组 nums，其数字都在 1 到 n 之间（包括 1 和 n），可知至少存在一个重复的整数。假设只有一个重复的整数，找出这个重复的数。
+ * 给定一个包含n + 1 个整数的数组nums，其数字都在 1 到 n之间（包括 1 和 n），可知至少存在一个重复的整数。假设只有一个重复的整数，找出这个重复的数。
  * <p>
  * 示例 1:
  * <p>
@@ -17,6 +17,8 @@ import org.glamey.training.codes.Utils;
  * 输出: 3
  * 说明：
  * <p>
+ *     3,1,3,4,2
+ *     3,1,2,3,4
  * 不能更改原数组（假设数组是只读的）。
  * 只能使用额外的 O(1) 的空间。
  * 时间复杂度小于 O(n2) 。
@@ -31,10 +33,27 @@ import org.glamey.training.codes.Utils;
 public class FindDuplicateNumber {
 
     public static void main(String[] args) {
-        System.out.println(findByBinarySearch(new int[] {1, 3, 4, 2, 2}));
-        System.out.println(findByInPlaceSwap(new int[] {1, 2, 3, 4, 2}));
-        System.out.println(findBySort(new int[] {1, 2, 3, 4, 2}));
+//        System.out.println(findByBinarySearch(new int[]{1, 3, 4, 2, 2}));
+//        System.out.println(findByInPlaceSwap(new int[]{1, 2, 3, 4, 2}));
+//        System.out.println(findBySort(new int[]{1, 2, 3, 4, 2}));
+
+
+        System.out.println(find(new int[]{1, 3, 4, 2, 2}));
+        
+        
     }
+    
+    public static int find(int[] nums) {
+        Arrays.sort(nums);
+        for (int i = 0; i < nums.length; i++) {
+            if (nums[i] != i + 1) {
+                return nums[i];
+            }
+        }
+        return -1;
+    }
+    
+    
 
 
     public static int findBySort(int[] nums) {
@@ -66,7 +85,7 @@ public class FindDuplicateNumber {
                 return -1;
             }
         }
-
+        //1, 2, 2, 3, 4
         int index = 0;
         while (index < nums.length) {
             int val = nums[index];
