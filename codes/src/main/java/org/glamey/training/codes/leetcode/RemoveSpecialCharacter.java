@@ -2,7 +2,7 @@ package org.glamey.training.codes.leetcode;
 
 
 /**
- * 给定字符串 abc\bd\bghi ,删除字符\b前边的一个字符，如果\b出现多次，统一按照此逻辑执行 <p>
+ * 给定字符串 abc\bd\bghi ,删除字符\b前边的一个字符，如果\b出现多次，统一按照此逻辑执行 <p>
  * <p>
  * 解决方法：<p>
  * <p>

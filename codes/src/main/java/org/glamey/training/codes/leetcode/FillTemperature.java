@@ -11,7 +11,7 @@ public class FillTemperature {
     public static void main(String[] args) {
         int[] nums = new int[] {23, 25, 21, 19, 22, 26, 23};
         int[] ret = fillTemperature(nums);
-        System.out.println(Arrays.toString(ret));  //1,   4,   2,   1,   1,   0,   0
+        System.out.println(Arrays.toString(ret));  //1,  4, 2,  1,  1, 0,  0
     }
 
     private static int[] fillTemperature(int[] nums) {

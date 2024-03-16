@@ -3,17 +3,17 @@ package org.glamey.training.codes.leetcode;
 /**
  * 统计一个数字在排序数组中出现的次数。
  * <p>
- *  
+ * 
  * <p>
  * 示例 1:
  * <p>
  * 输入: nums = [5,7,7,8,8,10], target = 8
  * 输出: 2
- * 示例 2:
+ * 示例2:
  * <p>
  * 输入: nums = [5,7,7,8,8,10], target = 6
  * 输出: 0
- *  
+ * 
  * <p>
  * 限制：
  * <p>

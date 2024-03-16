@@ -7,6 +7,10 @@ public class DetectCapital {
         System.out.println(detectCapitalUse("leetcode"));
         System.out.println(detectCapitalUse("Google"));
         System.out.println(detectCapitalUse("flaG"));
+
+
+
+
     }
 
     public static boolean detectCapitalUse(String word) {
