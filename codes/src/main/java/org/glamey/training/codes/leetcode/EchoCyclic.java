@@ -12,11 +12,13 @@ public class EchoCyclic {
         System.out.println(isEchoCyclic("A man, a plan, a canal: Panama"));
         System.out.println(isEchoCyclic("race a car"));
         System.out.println(isEchoCyclic("  A "));
+        System.out.println(isEchoCyclic("0P"));
 
 
         System.out.println(isEchoCyclicIgnoreCase("A man, a plan, a canal: Panama"));
         System.out.println(isEchoCyclicIgnoreCase("race a car"));
         System.out.println(isEchoCyclicIgnoreCase("  A "));
+        System.out.println(isEchoCyclicIgnoreCase("0P"));
     }
 
     public static boolean isEchoCyclicIgnoreCase(String source) {
