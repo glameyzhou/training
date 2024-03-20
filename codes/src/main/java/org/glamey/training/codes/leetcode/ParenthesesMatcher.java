@@ -1,13 +1,14 @@
 package org.glamey.training.codes.leetcode;
 
-import java.util.List;
-import java.util.Stack;
-
 import com.google.common.collect.ImmutableMap;
 import com.google.common.collect.Lists;
 
+import java.util.List;
+import java.util.Stack;
+
 /**
- * 给定一个只包括 '('，')'，'{'，'}'，'['，']' 的字符串，判断字符串是否有效。
+ * done 20240318
+ * 给定一个只包括 '('，')'，'{'，'}'，'['，']'的字符串，判断字符串是否有效。
  * <p>
  * 有效字符串需满足：
  * <p>
@@ -19,19 +20,19 @@ import com.google.common.collect.Lists;
  * <p>
  * 输入: "()"
  * 输出: true
- * 示例 2:
+ * 示例2:
  * <p>
  * 输入: "()[]{}"
  * 输出: true
- * 示例 3:
+ * 示例3:
  * <p>
  * 输入: "(]"
  * 输出: false
- * 示例 4:
+ * 示例4:
  * <p>
  * 输入: "([)]"
  * 输出: false
- * 示例 5:
+ * 示例5:
  * <p>
  * 输入: "{[]}"
  * 输出: true
@@ -59,18 +60,41 @@ public class ParenthesesMatcher {
     public static void main(String[] args) {
         List<String> list = Lists.newArrayList("([)", "{[]}", "()", "(]", "}(");
         for (String s : list) {
-            System.out.println(s + " " + isMatch(s) + "  " + isValid(s));
+            System.out.println(s + " " + isMatch(s) + "  " + isValid(s) + " " + isBuketMatch(s));
         }
 
     }
 
 
+    private static boolean isBuketMatch(String s) {
+        if (s == null || s.length() <= 1) {
+            return true;
+        }
+        int len = s.length(), index = 0;
+        Stack<Character> stack = new Stack<>();
+        while (index < len) {
+            char c = s.charAt(index);
+            if (c == '[' || c == '{' || c == '(') {
+                stack.push(c);
+            } else {
+                if (stack.isEmpty()) {
+                    return false;
+                }
+
+                Character top = stack.pop();
+                if (!((top == '[' && c == ']') || (top == '{' && c == '}') || (top == '(' && c == ')'))) {
+                    return false;
+                }
+            }
+            index++;
+        }
+        return stack.isEmpty();
+    }
+
     private static final ImmutableMap<Character, Character> BRACKET_MAPPING =
             ImmutableMap.of('(', ')', '[', ']', '{', '}');
 
-    /**
-     *
-     */
+
     public static boolean isValid(String s) {
         if ((s.length() & 1) != 0) {
             return false;

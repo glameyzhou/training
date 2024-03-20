@@ -85,4 +85,29 @@ public class ListNodeUtil {
         }
         return true;
     }
+
+    public static ListNode copy(ListNode head) {
+        if (head == null) {
+            return null;
+        }
+        ListNode dumpy = new ListNode(-1), tmp = dumpy, p = head;
+        while (p != null) {
+            ListNode node = new ListNode(p.val);
+            tmp.next = node;
+            tmp = node;
+            p = p.next;
+        }
+        return dumpy.next;
+    }
+
+    public static ListNode[] copy(ListNode[] listNodes) {
+        if (listNodes == null || listNodes.length == 0) {
+            return null;
+        }
+        ListNode[] ret = new ListNode[listNodes.length];
+        for (int i = 0; i < listNodes.length; i++) {
+            ret[i] = copy(listNodes[i]);
+        }
+        return ret;
+    }
 }

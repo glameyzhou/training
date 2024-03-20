@@ -1,11 +1,15 @@
 package org.glamey.training.codes.leetcode;
 
-import java.util.concurrent.TimeUnit;
-
 import com.google.common.base.Stopwatch;
 
+import java.util.concurrent.TimeUnit;
+
 /**
- * f(n) = f(n-1) + f(n-2) n >= 2
+ * done 20240318
+ * 斐波那契数列：尽量不要使用递归的方式，避免栈溢出
+ * f(n) = f(n-1) + f(n-2)
+ * <p>
+ * n >= 2
  *
  * @author zhouyang.zhou. 2017.07.27.19.
  */
@@ -29,7 +33,6 @@ public class Fibonacci {
             arrays[i] = arrays[i - 2] + arrays[i - 1];
         }
         System.out.println("[array] elapsed ms -> " + started.elapsed(TimeUnit.MILLISECONDS));
-
         for (int array : arrays) {
             System.out.println(array);
         }
