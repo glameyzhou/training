@@ -4,7 +4,7 @@ import org.nlpcn.commons.lang.pinyin.Pinyin;
 
 import java.util.List;
 
-public class PinyinDemo {
+public class NlpLangDemo {
 
     /**
      * 将汉字转换为拼音
@@ -55,7 +55,7 @@ public class PinyinDemo {
     }
 
     public static void main(String[] args) {
-        String chineseText = "亚朵成都酒店";
+        String chineseText = "亚朵成都酒店，不是重庆酒店，是不是都想错了";
 
         System.out.println("不带声调:");
         System.out.println(convertToPinyin(chineseText)); // 输出: ni hao ， shi jie ！
